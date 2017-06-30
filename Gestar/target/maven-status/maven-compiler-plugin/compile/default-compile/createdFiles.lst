@@ -1,0 +1,9 @@
+com\harriague\automate\web\steps\run.class
+com\harriague\automate\web\pages\impl\SystemFolderImpl.class
+com\harriague\automate\web\steps\LogoutSteps.class
+com\harriague\automate\web\steps\SystemFolderSteps.class
+com\harriague\automate\web\pages\LoginPage.class
+com\harriague\automate\web\pages\SystemFolder.class
+com\harriague\automate\web\steps\LoginSteps.class
+com\harriague\automate\web\pages\NewIncidentePage.class
+com\harriague\automate\web\pages\impl\LoginPageImpl.class

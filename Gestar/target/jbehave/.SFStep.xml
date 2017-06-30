@@ -1,0 +1,13 @@
+<story path="./SFStep.story" title="Login">
+<narrative keyword="Narrative:">
+  <inOrderTo keyword="In order to">login</inOrderTo>
+  <asA keyword="As a">user</asA>
+  <iWantTo keyword="I want to">login</iWantTo>
+</narrative>
+<scenario keyword="Scenario:" title="Login">
+<step outcome="successful">Given Navigate to the <parameter>http://giap10/w/</parameter> url in the <parameter>chrome</parameter> browser</step>
+<step outcome="successful">When me conecto a gestar...</step>
+<step outcome="ignorable">!-- Then creo un nuevo incidente...</step>
+<step outcome="successful">When jump system folder and get subforders...</step>
+</scenario>
+</story>

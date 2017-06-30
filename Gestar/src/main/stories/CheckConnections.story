@@ -1,0 +1,13 @@
+Cambio de Contrasenia
+
+Narrative:
+"1 Se ingresa a la aplicación con un usuario de perfil Administrador.
+2 Se ingresa a la carpeta de Conexiones, desde Carpetas del sistema/ conexiones"
+
+					 
+Scenario:  cambio de contrasenia
+Given Navigate to the http://10.201.4.191/desav2_w/auth/login url in the chrome browser
+When me conecto a gestar...
+When abrir carpeta de Sistemas...
+When abro la carpeta conexiones...
+Then chequeo conexiones...

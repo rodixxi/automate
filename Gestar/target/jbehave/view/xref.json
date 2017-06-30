@@ -1,0 +1,109 @@
+{"xref": {
+  "whenMade": 1497644231098,
+  "createdBy": "JBehave",
+  "metaFilter": "",
+  "meta": [],
+  "stories": [
+    {
+      "description": "Sample story",
+      "narrative": "",
+      "name": "PlanningWeek.story",
+      "path": "./PlanningWeek.story",
+      "html": ".PlanningWeek.html",
+      "meta": "",
+      "scenarios": "Scenario:A scenario is a collection of executable steps of different type\nGiven Navigate to the http://giap10/w/ url in the chrome browser\nWhen me conecto a gestar con el usuario: doorsevn la pass evnusr a la instancia GESTAR ITIL\nWhen abrir la carpeta Carpetas públicas\nWhen abrir la carpeta Gestar CRM\nWhen abrir la carpeta Proyectos\nWhen abrir la carpeta Planificador\nThen seleccionar lunes de la semana en curso\nThen seleccionar equipo Team Alfonso\nThen apreto planificar\n\n\n",
+      "passed": false,
+      "started": 1497644097094,
+      "duration": 123638
+    }
+  ],
+  "stepMatches": [
+    {
+      "type": "GIVEN",
+      "annotatedPattern": "Navigate to the $url url in the $browser browser",
+      "resolvedPattern": "Navigate\\s+to\\s+the\\s+(.*)\\s+url\\s+in\\s+the\\s+(.*)\\s+browser",
+      "usages": [
+        {
+          "story": "./PlanningWeek.story",
+          "scenario": "A scenario is a collection of executable steps of different type",
+          "step": "Given Navigate to the http://giap10/w/ url in the chrome browser"
+        }
+      ]
+    },
+    {
+      "type": "WHEN",
+      "annotatedPattern": "abrir la carpeta $folder",
+      "resolvedPattern": "abrir\\s+la\\s+carpeta\\s+(.*)",
+      "usages": [
+        {
+          "story": "./PlanningWeek.story",
+          "scenario": "A scenario is a collection of executable steps of different type",
+          "step": "When abrir la carpeta Carpetas públicas"
+        },
+        {
+          "story": "./PlanningWeek.story",
+          "scenario": "A scenario is a collection of executable steps of different type",
+          "step": "When abrir la carpeta Planificador"
+        },
+        {
+          "story": "./PlanningWeek.story",
+          "scenario": "A scenario is a collection of executable steps of different type",
+          "step": "When abrir la carpeta Proyectos"
+        },
+        {
+          "story": "./PlanningWeek.story",
+          "scenario": "A scenario is a collection of executable steps of different type",
+          "step": "When abrir la carpeta Gestar CRM"
+        }
+      ]
+    },
+    {
+      "type": "THEN",
+      "annotatedPattern": "seleccionar lunes de la semana en curso",
+      "resolvedPattern": "seleccionar\\s+lunes\\s+de\\s+la\\s+semana\\s+en\\s+curso",
+      "usages": [
+        {
+          "story": "./PlanningWeek.story",
+          "scenario": "A scenario is a collection of executable steps of different type",
+          "step": "Then seleccionar lunes de la semana en curso"
+        }
+      ]
+    },
+    {
+      "type": "WHEN",
+      "annotatedPattern": "me conecto a gestar con el usuario: $usuario la pass $pwd a la instancia $instance",
+      "resolvedPattern": "me\\s+conecto\\s+a\\s+gestar\\s+con\\s+el\\s+usuario:\\s+(.*)\\s+la\\s+pass\\s+(.*)\\s+a\\s+la\\s+instancia\\s+(.*)",
+      "usages": [
+        {
+          "story": "./PlanningWeek.story",
+          "scenario": "A scenario is a collection of executable steps of different type",
+          "step": "When me conecto a gestar con el usuario: doorsevn la pass evnusr a la instancia GESTAR ITIL"
+        }
+      ]
+    },
+    {
+      "type": "THEN",
+      "annotatedPattern": "apreto planificar",
+      "resolvedPattern": "apreto\\s+planificar",
+      "usages": [
+        {
+          "story": "./PlanningWeek.story",
+          "scenario": "A scenario is a collection of executable steps of different type",
+          "step": "Then apreto planificar"
+        }
+      ]
+    },
+    {
+      "type": "THEN",
+      "annotatedPattern": "seleccionar equipo $team",
+      "resolvedPattern": "seleccionar\\s+equipo\\s+(.*)",
+      "usages": [
+        {
+          "story": "./PlanningWeek.story",
+          "scenario": "A scenario is a collection of executable steps of different type",
+          "step": "Then seleccionar equipo Team Alfonso"
+        }
+      ]
+    }
+  ]
+}}
