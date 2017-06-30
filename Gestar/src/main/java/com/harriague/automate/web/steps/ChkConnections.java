@@ -23,6 +23,9 @@ private static final String CHANGE_CONN = "chk_conn";
 	public void CheckConexiones()  throws AgentException, Exception {
 		log.info("chequeo conexiones...");
 		getPage(ConnectionsPage.class).CheckConnections();
+
 	}
+
+
 
 }

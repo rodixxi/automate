@@ -12,7 +12,22 @@
     <url>http://wiki.harriague.com/</url>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.version>4.3.7.RELEASE</spring.version>
+
+        <jbehave.core.version>3.8</jbehave.core.version>
+        <jbehave.web.version>3.6-beta-1</jbehave.web.version>
+        <jbehave.site.version>3.1.1</jbehave.site.version>
+        <aspectj.version>1.8.6</aspectj.version>
+        <allure.version>1.4.22</allure.version>
+
+        <!-- <fluent.selenium.version>1.14.5</fluent.selenium.version> -->
+
+        <selenium.version>2.53.0</selenium.version>
+        <threads>1</threads>
+        <ignore.failures>true</ignore.failures>
+        <meta.filter></meta.filter>
+        <skip>false</skip>
+        <stories>**/Embedder.java</stories>
     </properties>
 
     <dependencies>
