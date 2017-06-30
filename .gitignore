@@ -49,5 +49,5 @@ crashlytics-build.properties
 fabric.properties
 
 #
-*.xml
+.*.xml
 *.html
