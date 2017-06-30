@@ -6,10 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="core" />
+        <module name="module.windows.web" />
         <module name="module.windows.web.curso" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="core" target="1.8" />
+      <module name="core-pom" target="1.5" />
+      <module name="module.windows.web" target="1.8" />
       <module name="module.windows.web.curso" target="1.8" />
     </bytecodeTargetLevel>
   </component>

@@ -1,9 +1,0 @@
-<story path="./CheckConnections.story" title="Cambio de Contrasenia">
-<scenario keyword="Scenario:" title="cambio de contrasenia">
-<step outcome="successful">Given Navigate to the <parameter>http://10.201.4.191/desav2_w/auth/login</parameter> url in the <parameter>chrome</parameter> browser</step>
-<step outcome="successful">When me conecto a gestar...</step>
-<step outcome="successful">When abrir carpeta de Sistemas...</step>
-<step outcome="successful">When abro la carpeta conexiones...</step>
-<step outcome="successful">Then chequeo conexiones...</step>
-</scenario>
-</story>

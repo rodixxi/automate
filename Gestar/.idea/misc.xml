@@ -4,6 +4,9 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../QCAFrameworks/QCAFrameworks-master/QCAFrameworkCorePOM/pom.xml" />
+        <option value="$PROJECT_DIR$/../QCAFrameworks/QCAFrameworks-master/QCAFrameworkCore/pom.xml" />
+        <option value="$PROJECT_DIR$/../QCAFrameworks/QCAFrameworks-master/QCAFrameworkWindowsWeb/pom.xml" />
       </list>
     </option>
   </component>

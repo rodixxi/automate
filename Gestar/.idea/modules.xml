@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../QCAFrameworks/QCAFrameworks-master/QCAFrameworkCore/core.iml" filepath="$PROJECT_DIR$/../QCAFrameworks/QCAFrameworks-master/QCAFrameworkCore/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../QCAFrameworks/QCAFrameworks-master/QCAFrameworkCorePOM/core-pom.iml" filepath="$PROJECT_DIR$/../QCAFrameworks/QCAFrameworks-master/QCAFrameworkCorePOM/core-pom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../QCAFrameworks/QCAFrameworks-master/QCAFrameworkWindowsWeb/module.windows.web.iml" filepath="$PROJECT_DIR$/../QCAFrameworks/QCAFrameworks-master/QCAFrameworkWindowsWeb/module.windows.web.iml" />
       <module fileurl="file://$PROJECT_DIR$/module.windows.web.curso.iml" filepath="$PROJECT_DIR$/module.windows.web.curso.iml" />
     </modules>
   </component>
