@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>.login</title>
+<style type="text/css" media="all">
+@import url( "./style/jbehave-core.css" );
+</style>
+</head>
+<body>
+ 
+<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+<story path="./login.story" title="Login">
+<narrative keyword="Narrative:">
+  <inOrderTo keyword="In order to">login</inOrderTo>
+  <asA keyword="As a">user</asA>
+  <iWantTo keyword="I want to">login</iWantTo>
+</narrative>
+<scenario keyword="Scenario:" title="Login">
+<step outcome="successful">Given Navigate to the <parameter>http://giap08/supervielle_w</parameter> url in the <parameter>chrome</parameter> browser</step>
+<step outcome="failed" keyword="FAILED">When me conecto a gestar...<failure>com.harriague.automate.core.exceptions.AgentException: Element &quot;By.xpath: //select[@id=&apos;instanceName&apos;]/option[@value=&apos;HARRIAGUE&apos;]&quot; was not found</failure></step>
+<step outcome="ignorable">!-- Then creo un nuevo incidente...</step>
+<failure>com.harriague.automate.core.exceptions.AgentException: Element &quot;By.xpath: //select[@id=&apos;instanceName&apos;]/option[@value=&apos;HARRIAGUE&apos;]&quot; was not found
+	at com.harriague.automate.module.web.agent.CommonAgentImpl.click(CommonAgentImpl.java:220)
+	at com.harriague.automate.web.pages.impl.LoginPageImpl.hacerLogin(LoginPageImpl.java:43)
+	at com.harriague.automate.web.steps.LoginSteps.veoPronostico(LoginSteps.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.jbehave.core.steps.StepCreator$ParameterisedStep.perform(StepCreator.java:550)
+	at org.jbehave.core.embedder.StoryRunner$FineSoFar.run(StoryRunner.java:499)
+...</failure>
+</scenario>
+</story>
+
+]]></script>
+</body>
+<!--  SyntaxHighlighter resources:  should be included at end of body -->
+<link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shCore.css"/>
+<link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shThemeRDark.css"/>
+<script language="javascript" src="./js/sh-3.0.83/shCore.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushBash.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushCss.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushDiff.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushGroovy.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushJava.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushJScript.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushPlain.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushPython.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushRuby.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushScala.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushXml.js"></script>
+<script language="javascript" src="./js/shBrushBdd.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.defaults['gutter'] = false;
+    SyntaxHighlighter.defaults['toolbar'] = false;    
+    SyntaxHighlighter.all();
+</script>
+</html>
