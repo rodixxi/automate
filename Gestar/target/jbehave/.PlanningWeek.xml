@@ -2,20 +2,12 @@
 <scenario keyword="Scenario:" title="A scenario is a collection of executable steps of different type">
 <step outcome="successful">Given Navigate to the <parameter>http://giap10/w/</parameter> url in the <parameter>chrome</parameter> browser</step>
 <step outcome="successful">When me conecto a gestar con el usuario: <parameter>doorsevn</parameter> la pass <parameter>evnusr</parameter> a la instancia <parameter>GESTAR ITIL</parameter></step>
-<step outcome="failed" keyword="FAILED">When abrir la carpeta <parameter>Carpetas p&#250;blicas</parameter><failure>java.lang.NoSuchMethodError: org.openqa.selenium.support.ui.WebDriverWait.until(Lcom/google/common/base/Function;)Ljava/lang/Object;</failure></step>
-<step outcome="notPerformed" keyword="NOT PERFORMED">When abrir la carpeta <parameter>Gestar CRM</parameter></step>
-<step outcome="notPerformed" keyword="NOT PERFORMED">When abrir la carpeta <parameter>Proyectos</parameter></step>
-<step outcome="notPerformed" keyword="NOT PERFORMED">When abrir la carpeta <parameter>Planificador</parameter></step>
-<step outcome="notPerformed" keyword="NOT PERFORMED">Then seleccionar lunes de la semana en curso</step>
-<step outcome="notPerformed" keyword="NOT PERFORMED">Then seleccionar equipo <parameter>Team Alfonso</parameter></step>
-<step outcome="notPerformed" keyword="NOT PERFORMED">Then apreto planificar</step>
-<failure>java.lang.NoSuchMethodError: org.openqa.selenium.support.ui.WebDriverWait.until(Lcom/google/common/base/Function;)Ljava/lang/Object;
-	at com.harriague.automate.module.web.agent.CommonAgentImpl.alertIspresent(CommonAgentImpl.java:264)
-	at com.harriague.automate.web.pages.impl.GestarFolderImpl.OpenFolder(GestarFolderImpl.java:28)
-	at com.harriague.automate.web.steps.GestarFolders.abrirCarpeta(GestarFolders.java:15)
-	(reflection-invoke)
-	at org.jbehave.core.steps.StepCreator$ParameterisedStep.perform(StepCreator.java:550)
-	at org.jbehave.core.embedder.StoryRunner$FineSoFar.run(StoryRunner.java:499)
-...</failure>
+<step outcome="successful">When abrir la carpeta <parameter>Carpetas p&#250;blicas</parameter></step>
+<step outcome="successful">When abrir la carpeta <parameter>Gestar CRM</parameter></step>
+<step outcome="successful">When abrir la carpeta <parameter>Proyectos</parameter></step>
+<step outcome="successful">When abrir la carpeta <parameter>Planificador</parameter></step>
+<step outcome="successful">Then seleccionar lunes de la semana en curso</step>
+<step outcome="successful">Then seleccionar equipo <parameter>Team Alfonso</parameter></step>
+<step outcome="successful">Then apreto planificar</step>
 </scenario>
 </story>

@@ -7,6 +7,6 @@ import com.harriague.automate.core.page.Page;
 
 public interface GestarFolder extends Page {
 	
-	void OpenFolder(String folder) throws AgentException ;
+	void OpenFolder(String folder) throws AgentException, InterruptedException;
 
 }

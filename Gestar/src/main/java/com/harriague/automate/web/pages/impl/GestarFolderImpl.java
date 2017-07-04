@@ -5,7 +5,9 @@ import com.harriague.automate.core.agent.Agent;
 import com.harriague.automate.core.exceptions.AgentException;
 import com.harriague.automate.core.page.BasePage;
 import com.harriague.automate.web.pages.GestarFolder;
- 
+
+import java.util.concurrent.TimeUnit;
+
 
 public class GestarFolderImpl extends BasePage implements GestarFolder {
 
@@ -15,24 +17,21 @@ public class GestarFolderImpl extends BasePage implements GestarFolder {
 	}
 
 	@Override
-	public void OpenFolder(String folder) throws AgentException {
+	public void OpenFolder(String folder) throws AgentException, InterruptedException {
 		// TODO Auto-generated method stub
 		log.info("En Open Folder");
-		String path = "//span[text()='" + folder + "']";
+		String path = "//span[text()='"+ folder +"']/ancestor::div[1]";
+		By element = By.xpath(path);
 		log.info("intento abrir: " + path);
-				
-		By by = By.xpath(path);
-		
-		if (agent.checkElementIsDisplayed( by)) {
-			agent.click( by); 
-			if (agent.alertIspresent()) {
-				agent.aceptAlert();
-			}
-			
+		if (agent.checkElementIsDisplayed(element)) {
+			log.info("hago clic para abrir la carpeta de sistema ");
+			agent.click(element);
+			TimeUnit.SECONDS.sleep(1);
 		}
 		else {
 			log.info("no encontro el elemento");
-		}		
+			throw new AgentException("no encontro el elemento", agent);
+		}
 	}
 	
 

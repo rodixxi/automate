@@ -22,7 +22,7 @@
 
         <!-- <fluent.selenium.version>1.14.5</fluent.selenium.version> -->
 
-        <selenium.version>2.53.0</selenium.version>
+        <selenium.version>2.53.1</selenium.version>
         <threads>1</threads>
         <ignore.failures>true</ignore.failures>
         <meta.filter></meta.filter>

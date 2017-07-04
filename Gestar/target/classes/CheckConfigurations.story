@@ -21,4 +21,3 @@ Then abro el elemento Settings.Administrator
 Then selecciono parametro ATTACHMENTS_PATH, modificar con c:\Temp2 y guardar
 !-- Then selecciono parametro ATTACHMENTS_PATH, modificar con c:\Temp y guardar
 
-!

@@ -1,28 +1,32 @@
 <xref>
-  <whenMade>1498847464668</whenMade>
+  <whenMade>1499177266938</whenMade>
   <createdBy>JBehave</createdBy>
   <metaFilter></metaFilter>
   <meta/>
   <stories>
     <story>
-      <description>Cambio de Contrasenia</description>
+      <description>Sample story</description>
       <narrative></narrative>
-      <name>CheckConnections.story</name>
-      <path>./CheckConnections.story</path>
-      <html>.CheckConnections.html</html>
+      <name>PlanningWeek.story</name>
+      <path>./PlanningWeek.story</path>
+      <html>.PlanningWeek.html</html>
       <meta></meta>
-      <scenarios>Scenario:cambio de contrasenia
-Given Navigate to the http://10.201.4.191/desav2_w/auth/login url in the chrome browser
-When me conecto a gestar...
-When abrir carpeta de Sistemas...
-When abro la carpeta conexiones...
-Then chequeo conexiones...
+      <scenarios>Scenario:A scenario is a collection of executable steps of different type
+Given Navigate to the http://giap10/w/ url in the chrome browser
+When me conecto a gestar con el usuario: doorsevn la pass evnusr a la instancia GESTAR ITIL
+When abrir la carpeta Carpetas públicas
+When abrir la carpeta Gestar CRM
+When abrir la carpeta Proyectos
+When abrir la carpeta Planificador
+Then seleccionar lunes de la semana en curso
+Then seleccionar equipo Team Alfonso
+Then apreto planificar
 
 
 </scenarios>
       <passed>true</passed>
-      <started>1498847435582</started>
-      <duration>28574</duration>
+      <started>1499177215554</started>
+      <duration>50816</duration>
     </story>
   </stories>
   <stepMatches>
@@ -32,57 +36,84 @@ Then chequeo conexiones...
       <resolvedPattern>Navigate\s+to\s+the\s+(.*)\s+url\s+in\s+the\s+(.*)\s+browser</resolvedPattern>
       <usages>
         <use>
-          <story>./CheckConnections.story</story>
-          <scenario>cambio de contrasenia</scenario>
-          <step>Given Navigate to the http://10.201.4.191/desav2_w/auth/login url in the chrome browser</step>
+          <story>./PlanningWeek.story</story>
+          <scenario>A scenario is a collection of executable steps of different type</scenario>
+          <step>Given Navigate to the http://giap10/w/ url in the chrome browser</step>
         </use>
       </usages>
     </stepMatch>
     <stepMatch>
       <type>WHEN</type>
-      <annotatedPattern>abro la carpeta conexiones...</annotatedPattern>
-      <resolvedPattern>abro\s+la\s+carpeta\s+conexiones\.\.\.</resolvedPattern>
+      <annotatedPattern>abrir la carpeta $folder</annotatedPattern>
+      <resolvedPattern>abrir\s+la\s+carpeta\s+(.*)</resolvedPattern>
       <usages>
         <use>
-          <story>./CheckConnections.story</story>
-          <scenario>cambio de contrasenia</scenario>
-          <step>When abro la carpeta conexiones...</step>
+          <story>./PlanningWeek.story</story>
+          <scenario>A scenario is a collection of executable steps of different type</scenario>
+          <step>When abrir la carpeta Proyectos</step>
         </use>
-      </usages>
-    </stepMatch>
-    <stepMatch>
-      <type>WHEN</type>
-      <annotatedPattern>me conecto a gestar...</annotatedPattern>
-      <resolvedPattern>me\s+conecto\s+a\s+gestar\.\.\.</resolvedPattern>
-      <usages>
         <use>
-          <story>./CheckConnections.story</story>
-          <scenario>cambio de contrasenia</scenario>
-          <step>When me conecto a gestar...</step>
+          <story>./PlanningWeek.story</story>
+          <scenario>A scenario is a collection of executable steps of different type</scenario>
+          <step>When abrir la carpeta Planificador</step>
         </use>
-      </usages>
-    </stepMatch>
-    <stepMatch>
-      <type>WHEN</type>
-      <annotatedPattern>abrir carpeta de Sistemas...</annotatedPattern>
-      <resolvedPattern>abrir\s+carpeta\s+de\s+Sistemas\.\.\.</resolvedPattern>
-      <usages>
         <use>
-          <story>./CheckConnections.story</story>
-          <scenario>cambio de contrasenia</scenario>
-          <step>When abrir carpeta de Sistemas...</step>
+          <story>./PlanningWeek.story</story>
+          <scenario>A scenario is a collection of executable steps of different type</scenario>
+          <step>When abrir la carpeta Carpetas públicas</step>
+        </use>
+        <use>
+          <story>./PlanningWeek.story</story>
+          <scenario>A scenario is a collection of executable steps of different type</scenario>
+          <step>When abrir la carpeta Gestar CRM</step>
         </use>
       </usages>
     </stepMatch>
     <stepMatch>
       <type>THEN</type>
-      <annotatedPattern>chequeo conexiones...</annotatedPattern>
-      <resolvedPattern>chequeo\s+conexiones\.\.\.</resolvedPattern>
+      <annotatedPattern>seleccionar lunes de la semana en curso</annotatedPattern>
+      <resolvedPattern>seleccionar\s+lunes\s+de\s+la\s+semana\s+en\s+curso</resolvedPattern>
       <usages>
         <use>
-          <story>./CheckConnections.story</story>
-          <scenario>cambio de contrasenia</scenario>
-          <step>Then chequeo conexiones...</step>
+          <story>./PlanningWeek.story</story>
+          <scenario>A scenario is a collection of executable steps of different type</scenario>
+          <step>Then seleccionar lunes de la semana en curso</step>
+        </use>
+      </usages>
+    </stepMatch>
+    <stepMatch>
+      <type>WHEN</type>
+      <annotatedPattern>me conecto a gestar con el usuario: $usuario la pass $pwd a la instancia $instance</annotatedPattern>
+      <resolvedPattern>me\s+conecto\s+a\s+gestar\s+con\s+el\s+usuario:\s+(.*)\s+la\s+pass\s+(.*)\s+a\s+la\s+instancia\s+(.*)</resolvedPattern>
+      <usages>
+        <use>
+          <story>./PlanningWeek.story</story>
+          <scenario>A scenario is a collection of executable steps of different type</scenario>
+          <step>When me conecto a gestar con el usuario: doorsevn la pass evnusr a la instancia GESTAR ITIL</step>
+        </use>
+      </usages>
+    </stepMatch>
+    <stepMatch>
+      <type>THEN</type>
+      <annotatedPattern>apreto planificar</annotatedPattern>
+      <resolvedPattern>apreto\s+planificar</resolvedPattern>
+      <usages>
+        <use>
+          <story>./PlanningWeek.story</story>
+          <scenario>A scenario is a collection of executable steps of different type</scenario>
+          <step>Then apreto planificar</step>
+        </use>
+      </usages>
+    </stepMatch>
+    <stepMatch>
+      <type>THEN</type>
+      <annotatedPattern>seleccionar equipo $team</annotatedPattern>
+      <resolvedPattern>seleccionar\s+equipo\s+(.*)</resolvedPattern>
+      <usages>
+        <use>
+          <story>./PlanningWeek.story</story>
+          <scenario>A scenario is a collection of executable steps of different type</scenario>
+          <step>Then seleccionar equipo Team Alfonso</step>
         </use>
       </usages>
     </stepMatch>

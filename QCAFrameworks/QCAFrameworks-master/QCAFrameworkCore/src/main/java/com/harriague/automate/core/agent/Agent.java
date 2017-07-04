@@ -1,6 +1,7 @@
 package com.harriague.automate.core.agent;
 
 import java.awt.image.BufferedImage;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -139,7 +140,25 @@ public interface Agent {
     
     public void aceptAlert() throws AgentException; 
     
-    public void cancelAlert() throws AgentException; 
+    public void cancelAlert() throws AgentException;
+
+    /**
+     * Select a date(dd/mm/yyyy) from a datePicker control.
+     * @param aDate
+     * @param anElement
+     * @throws AgentException
+     * @author rcrespillo
+     */
+    public void selectDateFromDatePicker(Object anElement, Date aDate) throws AgentException;
+
+    /**
+     * Select a selector option
+     * @param selector
+     * @param option
+     * @throws AgentException
+     * @author rcrespillo
+     */
+    public void selectSelectorOption(String selector, String option) throws AgentException;
     /**
      * Close agent
      */
