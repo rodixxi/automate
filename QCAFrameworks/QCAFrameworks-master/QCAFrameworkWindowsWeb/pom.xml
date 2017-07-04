@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+   <groupId>com.harriague.automate</groupId>
+  <artifactId>core-pom</artifactId>
+  <version>1.0</version>
+  </parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>module.windows.web</artifactId>
+	<packaging>jar</packaging>
+
+	<name>autoMATE-Windows-Web</name>
+	<description>This is the module windows web of the 'autoMATE' Framework</description>
+	<url>http://wiki.harriague.com/</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>2.53.1</version>
+        </dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-remote-driver</artifactId>
+			<version>3.4.0</version>
+		</dependency>
+	</dependencies>
+
+	<organization>
+		<name>Harriague + Asociados</name>
+		<url>http://www.harriague.com/</url>
+	</organization>
+	<ciManagement>
+		<system>Teamcity</system>
+		<url>http://isap02:4445/viewType.html?buildTypeId=autoMATE_Core</url>
+	</ciManagement>
+	<developers>
+		<developer>
+			<name>Mariana Duobaitis</name>
+			<email>mduobaitis@harriague.com</email>
+			<roles>
+				<role>QA Organizacional</role>
+			</roles>
+		</developer>
+		<developer>
+			<name>Pablo Mallo</name>
+			<email>pmallo@harriague.com</email>
+			<roles>
+				<role>Project Leader</role>
+				<role>Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<name>Maximo Arnaud</name>
+			<email>marnaud@harriague.com</email>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+	</developers>
+</project>
