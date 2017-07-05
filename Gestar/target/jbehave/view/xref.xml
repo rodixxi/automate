@@ -1,32 +1,25 @@
 <xref>
-  <whenMade>1499177266938</whenMade>
+  <whenMade>1499266065770</whenMade>
   <createdBy>JBehave</createdBy>
   <metaFilter></metaFilter>
   <meta/>
   <stories>
     <story>
-      <description>Sample story</description>
+      <description></description>
       <narrative></narrative>
-      <name>PlanningWeek.story</name>
-      <path>./PlanningWeek.story</path>
-      <html>.PlanningWeek.html</html>
+      <name>AllControlsCheckGestar.story</name>
+      <path>./AllControlsCheckGestar.story</path>
+      <html>.AllControlsCheckGestar.html</html>
       <meta></meta>
-      <scenarios>Scenario:A scenario is a collection of executable steps of different type
-Given Navigate to the http://giap10/w/ url in the chrome browser
-When me conecto a gestar con el usuario: doorsevn la pass evnusr a la instancia GESTAR ITIL
-When abrir la carpeta Carpetas públicas
-When abrir la carpeta Gestar CRM
-When abrir la carpeta Proyectos
-When abrir la carpeta Planificador
-Then seleccionar lunes de la semana en curso
-Then seleccionar equipo Team Alfonso
-Then apreto planificar
+      <scenarios>Scenario:entro a automate y pruebo los tabs y el control de texto
+Given Navigate to the http://10.201.4.191/w/ url in the chrome browser
+When me conecto a gestar con el usuario: admin sin pass  a la instancia DESA
 
 
 </scenarios>
       <passed>true</passed>
-      <started>1499177215554</started>
-      <duration>50816</duration>
+      <started>1499266056944</started>
+      <duration>8272</duration>
     </story>
   </stories>
   <stepMatches>
@@ -36,84 +29,9 @@ Then apreto planificar
       <resolvedPattern>Navigate\s+to\s+the\s+(.*)\s+url\s+in\s+the\s+(.*)\s+browser</resolvedPattern>
       <usages>
         <use>
-          <story>./PlanningWeek.story</story>
-          <scenario>A scenario is a collection of executable steps of different type</scenario>
-          <step>Given Navigate to the http://giap10/w/ url in the chrome browser</step>
-        </use>
-      </usages>
-    </stepMatch>
-    <stepMatch>
-      <type>WHEN</type>
-      <annotatedPattern>abrir la carpeta $folder</annotatedPattern>
-      <resolvedPattern>abrir\s+la\s+carpeta\s+(.*)</resolvedPattern>
-      <usages>
-        <use>
-          <story>./PlanningWeek.story</story>
-          <scenario>A scenario is a collection of executable steps of different type</scenario>
-          <step>When abrir la carpeta Proyectos</step>
-        </use>
-        <use>
-          <story>./PlanningWeek.story</story>
-          <scenario>A scenario is a collection of executable steps of different type</scenario>
-          <step>When abrir la carpeta Planificador</step>
-        </use>
-        <use>
-          <story>./PlanningWeek.story</story>
-          <scenario>A scenario is a collection of executable steps of different type</scenario>
-          <step>When abrir la carpeta Carpetas públicas</step>
-        </use>
-        <use>
-          <story>./PlanningWeek.story</story>
-          <scenario>A scenario is a collection of executable steps of different type</scenario>
-          <step>When abrir la carpeta Gestar CRM</step>
-        </use>
-      </usages>
-    </stepMatch>
-    <stepMatch>
-      <type>THEN</type>
-      <annotatedPattern>seleccionar lunes de la semana en curso</annotatedPattern>
-      <resolvedPattern>seleccionar\s+lunes\s+de\s+la\s+semana\s+en\s+curso</resolvedPattern>
-      <usages>
-        <use>
-          <story>./PlanningWeek.story</story>
-          <scenario>A scenario is a collection of executable steps of different type</scenario>
-          <step>Then seleccionar lunes de la semana en curso</step>
-        </use>
-      </usages>
-    </stepMatch>
-    <stepMatch>
-      <type>WHEN</type>
-      <annotatedPattern>me conecto a gestar con el usuario: $usuario la pass $pwd a la instancia $instance</annotatedPattern>
-      <resolvedPattern>me\s+conecto\s+a\s+gestar\s+con\s+el\s+usuario:\s+(.*)\s+la\s+pass\s+(.*)\s+a\s+la\s+instancia\s+(.*)</resolvedPattern>
-      <usages>
-        <use>
-          <story>./PlanningWeek.story</story>
-          <scenario>A scenario is a collection of executable steps of different type</scenario>
-          <step>When me conecto a gestar con el usuario: doorsevn la pass evnusr a la instancia GESTAR ITIL</step>
-        </use>
-      </usages>
-    </stepMatch>
-    <stepMatch>
-      <type>THEN</type>
-      <annotatedPattern>apreto planificar</annotatedPattern>
-      <resolvedPattern>apreto\s+planificar</resolvedPattern>
-      <usages>
-        <use>
-          <story>./PlanningWeek.story</story>
-          <scenario>A scenario is a collection of executable steps of different type</scenario>
-          <step>Then apreto planificar</step>
-        </use>
-      </usages>
-    </stepMatch>
-    <stepMatch>
-      <type>THEN</type>
-      <annotatedPattern>seleccionar equipo $team</annotatedPattern>
-      <resolvedPattern>seleccionar\s+equipo\s+(.*)</resolvedPattern>
-      <usages>
-        <use>
-          <story>./PlanningWeek.story</story>
-          <scenario>A scenario is a collection of executable steps of different type</scenario>
-          <step>Then seleccionar equipo Team Alfonso</step>
+          <story>./AllControlsCheckGestar.story</story>
+          <scenario>entro a automate y pruebo los tabs y el control de texto</scenario>
+          <step>Given Navigate to the http://10.201.4.191/w/ url in the chrome browser</step>
         </use>
       </usages>
     </stepMatch>

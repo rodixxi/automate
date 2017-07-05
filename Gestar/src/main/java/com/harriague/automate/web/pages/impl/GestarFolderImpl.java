@@ -24,15 +24,25 @@ public class GestarFolderImpl extends BasePage implements GestarFolder {
 		By element = By.xpath(path);
 		log.info("intento abrir: " + path);
 		if (agent.checkElementIsDisplayed(element)) {
-			log.info("hago clic para abrir la carpeta de sistema ");
-			agent.click(element);
-			TimeUnit.SECONDS.sleep(1);
-		}
+            log.info("hago clic para abrir la carpeta de sistema ");
+            agent.click(element);
+            TimeUnit.SECONDS.sleep(1);
+        }
 		else {
 			log.info("no encontro el elemento");
 			throw new AgentException("no encontro el elemento", agent);
 		}
 	}
+    /*
+    @Override
+	public void CancelPopUp() throws AgentException{
+	    String parent = agent.switchToPopup();
+	    By cancelBottom = By.xpath("//div[@id='1001']/span[2]");
+	    agent.click(cancelBottom);
+	    agent.switchToPopup(parent);
+    }
+    */
+
 	
 
 }

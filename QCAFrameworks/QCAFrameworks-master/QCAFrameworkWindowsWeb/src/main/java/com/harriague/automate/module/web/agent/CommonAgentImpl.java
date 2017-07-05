@@ -5,11 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import javax.imageio.ImageIO;
 
@@ -297,7 +293,29 @@ public class CommonAgentImpl implements Agent {
             action.doubleClick(el).build().perform();
         }
     }
-    
+
+
+    @Override
+    public String switchToPopup() throws AgentException{
+        String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
+        String subWindowHandler = null;
+
+        Set<String> handles = driver.getWindowHandles(); // get all window handles
+        Iterator<String> iterator = handles.iterator();
+        while (iterator.hasNext()){
+            subWindowHandler = iterator.next();
+        }
+        driver.switchTo().window(subWindowHandler); // switch to popup window
+
+        // Now you are in the popup window, perform necessary actions here
+        return parentWindowHandler;
+    }
+
+
+    @Override
+    public void switchToPopup(String parentWindowHandler) throws AgentException{
+        driver.switchTo().window(parentWindowHandler);
+    }
     
     @Override
     public void scroll(ScrollDirection direction, int amount) throws AgentException {

@@ -209,6 +209,22 @@ public interface Agent {
     public void maximizeWindows() throws AgentException;
 
     /**
+     * Switch betwen popup and principal windows
+     *
+     * @return parentWindowHandler
+     * @throws AgentException
+     */
+    public String switchToPopup() throws AgentException;
+
+    /**
+     * Switch to principal windows
+     *
+     * @param parentWindowHandler
+     * @throws AgentException
+     */
+    public void switchToPopup(String parentWindowHandler) throws AgentException;
+
+    /**
      * Hover in element
      * 
      * @param xpath element

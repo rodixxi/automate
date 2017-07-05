@@ -9,4 +9,6 @@ public interface GestarFolder extends Page {
 	
 	void OpenFolder(String folder) throws AgentException, InterruptedException;
 
+	//public void CancelPopUp() throws AgentException;
+
 }

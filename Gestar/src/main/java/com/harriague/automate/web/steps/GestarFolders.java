@@ -12,7 +12,7 @@ public class GestarFolders extends StepBase {
 	@When("abrir la carpeta $folder")
 	public void abrirCarpeta(String folder) throws AgentException,  Exception{
 		log.info("intento abrir la carpeta: " + folder);
-		getPage(GestarFolder.class).OpenFolder(folder);
-	}
+        getPage(GestarFolder.class).OpenFolder(folder);
 
+	}
 }
