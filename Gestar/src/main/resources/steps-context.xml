@@ -32,4 +32,6 @@
 	 
 	<bean id="LogoutSteps"       class="com.harriague.automate.web.steps.LogoutSteps"></bean>
 
+	<bean id="AllControlsCheckGestar"       class="com.harriague.automate.web.steps.AllControlsCheckGestar"></bean>
+
 </beans>

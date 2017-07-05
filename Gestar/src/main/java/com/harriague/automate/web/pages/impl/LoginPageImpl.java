@@ -68,8 +68,20 @@ public class LoginPageImpl extends BasePage implements LoginPage {
 		TimeUnit.SECONDS.sleep(2);
 	 		
 		log.info("arranco en login");
-	
+
 	}
+
+    @Override
+    public void hacerLogin(String usuario, String instance) throws AgentException, InterruptedException {
+        if(agent.checkElementIsDisplayed(LOG_MANUAL)) {
+            agent.click(LOG_MANUAL);
+        }
+
+        agent.writeInElement(By.xpath(USUARIO), usuario);
+        agent.click(By.xpath("//select[@id='instanceName']/option[@value='" + instance + "']"));
+        agent.click(By.xpath(BTNLOGIN));
+
+    }
 	
 	public void hacerLogin(String usuario, String pwd, String instance) throws AgentException, InterruptedException {
 		if(agent.checkElementIsDisplayed(LOG_MANUAL)) {
@@ -82,8 +94,9 @@ public class LoginPageImpl extends BasePage implements LoginPage {
 		agent.click(By.xpath(BTNLOGIN));
 		  
 	}
-	
-	@Override
+
+
+    @Override
 	public void hacerLogout() throws AgentException {
 		//only work if i have a connection
 		log.info("entrando a logouff");

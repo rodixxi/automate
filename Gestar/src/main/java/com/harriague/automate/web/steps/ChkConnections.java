@@ -29,7 +29,7 @@ private static final String CHANGE_CONN = "chk_conn";
 
 	}
 
-	@AfterScenario
+	//@AfterScenario
     public void closeBrowser(){
         log.info("cerrando broser ...");
         try {
