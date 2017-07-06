@@ -13,3 +13,5 @@ When abrir la carpeta autoMate
 When abrir la carpeta autoMATE - prueba
 When crear arhivo nuevo
 When seleccionar tabPanel tab2
+When seleccionar tabPanel tab3
+When seleccionar tabPanel tab1

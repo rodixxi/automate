@@ -13,8 +13,9 @@ public class Tab extends Control {
         getControlByName();
     }
 
-    public Tab(String nombre) {
-        super(nombre);
+    public Tab(String etiqueta) {
+        super(etiqueta);
+        getControlByName();
     }
 
     @Override
@@ -40,4 +41,22 @@ public class Tab extends Control {
         name = "//a[@name and text()=' "+ name +"']/ancestor::span[1]";
         super.getControlByName(name);
     }
+
+    /**
+     * Retorna el xpath de el tab como si estubiera seleccioando por id
+     * @return xpathAsSelected
+     */
+    public By tabSelectedById(){
+        return By.xpath("//span[@class='tab' and @class='selected' and @id='tabSpan_tabPanel1_"+ getNombre() +"']");
+    }
+
+    /**
+     * Retorna el xpath de el tab como si estubiera seleccioando por nombre
+     * @return xpathAsSelected
+     */
+    public By tabSelectedByName(){
+        System.out.println(By.xpath("//a[@name and text()=' " + getEtiqueta() + "']/ancestor::span[1]/@class='tab selected'"));
+        return By.xpath("//a[@name and text()=' " + getEtiqueta() + "']/ancestor::span[1]/@class='tab selected'");
+    }
 }
+

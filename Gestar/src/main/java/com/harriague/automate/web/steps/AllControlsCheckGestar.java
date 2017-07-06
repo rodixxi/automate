@@ -17,8 +17,8 @@ public class AllControlsCheckGestar extends StepBase {
         getPage(ControlsGestar.class).crearNuevoArchivoEnFormulario();
     }
 
-    @When("seleccionar tabPanel $tab1")
-    public void seleccionarTabPanel(String tab1) throws Exception {
-        getPage(ControlsGestar.class).seleccionarTabPanel(tab1);
+    @When("seleccionar tabPanel $tab")
+    public void seleccionarTabPanel(String tab) throws Exception {
+        getPage(ControlsGestar.class).seleccionarTabPanel(tab);
     }
 }

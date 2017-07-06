@@ -15,8 +15,8 @@ public class Control {
         this.etiqueta = etiqueta;
     }
 
-    public Control(String nombre) {
-        this.nombre = nombre;
+    public Control(String etiqueta) {
+        this.etiqueta = etiqueta;
     }
 
     public String getNombre() {
