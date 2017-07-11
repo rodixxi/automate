@@ -3,6 +3,7 @@ package com.harriague.automate.web.control;
 import org.openqa.selenium.By;
 import com.harriague.automate.core.agent.Agent;
 
+
 public class Control {
 
     private String nombre;
@@ -17,6 +18,7 @@ public class Control {
 
     public Control(String etiqueta) {
         this.etiqueta = etiqueta;
+        this.nombre = "";
     }
 
     public String getNombre() {
@@ -82,4 +84,5 @@ public class Control {
     public void getControlByName(){
         this.xpathSelectorByName = By.xpath("" + this.etiqueta);
     }
+
 }

@@ -21,4 +21,29 @@ public class AllControlsCheckGestar extends StepBase {
     public void seleccionarTabPanel(String tab) throws Exception {
         getPage(ControlsGestar.class).seleccionarTabPanel(tab);
     }
+
+    @When("ingreso $input para el campo requerido: $campo")
+    public void ingresoInputACampoRequerido(String input, String campo) throws Exception{
+        getPage(ControlsGestar.class).ingresoInputACampoRequerido(input, campo);
+    }
+
+    @When("ingreso $input en $campo")
+    public void ingresoInputACampo(String input, String campo) throws Exception{
+        getPage(ControlsGestar.class).ingresoInputACampo(input, campo);
+    }
+
+    @When("ingreso $input para el campo numerico: $campo")
+    public void ingresoInputACampoNumerico(String input, String campo) throws Exception{
+        getPage(ControlsGestar.class).ingresoInputACampoNumerico(input, campo);
+    }
+
+    @When("ingreso $input para campo de texto multiple: $campo")
+    public void ingresoInputACampoMultiple(String input, String campo) throws Exception{
+        getPage(ControlsGestar.class).ingresoInputACampoMultiple(input, campo);
+    }
+
+    @When("ingreso $input para el campo password: $campo")
+    public void ingresoInputACampoPassword(String input, String campo) throws Exception{
+        getPage(ControlsGestar.class).ingresoInputACampoPassword(input, campo);
+    }
 }

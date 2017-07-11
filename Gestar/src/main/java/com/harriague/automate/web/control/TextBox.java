@@ -1,14 +1,16 @@
 package com.harriague.automate.web.control;
-
 import org.openqa.selenium.By;
+
+import java.util.ArrayList;
+
 
 public class TextBox extends Control{
 
     private String height;
     private String width;
 
-    private Boolean isNumeric;
-    private Boolean isRequired;
+    private Boolean isNumeric = false;
+    private Boolean isRequired = false;
 
     public enum Modes{
         one_line,
@@ -16,38 +18,27 @@ public class TextBox extends Control{
         password
     }
 
-    private Modes mode;
+    private Modes mode = Modes.one_line;
 
     public TextBox(String etiqueta) {
         super(etiqueta);
         getControlByName();
     }
 
-    public TextBox(String nombre, String etiqueta) {
-        super(nombre, etiqueta);
-        getControlById();
-        getControlByName();
-    }
-
     public TextBox(String etiqueta, Modes mode) {
         super(etiqueta);
-        getControlByName();
         this.mode = mode;
-    }
+        getControlByName();
 
-    public TextBox(String nombre, String etiqueta, Modes mode) {
-        super(nombre, etiqueta);
-        getControlById();
-        getControlByName();
-        this.mode = mode;
     }
 
     public TextBox(String nombre, String etiqueta, Boolean isNumeric, Boolean isRequired){
         super(nombre, etiqueta);
+        this.isNumeric = (isNumeric) ? isNumeric : false;
+        this.isRequired = (isRequired) ? isRequired: false;
         getControlById();
         getControlByName();
-        if(isNumeric) this.isNumeric = isNumeric;
-        if(isRequired) this.isRequired = isRequired;
+
     }
 
 
@@ -55,16 +46,26 @@ public class TextBox extends Control{
         return isNumeric;
     }
 
-    public void setNumeric(Boolean numeric) {
-        isNumeric = numeric;
+    public void setIsNumeric() {
+        isNumeric = !isNumeric;
+        try {
+            getControlById();
+        } catch (NullPointerException e){
+            System.out.println(e);
+        }
+        getControlByName();
     }
 
-    public Boolean getRequired() {
-        return isRequired;
-    }
+    public Boolean getRequired() { return isRequired; }
 
-    public void setRequired(Boolean required) {
-        isRequired = required;
+    public void setIsRequired() {
+        isRequired = !isRequired;
+        try {
+            getControlById();
+        } catch (NullPointerException e){
+            System.out.println(e);
+        }
+        getControlByName();
     }
 
     public Modes getMode() {
@@ -77,33 +78,69 @@ public class TextBox extends Control{
 
 
     @Override
-    public void getControlById() {
-        String id = "//input[@id='" + getNombre() + "' and @name='" + getNombre() + isRequired() + "']";
-        setXpathSelectorById(By.xpath(id));
+    public void getControlById() throws NullPointerException{
+        if (getNombre() != ""){
+            String id = "//" + ifModeMultipleLine() + "[@id='" + getNombre() + "' and @name='" + getNombre() + "'" + getAttributes() + "]";
+            setXpathSelectorById(By.xpath(id));
+        }
+        else throw new NullPointerException();
     }
 
     @Override
     public void getControlById(String id) {
-        id = "//input[@id='" + id + "' and @name='" + id + isRequired() + "']";
+        id = "//" + ifModeMultipleLine() + "[@id='" + id + "' and @name='" + id + "'" + getAttributes() + "]";
         super.getControlById(id);
     }
 
     @Override
     public void getControlByName() {
-        String name = "//span[text()='" + getEtiqueta() + "']/ancestor::td[1]/following::td[1]/input";
+        String name = "//span[text()='" + getEtiqueta() + "']/ancestor::td[1]/following::td[1]/" + ifModeMultipleLine() + (getAttributes() != "" ? "[" + getAttributes() + "]" : "");
         setXpathSelectorByName(By.xpath(name));
     }
 
     @Override
     public void getControlByName(String name) {
-        name = "//span[text()='" + name + "']/ancestor::td[1]/following::td[1]/input";
+        name = "//span[text()='" + name + "']/ancestor::td[1]/following::td[1]/" + ifModeMultipleLine() + (getAttributes() != "" ? "[" + getAttributes() + "]" : "") ;
         super.getControlByName(name);
     }
 
-    public String isRequired(){
-        String aux = "";
-        if(isRequired) aux = " and isrequired='1'";
-        return aux;
+    public String ifRequired(){
+        String text = (isRequired ? "@isrequired='1'": "" );
+        return text;
     }
 
+
+    public String ifNumeric(){
+        String text = (isNumeric ? "@onblur": "" );
+        return text;
+    }
+
+    public String ifModeMultipleLine(){
+        String text = (mode == Modes.multiple_line ? "textarea" : "input");
+        return text;
+    }
+
+    public String ifModePassword(){
+        String text = (mode == Modes.password ? "@type='password'" : "");
+        return text;
+    }
+
+    public String getAttributes(){
+        String text = "";
+        ArrayList<String> attributes = new ArrayList<String>();
+        attributes.add(ifRequired());
+        attributes.add(ifModePassword());
+        attributes.add(ifNumeric());
+        while(attributes.remove("")) {}
+        int attrSize = attributes.size();
+        //text += ( attrSize > 0 ? "[" : "");
+        int attrLeft = attrSize;
+        for (String a : attributes){
+           text += a;
+           attrLeft --;
+           text += (attrLeft > 0 ? " and ": "");
+        }
+        //text += ( attrSize > 0 ? "]" : "");
+        return text;
+    }
 }

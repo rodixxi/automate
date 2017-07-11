@@ -9,4 +9,13 @@ public interface ControlsGestar extends Page{
 
     void seleccionarTabPanel(String tab) throws AgentException, InterruptedException;
 
+    void ingresoInputACampoRequerido(String input, String campo) throws AgentException, InterruptedException;
+
+    void ingresoInputACampo(String input, String campo) throws AgentException, InterruptedException;
+
+    void ingresoInputACampoNumerico(String input, String campo) throws AgentException;
+
+    void ingresoInputACampoMultiple(String input, String campo) throws AgentException;
+
+    void ingresoInputACampoPassword(String input, String campo) throws AgentException;
 }

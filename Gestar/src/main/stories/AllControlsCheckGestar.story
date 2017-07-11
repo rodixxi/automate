@@ -12,6 +12,11 @@ When me conecto a gestar con el usuario: admin sin pass a la instancia DESA
 When abrir la carpeta autoMate
 When abrir la carpeta autoMATE - prueba
 When crear arhivo nuevo
-When seleccionar tabPanel tab2
-When seleccionar tabPanel tab3
-When seleccionar tabPanel tab1
+!-- When seleccionar tabPanel tab2
+!-- When seleccionar tabPanel tab3
+!-- When seleccionar tabPanel tab1
+When ingreso abc para el campo requerido: RequiredTextBox
+When ingreso lala en comunTextBox
+When ingreso 123 para el campo numerico: NumericTexBox
+When ingreso jojojujaju para campo de texto multiple: MultiTexBox
+When ingreso lapolola para el campo password: PassTexBox
