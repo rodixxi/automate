@@ -159,6 +159,16 @@ public interface Agent {
      * @author rcrespillo
      */
     public void selectSelectorOption(String selector, String option) throws AgentException;
+
+    /**
+     * Select a selector option
+     * @param selector
+     * @param option
+     * @throws AgentException
+     * @author rcrespillo
+     */
+    public void selectSelectorOption(Object selector, String option) throws AgentException;
+
     /**
      * Close agent
      */

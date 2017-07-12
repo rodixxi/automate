@@ -22,3 +22,7 @@ When crear arhivo nuevo
 !-- When cargar el archivo: C:/lala.txt, en popup: attachments
 !-- When seleccionar tabPanel tab3
 !-- When cargar fecha: 07/07/2017, con 03:24 en DTPicker: DTPcikerDyT
+
+When seleccionar tabPanel tab5
+When selecciono opcion: Juan, de el selector: selectFolder
+

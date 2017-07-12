@@ -216,6 +216,12 @@ public class CommonAgentImpl implements Agent {
         dropdown.selectByVisibleText(option);
     }
 
+    @Override
+    public void selectSelectorOption(Object element, String option) throws AgentException{
+        Select dropdown = new Select(driver.findElement((By)element));
+        dropdown.selectByVisibleText(option);
+    }
+
 
     @Override
     public void takeScreenshot() throws AgentException {

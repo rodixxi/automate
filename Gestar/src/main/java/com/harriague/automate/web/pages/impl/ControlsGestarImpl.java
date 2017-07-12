@@ -3,10 +3,7 @@ package com.harriague.automate.web.pages.impl;
 import com.harriague.automate.core.agent.Agent;
 import com.harriague.automate.core.exceptions.AgentException;
 import com.harriague.automate.core.page.BasePage;
-import com.harriague.automate.web.control.Attachment;
-import com.harriague.automate.web.control.DTPicker;
-import com.harriague.automate.web.control.Tab;
-import com.harriague.automate.web.control.TextBox;
+import com.harriague.automate.web.control.*;
 import com.harriague.automate.web.pages.ControlsGestar;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -124,6 +121,16 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
             agent.writeInElement(dtPicker_object.getHhXpath(), hh);
             agent.writeInElement(dtPicker_object.getMmXpath(), mm);
         } else {
+            System.out.println("No se encontro el campo");
+        }
+    }
+
+    @Override
+    public void selectOption(String opcion, String selector) throws AgentException {
+        SelectControl selectControl = new SelectControl(selector);
+        if (agent.checkElementIsDisplayed(selectControl.getXpathSelectorByName())){
+            agent.selectSelectorOption(selectControl.getXpathSelectorByName(), opcion);
+        }else {
             System.out.println("No se encontro el campo");
         }
     }

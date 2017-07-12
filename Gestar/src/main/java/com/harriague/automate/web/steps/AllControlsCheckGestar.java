@@ -56,4 +56,9 @@ public class AllControlsCheckGestar extends StepBase {
     public void cargarDate(String date, String hh, String mm, String dtpicker) throws Exception {
         getPage(ControlsGestar.class).cargarDate(date, hh, mm, dtpicker);
     }
+
+    @When("selecciono opcion: $opcion, de el selector: $selector")
+    public void selectOption(String opcion, String selector) throws Exception {
+        getPage(ControlsGestar.class).selectOption(opcion, selector);
+    }
 }

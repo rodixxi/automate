@@ -22,4 +22,6 @@ public interface ControlsGestar extends Page{
     void openPopup(String url, String popup) throws AgentException;
 
     void cargarDate(String date, String hh, String mm, String dtpicker) throws AgentException;
+
+    void selectOption(String opcion, String selector) throws AgentException;
 }
