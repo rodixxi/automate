@@ -18,4 +18,6 @@ public interface ControlsGestar extends Page{
     void ingresoInputACampoMultiple(String input, String campo) throws AgentException;
 
     void ingresoInputACampoPassword(String input, String campo) throws AgentException;
+
+    void openPopup(String popup) throws AgentException;
 }

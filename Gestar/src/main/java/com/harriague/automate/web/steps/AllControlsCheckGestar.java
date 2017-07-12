@@ -46,4 +46,9 @@ public class AllControlsCheckGestar extends StepBase {
     public void ingresoInputACampoPassword(String input, String campo) throws Exception{
         getPage(ControlsGestar.class).ingresoInputACampoPassword(input, campo);
     }
+
+    @When("seleccione el popup: $popup")
+    public void openPopup(String popup) throws Exception {
+        getPage(ControlsGestar.class).openPopup(popup);
+    }
 }

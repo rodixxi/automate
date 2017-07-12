@@ -3,6 +3,7 @@ package com.harriague.automate.web.pages.impl;
 import com.harriague.automate.core.agent.Agent;
 import com.harriague.automate.core.exceptions.AgentException;
 import com.harriague.automate.core.page.BasePage;
+import com.harriague.automate.web.control.Attachment;
 import com.harriague.automate.web.control.Tab;
 import com.harriague.automate.web.control.TextBox;
 import com.harriague.automate.web.pages.ControlsGestar;
@@ -98,5 +99,16 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         } else {
             System.out.println("No se encontro el campo");
         }
+    }
+
+    @Override
+    public void openPopup(String popup) throws AgentException {
+        Attachment attch_object = new Attachment(popup);
+        if (agent.checkElementIsDisplayed(attch_object.getXpathSelectorByName())){
+            agent.click(attch_object.getXpathSelectorByName());
+        } else {
+            System.out.println("No se encontro el campo");
+        }
+
     }
 }

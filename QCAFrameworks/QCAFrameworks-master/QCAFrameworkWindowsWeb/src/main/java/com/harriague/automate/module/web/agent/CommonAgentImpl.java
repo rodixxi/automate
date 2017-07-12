@@ -306,6 +306,7 @@ public class CommonAgentImpl implements Agent {
             subWindowHandler = iterator.next();
         }
         driver.switchTo().window(subWindowHandler); // switch to popup window
+        System.out.println(driver.getTitle());
 
         // Now you are in the popup window, perform necessary actions here
         return parentWindowHandler;
