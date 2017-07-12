@@ -279,5 +279,15 @@ public interface Agent {
     public Process waitForCommand(String command) throws AgentException;
     
    //public void SwitchDriver(Object by) throws AgentException;
+
+    /**
+     * Rodrigo Crespillo
+     * /12/07/2017
+     * ver 1.0
+     * Agrega un archivo a un attachemnt
+     * @param fileButtom
+     * @param filePath
+     */
+    public void selectFile(String fileButtom, String filePath);
     
     }

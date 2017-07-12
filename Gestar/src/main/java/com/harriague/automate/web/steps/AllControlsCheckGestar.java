@@ -47,8 +47,8 @@ public class AllControlsCheckGestar extends StepBase {
         getPage(ControlsGestar.class).ingresoInputACampoPassword(input, campo);
     }
 
-    @When("seleccione el popup: $popup")
-    public void openPopup(String popup) throws Exception {
-        getPage(ControlsGestar.class).openPopup(popup);
+    @When("cargar el archivo: $url, en popup: $popup")
+    public void openPopup(String url, String popup) throws Exception {
+        getPage(ControlsGestar.class).openPopup(url, popup);
     }
 }

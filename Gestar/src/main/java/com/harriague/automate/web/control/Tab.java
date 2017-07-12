@@ -55,8 +55,7 @@ public class Tab extends Control {
      * @return xpathAsSelected
      */
     public By tabSelectedByName(){
-        System.out.println(By.xpath("//a[@name and text()=' " + getEtiqueta() + "']/ancestor::span[1]/@class='tab selected'"));
-        return By.xpath("//a[@name and text()=' " + getEtiqueta() + "']/ancestor::span[1]/@class='tab selected'");
+        return By.xpath("//a[@name and text()=' " + getEtiqueta() + "']/ancestor::span[1][@class='tab selected']");
     }
 }
 

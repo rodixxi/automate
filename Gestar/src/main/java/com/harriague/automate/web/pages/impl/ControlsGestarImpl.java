@@ -7,11 +7,8 @@ import com.harriague.automate.web.control.Attachment;
 import com.harriague.automate.web.control.Tab;
 import com.harriague.automate.web.control.TextBox;
 import com.harriague.automate.web.pages.ControlsGestar;
-import com.harriague.automate.module.web.agent.CommonAgentImpl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
 public class ControlsGestarImpl extends BasePage implements ControlsGestar {
 
@@ -38,7 +35,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         if (agent.checkElementIsDisplayed(newTab.getXpathSelectorByName())){
             agent.click(newTab.getXpathSelectorByName());
         }
-        agent.checkElementIsDisplayed(newTab.tabSelectedByName());
+        //agent.checkElementIsDisplayed(newTab.tabSelectedByName());
     }
 
 
@@ -102,10 +99,15 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     }
 
     @Override
-    public void openPopup(String popup) throws AgentException {
+    public void openPopup(String url, String popup) throws AgentException {
         Attachment attch_object = new Attachment(popup);
         if (agent.checkElementIsDisplayed(attch_object.getXpathSelectorByName())){
             agent.click(attch_object.getXpathSelectorByName());
+            String princalwindows = agent.switchToPopup();
+            agent.selectFile(attch_object.getInputButtom(), url);
+            agent.click(attch_object.getAddButtomXpath());
+            agent.click(attch_object.getCloseButtomXpath());
+            agent.switchToPopup(princalwindows);
         } else {
             System.out.println("No se encontro el campo");
         }

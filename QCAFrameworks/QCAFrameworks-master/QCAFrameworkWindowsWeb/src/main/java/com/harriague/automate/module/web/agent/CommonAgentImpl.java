@@ -306,7 +306,6 @@ public class CommonAgentImpl implements Agent {
             subWindowHandler = iterator.next();
         }
         driver.switchTo().window(subWindowHandler); // switch to popup window
-        System.out.println(driver.getTitle());
 
         // Now you are in the popup window, perform necessary actions here
         return parentWindowHandler;
@@ -1048,5 +1047,20 @@ public class CommonAgentImpl implements Agent {
         // TODO Auto-generated method stub
         
     }
+
+    /**
+     * Rodrigo Crespillo
+     * /12/07/2017
+     * ver 1.0
+     * Agrega un archivo a un attachemnt
+     * @param fileButtom
+     * @param filePath
+     */
+    public void selectFile(String fileButtom, String filePath){
+        WebElement file_buttom = driver.findElement(By.xpath(fileButtom));
+        file_buttom.sendKeys(filePath);
+    }
+
+
 
 }

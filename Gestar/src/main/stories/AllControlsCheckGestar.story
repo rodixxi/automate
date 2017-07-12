@@ -20,4 +20,4 @@ When seleccionar tabPanel tab2
 !-- When ingreso 123 para el campo numerico: NumericTexBox
 !-- When ingreso jojojujaju para campo de texto multiple: MultiTexBox
 !-- When ingreso lapolola para el campo password: PassTexBox
-When seleccione el popup: attachments
+When cargar el archivo: C:/lala.txt, en popup: attachments
