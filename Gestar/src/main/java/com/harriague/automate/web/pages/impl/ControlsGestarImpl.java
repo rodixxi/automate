@@ -4,6 +4,7 @@ import com.harriague.automate.core.agent.Agent;
 import com.harriague.automate.core.exceptions.AgentException;
 import com.harriague.automate.core.page.BasePage;
 import com.harriague.automate.web.control.Attachment;
+import com.harriague.automate.web.control.DTPicker;
 import com.harriague.automate.web.control.Tab;
 import com.harriague.automate.web.control.TextBox;
 import com.harriague.automate.web.pages.ControlsGestar;
@@ -112,5 +113,18 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
             System.out.println("No se encontro el campo");
         }
 
+    }
+
+    @Override
+    public void cargarDate(String date, String hh, String mm, String dtpicker) throws AgentException {
+        DTPicker dtPicker_object = new DTPicker(dtpicker);
+        if (agent.checkElementIsDisplayed(dtPicker_object.getButtonXpath())){
+            //agent.click(dtPicker_object.getButtonXpath());
+            agent.writeInElement(dtPicker_object.getDateXpath(), date);
+            agent.writeInElement(dtPicker_object.getHhXpath(), hh);
+            agent.writeInElement(dtPicker_object.getMmXpath(), mm);
+        } else {
+            System.out.println("No se encontro el campo");
+        }
     }
 }

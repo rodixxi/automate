@@ -20,4 +20,6 @@ public interface ControlsGestar extends Page{
     void ingresoInputACampoPassword(String input, String campo) throws AgentException;
 
     void openPopup(String url, String popup) throws AgentException;
+
+    void cargarDate(String date, String hh, String mm, String dtpicker) throws AgentException;
 }

@@ -51,4 +51,9 @@ public class AllControlsCheckGestar extends StepBase {
     public void openPopup(String url, String popup) throws Exception {
         getPage(ControlsGestar.class).openPopup(url, popup);
     }
+
+    @When("cargar fecha: $date, con $hh:$mm  en DTPicker: $dtpicker")
+    public void cargarDate(String date, String hh, String mm, String dtpicker) throws Exception {
+        getPage(ControlsGestar.class).cargarDate(date, hh, mm, dtpicker);
+    }
 }
