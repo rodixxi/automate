@@ -11,12 +11,14 @@ public class Constants {
 	public static final String BROWSER_OPERA_NAME = "OPERA";
 
 	//public static final String PATH_WEB_DRIVERS_FOLDER = "/WebDrivers/";
-	public static final String PATH_WEB_DRIVERS_FOLDER = "/WebDrivers/"+(CoreUtils.is64BitOS()?"64/":"32/");
+	public static final String PATH_WEB_DRIVERS_FOLDER = "/WebDrivers/Windows/"+(CoreUtils.is64BitOS()?"64/":"32/");
 	public static final String DRIVER_CHROME_FILE_NAME="chromedriver.exe";
+	public static final String DRIVER_FIREFOX_FILE_NAME="geckodriver.exe";
 	public static final String DRIVER_DEFAULT_BROWSER_FILE_NAME="IEDriverServer.exe";
 	public static final String DRIVER_OPERA_FILE_NAME="operadriver.exe";
 	public static final String PROPERTY_CHROMEDRIVER = "webdriver.chrome.driver";
 	public static final String PROPERTY_DEFAULT_BROWSER_DRIVER = "webdriver.ie.driver";
+    public static final String PROPERTY_FIREFOX_DRIVER = "webdriver.gecko.driver";
 	public static final String RESOURCES_FOLDER = "resources/";
 	
 	public static final FlawedTimeUnit DEFAULT_DRIVER_QUICK_SEARCH = FlawedTimeUnit.seconds(5);

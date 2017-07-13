@@ -14,7 +14,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.TimeoutException;
@@ -42,6 +41,7 @@ import com.harriague.automate.core.structures.SwipeDirection;
 import com.harriague.automate.core.utils.ReadProperty;
 
 public class CommonAgentImpl implements Agent {
+
 
     /**
      * Logger object
@@ -86,11 +86,15 @@ public class CommonAgentImpl implements Agent {
 
     private final String PROPERTY_DEFAULT_BROWSER_DRIVER;
 
+    private final String DRIVER_FIREFOX_FILE_NAME;
+
+    private final String PROPERTY_FIREFOX_DRIVER;
+
     protected CommonAgentImpl(FlawedTimeUnit default_driver_quick_search, String attribute_value,
-            String fire_fox_name, String chrome_name, String defaul_browser_name, String opera_name,
-            String resource_folder, String path_web_driver_folder, String driver_chrome_file_name,
-            String property_chromeDriver, String driver_opera_file_name,
-            String driver_default_browser_file_name, String property_default) {
+                              String fire_fox_name, String chrome_name, String defaul_browser_name, String opera_name,
+                              String resource_folder, String path_web_driver_folder, String driver_chrome_file_name,
+                              String property_chromeDriver, String driver_opera_file_name,
+                              String driver_default_browser_file_name, String property_default, String driver_firefox_file_name, String property_firefox_driver) {
         DEFAULT_DRIVER_QUICK_SEARCH = default_driver_quick_search;
         ATTRIBUTE_VALUE = attribute_value;
         BROWSER_FIREFOX_NAME = fire_fox_name;
@@ -100,10 +104,12 @@ public class CommonAgentImpl implements Agent {
         RESOURCES_FOLDER = resource_folder;
         PATH_WEB_DRIVERS_FOLDER = path_web_driver_folder;
         DRIVER_CHROME_FILE_NAME = driver_chrome_file_name;
+        DRIVER_FIREFOX_FILE_NAME = driver_firefox_file_name;
         PROPERTY_CHROMEDRIVER = property_chromeDriver;
         DRIVER_OPERA_FILE_NAME = driver_opera_file_name;
         DRIVER_DEFAULT_BROWSER_FILE_NAME = driver_default_browser_file_name;
         PROPERTY_DEFAULT_BROWSER_DRIVER = property_default;
+        PROPERTY_FIREFOX_DRIVER = property_firefox_driver;
     }
 
     /*
@@ -288,6 +294,7 @@ public class CommonAgentImpl implements Agent {
         action.contextClick(context).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN)
                 .sendKeys(Keys.RETURN).build().perform();
     }
+
     
     public void doubleClick(Object element) throws AgentException {
         WebElement el = quickFindElement((By) element, DEFAULT_DRIVER_QUICK_SEARCH);
@@ -297,6 +304,25 @@ public class CommonAgentImpl implements Agent {
         else {
         	Actions action = new Actions(driver);
             action.doubleClick(el).build().perform();
+        }
+    }
+
+    @Override
+    public void ctrlClick(Object by) throws AgentException {
+        WebElement context = find((By) by);
+        Actions action = new Actions(driver);
+        action.keyDown(Keys.CONTROL).click(context).keyUp(Keys.CONTROL).perform();
+
+    }
+
+    @Override
+    public void selectOptions(String option, Object element) {
+        ArrayList<WebElement> options = (ArrayList<WebElement>) findElements((By)element);
+        for (WebElement option_aux : options){
+            if (option_aux.getText() == option){
+                Actions action = new Actions(driver);
+                action.keyDown(Keys.CONTROL).click(option_aux).keyUp(Keys.CONTROL).perform();
+            }
         }
     }
 
@@ -405,18 +431,23 @@ public class CommonAgentImpl implements Agent {
     /**
      * Start Chrome browser
      */
-    public void startChrome() {
+    public String getWebFolder(){
         String webFolder = null;
         StringBuilder strB = new StringBuilder();
         try {
-        	strB.append(ReadProperty.getProperty("core-web_path"));
-        	strB.append(File.separator);
-        	strB.append("resources");
-        	strB.append(File.separator);
-        	webFolder = strB.toString();
+            strB.append(ReadProperty.getProperty("core-web_path"));
+            strB.append(File.separator);
+            strB.append("resources");
+            strB.append(File.separator);
+            webFolder = strB.toString();
         } catch (PropertyException e) {
             webFolder = RESOURCES_FOLDER;
         }
+        return webFolder;
+    }
+
+    public void startChrome() {
+        String webFolder = getWebFolder();
         //File srcFile =
         //        new File(webFolder + PATH_WEB_DRIVERS_FOLDER + DRIVER_CHROME_FILE_NAME);
         String srcFile =
@@ -432,14 +463,15 @@ public class CommonAgentImpl implements Agent {
     }
 
     public void startInternetExplorer() {
-
+        String webFolder = getWebFolder();
         File srcFile = new File(
-                RESOURCES_FOLDER + PATH_WEB_DRIVERS_FOLDER + DRIVER_DEFAULT_BROWSER_FILE_NAME);
+                webFolder + PATH_WEB_DRIVERS_FOLDER + DRIVER_DEFAULT_BROWSER_FILE_NAME);
         System.setProperty(PROPERTY_DEFAULT_BROWSER_DRIVER, srcFile.getAbsolutePath());
 
         DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
         caps.setCapability(InternetExplorerDriver.FORCE_CREATE_PROCESS, true);
         caps.setCapability(InternetExplorerDriver.IE_SWITCHES, "-private");
+        caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
         // HKLM_CURRENT_USER\\Software\\Microsoft\\Internet Explorer\\Main path should contain key
         // TabProcGrowth with 0 value.
         driver = new InternetExplorerDriver(caps);
@@ -447,13 +479,20 @@ public class CommonAgentImpl implements Agent {
     }
 
     public void startFireFox() {
+        String webFolder = getWebFolder();
+        String srcFile =
+                new File(webFolder + PATH_WEB_DRIVERS_FOLDER + DRIVER_FIREFOX_FILE_NAME).getAbsolutePath();
+        System.setProperty(PROPERTY_FIREFOX_DRIVER, srcFile);
+
+
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
     }
 
     public void startOpera() {
+        String webFolder = getWebFolder();
         File srcFile =
-                new File(RESOURCES_FOLDER + PATH_WEB_DRIVERS_FOLDER + DRIVER_OPERA_FILE_NAME);
+                new File(webFolder + PATH_WEB_DRIVERS_FOLDER + DRIVER_OPERA_FILE_NAME);
         System.setProperty(PROPERTY_CHROMEDRIVER, srcFile.getAbsolutePath());
         driver = new ChromeDriver();
     }

@@ -11,9 +11,9 @@ public class AgentImpl extends CommonAgentImpl implements Agent {
                 Constants.BROWSER_FIREFOX_NAME, Constants.BROWSER_CHROME_NAME, 
                 Constants.BROWSER_DEFAULT_NAME, Constants.BROWSER_OPERA_NAME, 
                 Constants.RESOURCES_FOLDER, Constants.PATH_WEB_DRIVERS_FOLDER, 
-                Constants.DRIVER_CHROME_FILE_NAME, Constants.PROPERTY_CHROMEDRIVER, 
+                Constants.DRIVER_CHROME_FILE_NAME, Constants.PROPERTY_CHROMEDRIVER,
                 Constants.DRIVER_OPERA_FILE_NAME, Constants.DRIVER_DEFAULT_BROWSER_FILE_NAME, 
-                Constants.PROPERTY_DEFAULT_BROWSER_DRIVER);
+                Constants.PROPERTY_DEFAULT_BROWSER_DRIVER, Constants.DRIVER_FIREFOX_FILE_NAME, Constants.PROPERTY_FIREFOX_DRIVER);
     }
     
 }
