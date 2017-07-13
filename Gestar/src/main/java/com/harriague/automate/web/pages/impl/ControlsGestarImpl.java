@@ -8,6 +8,8 @@ import com.harriague.automate.web.pages.ControlsGestar;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.ArrayList;
+
 public class ControlsGestarImpl extends BasePage implements ControlsGestar {
 
 
@@ -133,5 +135,19 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         }else {
             System.out.println("No se encontro el campo");
         }
+    }
+
+    /**
+     * Esta a diferencia de los demas usa como parametro el nombre del campo y no la etiqueta
+     * @param options
+     * @param selector
+     */
+    @Override
+    public void selectMultipleoptions(ArrayList<String> options, String selector) throws AgentException {
+        SelectorMultiple selectorMultiple = new SelectorMultiple(selector, "");
+        for (String option : options){
+            agent.selectOptions(option, selectorMultiple.getLeftOptions());
+        }
+        agent.click(selectorMultiple.getToRightButton());
     }
 }

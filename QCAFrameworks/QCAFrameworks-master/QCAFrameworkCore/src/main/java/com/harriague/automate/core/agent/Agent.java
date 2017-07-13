@@ -292,12 +292,32 @@ public interface Agent {
 
     /**
      * Rodrigo Crespillo
-     * /12/07/2017
+     * 12/07/2017
      * ver 1.0
      * Agrega un archivo a un attachemnt
      * @param fileButtom
      * @param filePath
      */
     public void selectFile(String fileButtom, String filePath);
-    
-    }
+
+    /**
+     * Rodrigo Crespillo
+     * 13/07/2017
+     * ver 1.0
+     * Realiza control + click en un elemento
+     * @param by
+     */
+    public void ctrlClick(Object by) throws AgentException;
+
+    /**
+     * Rodrigo Crespillo
+     * 13/07/2017
+     * ver 1.0
+     *
+     * @param option
+     * @return
+     */
+    void selectOptions(String option, Object element);
+}
+
+

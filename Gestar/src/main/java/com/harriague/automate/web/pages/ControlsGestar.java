@@ -3,6 +3,8 @@ package com.harriague.automate.web.pages;
 import com.harriague.automate.core.exceptions.AgentException;
 import com.harriague.automate.core.page.Page;
 
+import java.util.ArrayList;
+
 public interface ControlsGestar extends Page{
 
     void crearNuevoArchivoEnFormulario() throws AgentException, InterruptedException;
@@ -24,4 +26,6 @@ public interface ControlsGestar extends Page{
     void cargarDate(String date, String hh, String mm, String dtpicker) throws AgentException;
 
     void selectOption(String opcion, String selector) throws AgentException;
+
+    void selectMultipleoptions(ArrayList<String> options, String selector) throws AgentException;
 }

@@ -4,6 +4,10 @@ import com.harriague.automate.core.steps.StepBase;
 import com.harriague.automate.web.pages.LoginPage;
 import com.harriague.automate.web.pages.ControlsGestar;
 import org.jbehave.core.annotations.When;
+import org.jbehave.core.model.ExamplesTable;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 public class AllControlsCheckGestar extends StepBase {
 
@@ -60,5 +64,15 @@ public class AllControlsCheckGestar extends StepBase {
     @When("selecciono opcion: $opcion, de el selector: $selector")
     public void selectOption(String opcion, String selector) throws Exception {
         getPage(ControlsGestar.class).selectOption(opcion, selector);
+    }
+
+    @When("selecciono las opciones: $tableOptions del selector multiple: $selector")
+    public void selectMultipleoptions(ExamplesTable $tableOptions, String selector) throws Exception {
+        ArrayList<String> options = new ArrayList();
+        for (Map<String,String> row : $tableOptions.getRows()){
+            String option = row.get("options");
+            options.add(option);
+        }
+        getPage(ControlsGestar.class).selectMultipleoptions(options, selector);
     }
 }
