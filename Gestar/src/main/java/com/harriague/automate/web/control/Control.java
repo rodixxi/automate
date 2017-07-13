@@ -1,24 +1,24 @@
 package com.harriague.automate.web.control;
 
 import org.openqa.selenium.By;
-import com.harriague.automate.core.agent.Agent;
 
 
 public class Control {
 
     private String nombre;
     private String etiqueta;
-    private By xpathSelectorById;
-    private By xpathSelectorByName;
+    private By cssSelector;
 
     public Control(String nombre, String etiqueta) {
         this.nombre = nombre;
         this.etiqueta = etiqueta;
     }
 
-    public Control(String etiqueta) {
-        this.etiqueta = etiqueta;
-        this.nombre = "";
+    public Control(String nombre) {
+        this.nombre = nombre;
+        this.etiqueta = "";
+        setCssSelector();
+
     }
 
     public String getNombre() {
@@ -37,52 +37,31 @@ public class Control {
         this.etiqueta = etiqueta;
     }
 
-    public By getXpathSelectorById() {
-        return xpathSelectorById;
+    public By getCssSelector() {
+        return cssSelector;
     }
 
-    public void setXpathSelectorById(By xpathSelectorById) {
-        this.xpathSelectorById = xpathSelectorById;
+    public void setCssSelector(By cssSelector) {
+        this.cssSelector = cssSelector;
     }
 
-    public By getXpathSelectorByName() {
-        return xpathSelectorByName;
-    }
-
-    public void setXpathSelectorByName(By xpathSelectorByName) {
-        this.xpathSelectorByName = xpathSelectorByName;
+    public void setCssSelector()  {
+        this.cssSelector = By.cssSelector("#" + this.nombre);
     }
 
     /**
      * Toma el control por id
      * @param id
      */
-    public void getControlById(String id){
-        this.xpathSelectorById = By.xpath("" + id);
+    public void setCssSelectorById(String id){
+        this.cssSelector = By.cssSelector("" + id);
     }
 
     /**
      * Toma el control por id
      *
      */
-    public void getControlById(){
-        this.xpathSelectorById = By.xpath("" + this.nombre);
+    public void setCssSelectorById(){
+        this.cssSelector = By.cssSelector("" + this.nombre);
     }
-
-    /**
-     * Toma el control por nombre
-     * @param name
-     */
-    public void getControlByName(String name){
-        this.xpathSelectorByName = By.xpath("" + name);
-    }
-
-    /**
-     * Toma el control por nombre
-     *
-     */
-    public void getControlByName(){
-        this.xpathSelectorByName = By.xpath("" + this.etiqueta);
-    }
-
 }

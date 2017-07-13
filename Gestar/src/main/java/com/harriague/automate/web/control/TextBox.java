@@ -20,27 +20,25 @@ public class TextBox extends Control{
 
     private Modes mode = Modes.one_line;
 
-    public TextBox(String etiqueta) {
-        super(etiqueta);
-        getControlByName();
+    public TextBox(String nombre) {
+        super(nombre);
+        setCssSelectorById();
     }
 
-    public TextBox(String etiqueta, Modes mode) {
-        super(etiqueta);
+    public TextBox(String nombre, Modes mode) {
+        super(nombre);
         this.mode = mode;
-        getControlByName();
+        setCssSelectorById();
 
     }
 
-    public TextBox(String nombre, String etiqueta, Boolean isNumeric, Boolean isRequired){
-        super(nombre, etiqueta);
+    public TextBox(String nombre, Boolean isNumeric, Boolean isRequired){
+        super(nombre);
         this.isNumeric = (isNumeric) ? isNumeric : false;
         this.isRequired = (isRequired) ? isRequired: false;
-        getControlById();
-        getControlByName();
+        setCssSelectorById();
 
     }
-
 
     public Boolean getNumeric() {
         return isNumeric;
@@ -48,24 +46,14 @@ public class TextBox extends Control{
 
     public void setIsNumeric() {
         isNumeric = !isNumeric;
-        try {
-            getControlById();
-        } catch (NullPointerException e){
-            System.out.println(e);
-        }
-        getControlByName();
+        setCssSelectorById();
     }
 
     public Boolean getRequired() { return isRequired; }
 
     public void setIsRequired() {
         isRequired = !isRequired;
-        try {
-            getControlById();
-        } catch (NullPointerException e){
-            System.out.println(e);
-        }
-        getControlByName();
+        setCssSelectorById();
     }
 
     public Modes getMode() {
@@ -78,40 +66,25 @@ public class TextBox extends Control{
 
 
     @Override
-    public void getControlById() throws NullPointerException{
-        if (getNombre() != ""){
-            String id = "//" + ifModeMultipleLine() + "[@id='" + getNombre() + "' and @name='" + getNombre() + "'" + getAttributes() + "]";
-            setXpathSelectorById(By.xpath(id));
-        }
-        else throw new NullPointerException();
+    public void setCssSelectorById(){
+        String id =  ifModeMultipleLine() + "#" + getNombre() + "[name='" + getNombre() + "']" + getAttributes();
+        setCssSelector(By.cssSelector(id));
     }
 
     @Override
-    public void getControlById(String id) {
-        id = "//" + ifModeMultipleLine() + "[@id='" + id + "' and @name='" + id + "'" + getAttributes() + "]";
-        super.getControlById(id);
-    }
-
-    @Override
-    public void getControlByName() {
-        String name = "//span[text()='" + getEtiqueta() + "']/ancestor::td[1]/following::td[1]/" + ifModeMultipleLine() + (getAttributes() != "" ? "[" + getAttributes() + "]" : "");
-        setXpathSelectorByName(By.xpath(name));
-    }
-
-    @Override
-    public void getControlByName(String name) {
-        name = "//span[text()='" + name + "']/ancestor::td[1]/following::td[1]/" + ifModeMultipleLine() + (getAttributes() != "" ? "[" + getAttributes() + "]" : "") ;
-        super.getControlByName(name);
+    public void setCssSelectorById(String id) {
+        id = ifModeMultipleLine() + "#" + id + "[name='" + id + "']" + getAttributes();
+        super.setCssSelectorById(id);
     }
 
     public String ifRequired(){
-        String text = (isRequired ? "@isrequired='1'": "" );
+        String text = (isRequired ? "isrequired='1'": "" );
         return text;
     }
 
 
     public String ifNumeric(){
-        String text = (isNumeric ? "@onblur": "" );
+        String text = (isNumeric ? "onblur": "" );
         return text;
     }
 
@@ -121,7 +94,7 @@ public class TextBox extends Control{
     }
 
     public String ifModePassword(){
-        String text = (mode == Modes.password ? "@type='password'" : "");
+        String text = (mode == Modes.password ? "type='password'" : "");
         return text;
     }
 
@@ -133,14 +106,9 @@ public class TextBox extends Control{
         attributes.add(ifNumeric());
         while(attributes.remove("")) {}
         int attrSize = attributes.size();
-        //text += ( attrSize > 0 ? "[" : "");
-        int attrLeft = attrSize;
         for (String a : attributes){
-           text += a;
-           attrLeft --;
-           text += (attrLeft > 0 ? " and ": "");
+            text += "[" + a + "]";
         }
-        //text += ( attrSize > 0 ? "]" : "");
         return text;
     }
 }
