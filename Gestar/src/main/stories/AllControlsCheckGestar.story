@@ -7,7 +7,7 @@ Selecciono el tab1
 Cargo el campo textbox1 con texto plano
 
 Scenario: entro a automate y pruebo los tabs y el control de texto
-Given Navigate to the http://10.201.4.191/w/ url in the chrome browser
+Given Navigate to the http://10.201.4.191/w/ url in the firefox browser
 When me conecto a gestar con el usuario: admin sin pass a la instancia DESA
 When abrir la carpeta autoMate
 When abrir la carpeta autoMATE - prueba
@@ -32,3 +32,5 @@ When seleccionar tabPanel tab3
 !-- When cargo por calendario la fecha: 31/12/2017, en DTPicker: DTPickerF
 !-- When cargo por calendario la fecha: 01/01/2018, en DTPicker: DTPickerF
 !-- When cargo por calendario la fecha: 01/01/2017, en DTPicker: DTPickerF
+When seleccionar tabPanel tab5
+

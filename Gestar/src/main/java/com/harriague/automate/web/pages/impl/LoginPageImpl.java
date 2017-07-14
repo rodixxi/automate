@@ -16,9 +16,9 @@ import java.util.concurrent.TimeUnit;
 public class LoginPageImpl extends BasePage implements LoginPage {
 
 	// xpath para elementos que van a ser resaltados
-	private static final String USUARIO = "//input[@id='username']";
-	private static final String PWD = "//input[@id='password']";
-	private static final String BTNLOGIN = "//button[@class='buttonGradient']";
+	private static final String USUARIO = "#username";
+	private static final String PWD = "#password";
+	private static final String BTNLOGIN = "button.buttonGradient";
 	//private static final String LNKLOGIN =  "//a[@href='/w/auth/Login?']";
 	private static final String CMBINSTANCE = "//select[@id='instanceName']/option[@value='DESAV2']";
 	private static final String PUBLICFOLDER = "//div[@id='1001']";
@@ -26,10 +26,10 @@ public class LoginPageImpl extends BasePage implements LoginPage {
 	private static final String ITILROOT = "//div[@id='5487']";
 	private static final String MNUDOCUMENTS = "//span[@lang-str='20']";
 	private static final String CLICKNUEVO = "//li[@onclick='doNew(event); return false;']/a/div[@title='Nuevo']";
-	private static final By INSTANCIA = By.xpath( "//a[@href='/SUPERVIELLE_W/auth/Login?']");
-	private static final By USER_NAME = By.xpath("//div[@id='user_name']");
-	private static final By LOGOFF = By.xpath("//a[@id='logoffButton']");
-	private static final By LOG_MANUAL = By.xpath("//a[@href='/w/auth/Login?']");
+	private static final By INSTANCIA = By.cssSelector( "a[href='/SUPERVIELLE_W/auth/Login?']");
+	private static final By USER_NAME = By.cssSelector("div#user_name'");
+	private static final By LOGOFF = By.cssSelector("a#logoffButton");
+	private static final By LOG_MANUAL = By.cssSelector("a[href='/w/auth/Login?']");
 	
 	public LoginPageImpl(Agent agent) {
 		super(agent);
@@ -50,10 +50,10 @@ public class LoginPageImpl extends BasePage implements LoginPage {
 		*/
 		
 		//agent.click(By.xpath(LNKLOGIN));
-		agent.writeInElement(By.xpath(USUARIO), "admin");
-		agent.writeInElement(By.xpath(PWD), "");
+		agent.writeInElement(By.cssSelector(USUARIO), "admin");
+		agent.writeInElement(By.cssSelector(PWD), "");
 		agent.click(By.xpath(CMBINSTANCE));
-		agent.click(By.xpath(BTNLOGIN));
+		agent.click(By.cssSelector(BTNLOGIN));
 		//agent.click(By.xpath(PUBLICFOLDER));
 		//agent.click(By.xpath(ITILROOT));
 		//agent.click(By.xpath(INCIDENTFOLDER));
@@ -77,9 +77,9 @@ public class LoginPageImpl extends BasePage implements LoginPage {
             agent.click(LOG_MANUAL);
         }
 
-        agent.writeInElement(By.xpath(USUARIO), usuario);
-        agent.click(By.xpath("//select[@id='instanceName']/option[@value='" + instance + "']"));
-        agent.click(By.xpath(BTNLOGIN));
+        agent.writeInElement(By.cssSelector(USUARIO), usuario);
+        agent.selectSelectorOption(By.cssSelector("#instanceName"), instance);
+        agent.click(By.cssSelector(BTNLOGIN));
 
     }
 	
@@ -88,10 +88,10 @@ public class LoginPageImpl extends BasePage implements LoginPage {
 			agent.click(LOG_MANUAL);
 		}
 		
-		agent.writeInElement(By.xpath(USUARIO), usuario);
-		agent.writeInElement(By.xpath(PWD), pwd);
-		agent.click(By.xpath("//select[@id='instanceName']/option[@value='" + instance + "']"));
-		agent.click(By.xpath(BTNLOGIN));
+		agent.writeInElement(By.cssSelector(USUARIO), usuario);
+		agent.writeInElement(By.cssSelector(PWD), pwd);
+        agent.selectSelectorOption(By.cssSelector("#instanceName"), instance);
+		agent.click(By.cssSelector(BTNLOGIN));
 		  
 	}
 
