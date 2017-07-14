@@ -218,7 +218,7 @@ public class CommonAgentImpl implements Agent {
 
     @Override
     public void selectSelectorOption(String selector, String option) throws AgentException{
-        Select dropdown = new Select(driver.findElement(By.id(selector)));
+        Select dropdown = new Select(driver.findElement(By.cssSelector(selector)));
         dropdown.selectByVisibleText(option);
     }
 
@@ -484,9 +484,11 @@ public class CommonAgentImpl implements Agent {
                 new File(webFolder + PATH_WEB_DRIVERS_FOLDER + DRIVER_FIREFOX_FILE_NAME).getAbsolutePath();
         System.setProperty(PROPERTY_FIREFOX_DRIVER, srcFile);
 
+        //DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        //capabilities.setCapability("marionette", true);
 
         driver = new FirefoxDriver();
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
     }
 
     public void startOpera() {
