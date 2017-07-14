@@ -317,9 +317,10 @@ public class CommonAgentImpl implements Agent {
 
     @Override
     public void selectOptions(String option, Object element) {
-        ArrayList<WebElement> options = (ArrayList<WebElement>) findElements((By)element);
+        ArrayList<WebElement> options = (ArrayList<WebElement>) driver.findElements((By)element);
         for (WebElement option_aux : options){
-            if (option_aux.getText() == option){
+            String aux = option_aux.getText();
+            if (aux.equals(option)){
                 Actions action = new Actions(driver);
                 action.keyDown(Keys.CONTROL).click(option_aux).keyUp(Keys.CONTROL).perform();
             }
@@ -483,7 +484,7 @@ public class CommonAgentImpl implements Agent {
      * 14/07/2017
      * Se debe usar Firefox ver.49 las versiones mas actules de Firefox no son compatibles con xpath en el es usado
      * en algunas librerias
-     * 
+     *
      */
     public void startFireFox() {
         String webFolder = getWebFolder();
