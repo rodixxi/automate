@@ -478,6 +478,13 @@ public class CommonAgentImpl implements Agent {
         driver.manage().window().maximize();
     }
 
+    /**
+     * Rodrigo Crespillo
+     * 14/07/2017
+     * Se debe usar Firefox ver.49 las versiones mas actules de Firefox no son compatibles con xpath en el es usado
+     * en algunas librerias
+     * 
+     */
     public void startFireFox() {
         String webFolder = getWebFolder();
         String srcFile =
