@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
@@ -298,7 +299,7 @@ public interface Agent {
      * @param fileButtom
      * @param filePath
      */
-    public void selectFile(String fileButtom, String filePath);
+    public void selectFile(By fileButtom, String filePath);
 
     /**
      * Rodrigo Crespillo

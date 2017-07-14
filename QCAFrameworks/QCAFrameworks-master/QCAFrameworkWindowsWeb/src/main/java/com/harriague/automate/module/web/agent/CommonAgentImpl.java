@@ -1101,8 +1101,8 @@ public class CommonAgentImpl implements Agent {
      * @param fileButtom
      * @param filePath
      */
-    public void selectFile(String fileButtom, String filePath){
-        WebElement file_buttom = driver.findElement(By.xpath(fileButtom));
+    public void selectFile(By fileButtom, String filePath){
+        WebElement file_buttom = driver.findElement(fileButtom);
         file_buttom.sendKeys(filePath);
     }
 

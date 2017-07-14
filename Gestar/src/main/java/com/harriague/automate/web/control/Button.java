@@ -21,6 +21,6 @@ public class Button extends Control {
 
     public void getButtonXpath(){
         buttonXpath = "//button[text()='"+ text +"']";
-        setXpathSelectorByName(By.xpath(buttonXpath));
+        //setXpathSelectorByName(By.xpath(buttonXpath));
     }
 }

@@ -51,9 +51,9 @@ public class AllControlsCheckGestar extends StepBase {
         getPage(ControlsGestar.class).ingresoInputACampoPassword(input, campo);
     }
 
-    @When("cargar el archivo: $url, en popup: $popup")
-    public void openPopup(String url, String popup) throws Exception {
-        getPage(ControlsGestar.class).openPopup(url, popup);
+    @When("adjuntar el archivo: $url, en andjunto: $adjunto")
+    public void openPopup(String url, String adjunto) throws Exception {
+        getPage(ControlsGestar.class).openPopup(url, adjunto);
     }
 
     @When("cargar fecha: $date, con $hh:$mm  en DTPicker: $dtpicker")

@@ -10,6 +10,6 @@ public class Accordion extends Control{
     public Accordion(String etiqueta) {
         super(etiqueta);
         String path = "//p['" + etiqueta + "']/ancestor::h3[1]";
-        setXpathSelectorByName(By.xpath(path));
+        //setXpathSelectorByName(By.xpath(path));
     }
 }

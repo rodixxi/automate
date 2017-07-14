@@ -30,16 +30,6 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
 
 
     @Override
-    public void seleccionarTabPanel(String tab) throws AgentException, InterruptedException{
-        Tab newTab = new Tab(tab);
-        if (agent.checkElementIsDisplayed(newTab.getXpathSelectorByName())){
-            agent.click(newTab.getXpathSelectorByName());
-        }
-        //agent.checkElementIsDisplayed(newTab.tabSelectedByName());
-    }
-
-
-    @Override
     public void crearNuevoArchivoEnFormulario() throws AgentException, InterruptedException {
         By newFileControl = By.xpath("//a[@onclick='doNew(event); return false;']");
         if (agent.checkElementIsDisplayed(newFileControl)){
@@ -48,11 +38,20 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     }
 
     @Override
+    public void seleccionarTabPanel(String tab) throws AgentException, InterruptedException{
+        Tab newTab = new Tab(tab);
+        if (agent.checkElementIsDisplayed(newTab.getCssSelector())){
+            agent.click(newTab.getCssSelector());
+        }
+        //agent.checkElementIsDisplayed(newTab.tabSelectedByName());
+    }
+
+    @Override
     public void ingresoInputACampoRequerido(String input, String campo) throws AgentException, InterruptedException {
         TextBox textBox_object = new TextBox(campo);
         textBox_object.setIsRequired();
-        if (agent.checkElementIsDisplayed(textBox_object.getXpathSelectorByName())){
-            agent.writeInElement(textBox_object.getXpathSelectorByName(), input);
+        if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())){
+            agent.writeInElement(textBox_object.getCssSelector(), input);
         } else {
             System.out.println("No se encontro el campo");
         }
@@ -61,8 +60,8 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     @Override
     public void ingresoInputACampo(String input, String campo) throws AgentException, InterruptedException {
         TextBox textBox_object = new TextBox(campo);
-        if (agent.checkElementIsDisplayed(textBox_object.getXpathSelectorByName())){
-            agent.writeInElement(textBox_object.getXpathSelectorByName(), input);
+        if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())){
+            agent.writeInElement(textBox_object.getCssSelector(), input);
         } else {
             System.out.println("No se encontro el campo");
         }
@@ -71,8 +70,8 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     @Override
     public void ingresoInputACampoNumerico(String input, String campo) throws AgentException {
         TextBox textBox_object = new TextBox(campo);
-        if (agent.checkElementIsDisplayed(textBox_object.getXpathSelectorByName())){
-            agent.writeInElement(textBox_object.getXpathSelectorByName(), input);
+        if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())){
+            agent.writeInElement(textBox_object.getCssSelector(), input);
         } else {
             System.out.println("No se encontro el campo");
         }
@@ -81,8 +80,8 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     @Override
     public void ingresoInputACampoMultiple(String input, String campo) throws AgentException {
         TextBox textBox_object = new TextBox(campo, TextBox.Modes.multiple_line);
-        if (agent.checkElementIsDisplayed(textBox_object.getXpathSelectorByName())){
-            agent.writeInElement(textBox_object.getXpathSelectorByName(), input);
+        if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())){
+            agent.writeInElement(textBox_object.getCssSelector(), input);
         } else {
              System.out.println("No se encontro el campo");
         }
@@ -91,22 +90,22 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     @Override
     public void ingresoInputACampoPassword(String input, String campo) throws AgentException {
         TextBox textBox_object = new TextBox(campo, TextBox.Modes.password);
-        if (agent.checkElementIsDisplayed(textBox_object.getXpathSelectorByName())){
-            agent.writeInElement(textBox_object.getXpathSelectorByName(), input);
+        if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())){
+            agent.writeInElement(textBox_object.getCssSelector(), input);
         } else {
             System.out.println("No se encontro el campo");
         }
     }
 
     @Override
-    public void openPopup(String url, String popup) throws AgentException {
-        Attachment attch_object = new Attachment(popup);
-        if (agent.checkElementIsDisplayed(attch_object.getXpathSelectorByName())){
-            agent.click(attch_object.getXpathSelectorByName());
+    public void openPopup(String url, String adjunto) throws AgentException {
+        Attachment attch_object = new Attachment(adjunto);
+        if (agent.checkElementIsDisplayed(attch_object.getCssSelector())){
+            agent.click(attch_object.getCssSelector());
             String princalwindows = agent.switchToPopup();
-            agent.selectFile(attch_object.getInputButtom(), url);
-            agent.click(attch_object.getAddButtomXpath());
-            agent.click(attch_object.getCloseButtomXpath());
+            agent.selectFile(attch_object.getInputButton(), url);
+            agent.click(attch_object.getAddButton());
+            agent.click(attch_object.getCloseButton());
             agent.switchToPopup(princalwindows);
         } else {
             System.out.println("No se encontro el campo");
@@ -130,8 +129,8 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     @Override
     public void selectOption(String opcion, String selector) throws AgentException {
         SelectControl selectControl = new SelectControl(selector);
-        if (agent.checkElementIsDisplayed(selectControl.getXpathSelectorByName())){
-            agent.selectSelectorOption(selectControl.getXpathSelectorByName(), opcion);
+        if (agent.checkElementIsDisplayed(selectControl.getCssSelector())){
+            agent.selectSelectorOption(selectControl.getCssSelector(), opcion);
         }else {
             System.out.println("No se encontro el campo");
         }
