@@ -3,6 +3,7 @@ package com.harriague.automate.web.pages;
 import com.harriague.automate.core.exceptions.AgentException;
 import com.harriague.automate.core.page.Page;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 
 public interface ControlsGestar extends Page{
@@ -23,9 +24,11 @@ public interface ControlsGestar extends Page{
 
     void openPopup(String url, String popup) throws AgentException;
 
-    void cargarDate(String date, String hh, String mm, String dtpicker) throws AgentException;
+    void cargarDateManual(String date, String hh, String mm, String dtpicker) throws AgentException;
 
     void selectOption(String opcion, String selector) throws AgentException;
 
     void selectMultipleoptions(ArrayList<String> options, String selector) throws AgentException;
+
+    void cargarDateCalendario(String date, String dtpicker) throws AgentException, ParseException;
 }

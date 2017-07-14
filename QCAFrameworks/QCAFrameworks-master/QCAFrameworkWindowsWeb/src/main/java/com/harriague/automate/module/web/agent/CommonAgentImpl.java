@@ -1101,11 +1101,71 @@ public class CommonAgentImpl implements Agent {
      * @param fileButtom
      * @param filePath
      */
+    @Override
     public void selectFile(By fileButtom, String filePath){
         WebElement file_buttom = driver.findElement(fileButtom);
         file_buttom.sendKeys(filePath);
     }
 
+    @Override
+    public void selectDateFromUi(Date aDate){
 
+        By datePicker = By.cssSelector("#ui-datepicker-div");
+        By prevButton = By.cssSelector("#ui-datepicker-div a.ui-datepicker-prev");
+        By nextButton = By.cssSelector("#ui-datepicker-div a.ui-datepicker-next");
+        By closeButton = By.cssSelector("#ui-datepicker-div button.ui-datepicker-close");
+        By todayButton = By.cssSelector("#ui-datepicker-div button.ui-datepicker-close");
+        By calendatDays = By.cssSelector("#ui-datepicker-div table.ui-datepicker-calendar td[data-handler='selectDay']:not(.ui-datepicker-other-month)");
+
+
+        String s_day = new SimpleDateFormat("d").format(aDate);
+        String s_year =  new SimpleDateFormat("yyyy").format(aDate);
+        String s_month = new SimpleDateFormat("M").format(aDate);
+
+        int day = Integer.parseInt(s_day);
+        int  month = Integer.parseInt(s_month);
+        month -= 1;
+        int year = Integer.parseInt(s_year);
+
+        Boolean dateMath = false;
+
+        while (!dateMath){
+
+            WebElement prev_button = driver.findElement(prevButton);
+            WebElement next_button = driver.findElement(nextButton);
+            WebElement close_button = driver.findElement(closeButton);
+            WebElement today_button = driver.findElement(todayButton);
+
+            ArrayList<WebElement> daysElements = (ArrayList<WebElement>) driver.findElements(calendatDays);
+            for (WebElement dayElement : daysElements){
+                WebElement dayInside = dayElement.findElement(By.cssSelector("a.ui-state-default"));
+                int trueDay = Integer.parseInt(dayInside.getText());
+
+               if (Integer.parseInt(dayElement.getAttribute("data-year")) < year){
+                    next_button.click();
+                    break;
+                }
+                if (Integer.parseInt(dayElement.getAttribute("data-year")) > year){
+                    prev_button.click();
+                    break;
+                }
+
+               if (Integer.parseInt(dayElement.getAttribute("data-month")) < month){
+                    next_button.click();
+                    break;
+                }
+                if (Integer.parseInt(dayElement.getAttribute("data-month")) > month){
+                    prev_button.click();
+                    break;
+                }
+
+                if (trueDay != day) continue;
+
+                dayElement.click();
+                dateMath = true;
+                break;
+            }
+        }
+    }
 
 }

@@ -4,42 +4,38 @@ import org.openqa.selenium.By;
 
 public class DTPicker extends Control{
 
-    private By buttonXpath;
-    private By dateXpath;
-    private By hhXpath;
-    private By mmXpath;
+    String buttonPath = "#" + getNombre() + " + img.ui-datepicker-trigger";
+    String datePath = "#" + getNombre();
+    String hhPath = "#" + getNombre() + "_HH";
+    String mmPath = "#" + getNombre() + "_MI";
 
-    public By getButtonXpath() {
-        return buttonXpath;
+    private By button = By.cssSelector(buttonPath);
+    private By date = By.cssSelector(datePath);
+    private By hh = By.cssSelector(hhPath);
+    private By mm = By.cssSelector(mmPath);
+
+    public By getButton() {
+        return button;
     }
 
-    public By getDateXpath() {
-        return dateXpath;
+    public By getDate() {
+        return date;
     }
 
-    public By getHhXpath() {
-        return hhXpath;
+    public By getHh() {
+        return hh;
     }
 
-    public By getMmXpath() {
-        return mmXpath;
+    public By getMm() {
+        return mm;
     }
 
     public DTPicker(String nombre, String etiqueta) {
         super(nombre, etiqueta);
     }
 
-    public DTPicker(String etiqueta) {
-        super(etiqueta);
+    public DTPicker(String nombre) {
+        super(nombre);
 
-        String buttonPath = "//span[text()='" + etiqueta + "']/ancestor::td[1]/following::td[1]/img[1][@class='ui-datepicker-trigger']";
-        String datePath = "//span[text()='" + etiqueta + "']/ancestor::td[1]/following::td[1]/input[1][@class='hasDatepicker']";
-        String hhPath = "//span[text()='" + etiqueta + "']/ancestor::td[1]/following::td[1]/input[2]";
-        String mmPath = "//span[text()='" + etiqueta + "']/ancestor::td[1]/following::td[1]/input[3]";
-
-        buttonXpath = By.xpath(buttonPath);
-        dateXpath = By.xpath(datePath);
-        hhXpath = By.xpath(hhPath);
-        mmXpath = By.xpath(mmPath);
     }
 }

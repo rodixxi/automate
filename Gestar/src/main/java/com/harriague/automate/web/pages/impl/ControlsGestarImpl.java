@@ -8,7 +8,10 @@ import com.harriague.automate.web.pages.ControlsGestar;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ControlsGestarImpl extends BasePage implements ControlsGestar {
 
@@ -114,13 +117,16 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     }
 
     @Override
-    public void cargarDate(String date, String hh, String mm, String dtpicker) throws AgentException {
+    public void cargarDateManual(String date, String hh, String mm, String dtpicker) throws AgentException {
         DTPicker dtPicker_object = new DTPicker(dtpicker);
-        if (agent.checkElementIsDisplayed(dtPicker_object.getButtonXpath())){
-            //agent.click(dtPicker_object.getButtonXpath());
-            agent.writeInElement(dtPicker_object.getDateXpath(), date);
-            agent.writeInElement(dtPicker_object.getHhXpath(), hh);
-            agent.writeInElement(dtPicker_object.getMmXpath(), mm);
+        if (agent.checkElementIsDisplayed(dtPicker_object.getButton())){
+
+            agent.writeInElement(dtPicker_object.getDate(), date);
+            agent.writeInElement(dtPicker_object.getHh(), hh);
+            agent.writeInElement(dtPicker_object.getMm(), mm);
+
+            //agent.click(dtPicker_object.getButton());
+            System.out.printf("lala");
         } else {
             System.out.println("No se encontro el campo");
         }
@@ -148,5 +154,22 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
             agent.selectOptions(option, selectorMultiple.getLeftOptions());
         }
         agent.click(selectorMultiple.getToRightButton());
+    }
+
+    @Override
+    public void cargarDateCalendario(String date, String dtpicker) throws AgentException, ParseException {
+
+        DTPicker dtPicker_object = new DTPicker(dtpicker);
+
+        SimpleDateFormat dmy = new SimpleDateFormat("dd/MM/yyyy");
+        Date aDate = dmy.parse(date);
+
+        if (agent.checkElementIsDisplayed(dtPicker_object.getButton())){
+            agent.click(dtPicker_object.getButton());
+            agent.selectDateFromUi(aDate);
+
+        } else {
+            System.out.println("No se encontro el campo");
+        }
     }
 }

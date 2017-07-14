@@ -56,9 +56,14 @@ public class AllControlsCheckGestar extends StepBase {
         getPage(ControlsGestar.class).openPopup(url, adjunto);
     }
 
-    @When("cargar fecha: $date, con $hh:$mm  en DTPicker: $dtpicker")
-    public void cargarDate(String date, String hh, String mm, String dtpicker) throws Exception {
-        getPage(ControlsGestar.class).cargarDate(date, hh, mm, dtpicker);
+    @When("cargo manualmente la fecha: $date, con $hh:$mm  en DTPicker: $dtpicker")
+    public void cargarDateManual(String date, String hh, String mm, String dtpicker) throws Exception {
+        getPage(ControlsGestar.class).cargarDateManual(date, hh, mm, dtpicker);
+    }
+
+    @When("cargo por calendario la fecha: $date, en DTPicker: $dtpicker")
+    public void cargarDateCalendario(String date, String dtpicker) throws Exception {
+        getPage(ControlsGestar.class).cargarDateCalendario(date, dtpicker);
     }
 
     @When("selecciono opcion: $opcion, de el selector: $selector")

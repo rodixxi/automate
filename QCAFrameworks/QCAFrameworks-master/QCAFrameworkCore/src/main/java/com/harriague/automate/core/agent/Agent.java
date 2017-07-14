@@ -319,6 +319,15 @@ public interface Agent {
      * @return
      */
     void selectOptions(String option, Object element);
+
+    /**
+     * Rodrigo Crespillo
+     * 14/07/2017
+     * ver 1.0
+     * Selecciona una fecha desde el date picker UI
+     * @param aDate
+     */
+    void selectDateFromUi(Date aDate);
 }
 
 

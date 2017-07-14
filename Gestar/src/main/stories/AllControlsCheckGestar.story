@@ -13,23 +13,22 @@ When abrir la carpeta autoMate
 When abrir la carpeta autoMATE - prueba
 When crear arhivo nuevo
 When seleccionar tabPanel tab2
-When seleccionar tabPanel tab3
-When seleccionar tabPanel tab4
-When seleccionar tabPanel tab5
-When seleccionar tabPanel tab1
-When ingreso abc para el campo requerido: RequiredTextBox
-When ingreso lala en comunTextBox
-When ingreso 123 para el campo numerico: NumericTexBox
-When ingreso jojojujaju para campo de texto multiple: MultiTexBox
-When ingreso lapolola para el campo password: PassTexBox
-When seleccionar tabPanel tab2
-When adjuntar el archivo: C:/lala.txt, en andjunto: attachments
 !-- When seleccionar tabPanel tab3
-!-- When cargar fecha: 07/07/2017, con 03:24 en DTPicker: DTPcikerDyT
+!-- When seleccionar tabPanel tab4
 !-- When seleccionar tabPanel tab5
-!-- When selecciono opcion: Juan, de el selector: selectFolder
-!-- When selecciono las opciones:
-|options|
-|Jose|
-|Juan|
-del selector multiple: select11
+!-- When seleccionar tabPanel tab1
+!-- When ingreso abc para el campo requerido: RequiredTextBox
+!-- When ingreso lala en comunTextBox
+!-- When ingreso 123 para el campo numerico: NumericTexBox
+!-- When ingreso jojojujaju para campo de texto multiple: MultiTexBox
+!-- When ingreso lapolola para el campo password: PassTexBox
+!-- When seleccionar tabPanel tab2
+!-- When adjuntar el archivo: C:/lala.txt, en andjunto: attachments
+When seleccionar tabPanel tab3
+!-- When cargo manualmente la fecha: 07/07/2017, con 03:24 en DTPicker: DTPciker
+!-- When cargo por calendario la fecha: 07/07/2017, en DTPicker: DTPickerF
+!-- When cargo por calendario la fecha: 27/07/2017, en DTPicker: DTPickerF
+!-- When cargo por calendario la fecha: 01/07/2017, en DTPicker: DTPickerF
+!-- When cargo por calendario la fecha: 31/12/2017, en DTPicker: DTPickerF
+!-- When cargo por calendario la fecha: 01/01/2018, en DTPicker: DTPickerF
+!-- When cargo por calendario la fecha: 01/01/2017, en DTPicker: DTPickerF
