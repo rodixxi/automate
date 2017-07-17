@@ -53,7 +53,7 @@ public class AllControlsCheckGestar extends StepBase {
 
     @When("adjuntar el archivo: $url, en andjunto: $adjunto")
     public void openPopup(String url, String adjunto) throws Exception {
-        getPage(ControlsGestar.class).openPopup(url, adjunto);
+        getPage(ControlsGestar.class).attachFile(url, adjunto);
     }
 
     @When("cargo manualmente la fecha: $date, con $hh:$mm  en DTPicker: $dtpicker")
@@ -72,12 +72,40 @@ public class AllControlsCheckGestar extends StepBase {
     }
 
     @When("selecciono las opciones: $tableOptions del selector multiple: $selector")
-    public void selectMultipleoptions(ExamplesTable $tableOptions, String selector) throws Exception {
+    public void selectMultipleOptions(ExamplesTable $tableOptions, String selector) throws Exception {
         ArrayList<String> options = new ArrayList();
         for (Map<String,String> row : $tableOptions.getRows()){
             String option = row.get("options");
             options.add(option);
         }
-        getPage(ControlsGestar.class).selectMultipleoptions(options, selector);
+        getPage(ControlsGestar.class).selectMultipleOptions(options, selector);
     }
+
+    @When("selecciono todas las opciones del selector multiple: $selector")
+    public void selectMultipleOptionsAll(String selector) throws Exception {
+        ArrayList<String> options = new ArrayList();
+        getPage(ControlsGestar.class).selectMultipleOptionsAll(selector);
+    }
+
+    @When("deselecciono las opciones: $tableOptions del selector multiple: $selector")
+    public void deselectMultipleOptions(ExamplesTable $tableOptions, String selector) throws Exception {
+        ArrayList<String> options = new ArrayList();
+        for (Map<String,String> row : $tableOptions.getRows()){
+            String option = row.get("options");
+            options.add(option);
+        }
+        getPage(ControlsGestar.class).deselectMultipleOptions(options, selector);
+    }
+
+    /**
+     *
+     * @param selector
+     * @throws Exception
+     */
+    @When("selecciono todas las opciones del selector multiple: $selector")
+    public void deselectMultipleOptionsAll(String selector) throws Exception {
+        ArrayList<String> options = new ArrayList();
+        getPage(ControlsGestar.class).deselectMultipleOptionsAll(selector);
+    }
+
 }

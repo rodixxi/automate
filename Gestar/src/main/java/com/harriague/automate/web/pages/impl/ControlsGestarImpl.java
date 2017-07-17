@@ -40,15 +40,36 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         }
     }
 
+    /**
+     * Selecciona un tab
+     *
+     * @authot Rodrigo Crespillo
+     * @version 1.0 10/07/2017
+     *
+     * @param tab
+     * @throws AgentException
+     * @throws InterruptedException
+     */
     @Override
     public void seleccionarTabPanel(String tab) throws AgentException, InterruptedException{
         Tab newTab = new Tab(tab);
         if (agent.checkElementIsDisplayed(newTab.getCssSelector())){
             agent.click(newTab.getCssSelector());
         }
-        //agent.checkElementIsDisplayed(newTab.tabSelectedByName());
     }
 
+
+    /**
+     * Ingresa texto a un campo requerido
+     *
+     * @authot Rodrigo Crespillo
+     * @version 1.0 10/07/2017
+     *
+     * @param input
+     * @param campo
+     * @throws AgentException
+     * @throws InterruptedException
+     */
     @Override
     public void ingresoInputACampoRequerido(String input, String campo) throws AgentException, InterruptedException {
         TextBox textBox_object = new TextBox(campo);
@@ -60,6 +81,17 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         }
     }
 
+    /**
+     * Ingresa un input a un campo comun
+     *
+     * @authot Rodrigo Crespillo
+     * @version 1.0 10/07/2017
+     *
+     * @param input
+     * @param campo
+     * @throws AgentException
+     * @throws InterruptedException
+     */
     @Override
     public void ingresoInputACampo(String input, String campo) throws AgentException, InterruptedException {
         TextBox textBox_object = new TextBox(campo);
@@ -70,6 +102,16 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         }
     }
 
+    /**
+     * Ingresa valores a un control de tipo numerico
+     *
+     * @authot Rodrigo Crespillo
+     * @version 1.0 10/07/2017
+     *
+     * @param input
+     * @param campo
+     * @throws AgentException
+     */
     @Override
     public void ingresoInputACampoNumerico(String input, String campo) throws AgentException {
         TextBox textBox_object = new TextBox(campo);
@@ -80,6 +122,16 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         }
     }
 
+    /**
+     * Ingresa texto a un input tipo textbox
+     *
+     * @authot Rodrigo Crespillo
+     * @version 1.0 10/07/2017
+     *
+     * @param input
+     * @param campo
+     * @throws AgentException
+     */
     @Override
     public void ingresoInputACampoMultiple(String input, String campo) throws AgentException {
         TextBox textBox_object = new TextBox(campo, TextBox.Modes.multiple_line);
@@ -90,6 +142,16 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         }
     }
 
+    /**
+     * Ingresa valores a input tipo password
+     *
+     * @authot Rodrigo Crespillo
+     * @version 1.0 10/07/2017
+     *
+     * @param input
+     * @param campo
+     * @throws AgentException
+     */
     @Override
     public void ingresoInputACampoPassword(String input, String campo) throws AgentException {
         TextBox textBox_object = new TextBox(campo, TextBox.Modes.password);
@@ -100,8 +162,18 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         }
     }
 
+    /**
+     * Adjunta un archivo a un control de Attatchemet
+     *
+     * @author Rodrigo Crespillo
+     * @version 1.0 13/07/2017
+     *
+     * @param url
+     * @param adjunto
+     * @throws AgentException
+     */
     @Override
-    public void openPopup(String url, String adjunto) throws AgentException {
+    public void attachFile(String url, String adjunto) throws AgentException {
         Attachment attch_object = new Attachment(adjunto);
         if (agent.checkElementIsDisplayed(attch_object.getCssSelector())){
             agent.click(attch_object.getCssSelector());
@@ -116,6 +188,19 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
 
     }
 
+    /**
+     *
+     * Ingresa la fecha de un datepicker directamente sobre el campo
+     *
+     * @author Rodrigo Crespillo
+     * @version 1.0 14/07/2017
+     *
+     * @param date
+     * @param hh
+     * @param mm
+     * @param dtpicker
+     * @throws AgentException
+     */
     @Override
     public void cargarDateManual(String date, String hh, String mm, String dtpicker) throws AgentException {
         DTPicker dtPicker_object = new DTPicker(dtpicker);
@@ -132,30 +217,18 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         }
     }
 
-    @Override
-    public void selectOption(String opcion, String selector) throws AgentException {
-        SelectControl selectControl = new SelectControl(selector);
-        if (agent.checkElementIsDisplayed(selectControl.getCssSelector())){
-            agent.selectSelectorOption(selectControl.getCssSelector(), opcion);
-        }else {
-            System.out.println("No se encontro el campo");
-        }
-    }
 
     /**
-     * Esta a diferencia de los demas usa como parametro el nombre del campo y no la etiqueta
-     * @param options
-     * @param selector
+     * Selecciona la fecha de un datepicker usando la ui, este puede ser usado en el caso de q el campo este bloqueado
+     *
+     * @author Rodrigo Crespillo
+     * @version 1.0 14/07/2017
+     *
+     * @param date
+     * @param dtpicker
+     * @throws AgentException
+     * @throws ParseException
      */
-    @Override
-    public void selectMultipleoptions(ArrayList<String> options, String selector) throws AgentException {
-        SelectorMultiple selectorMultiple = new SelectorMultiple(selector, "");
-        for (String option : options){
-            agent.selectOptions(option, selectorMultiple.getLeftOptions());
-        }
-        agent.click(selectorMultiple.getToRightButton());
-    }
-
     @Override
     public void cargarDateCalendario(String date, String dtpicker) throws AgentException, ParseException {
 
@@ -172,4 +245,98 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
             System.out.println("No se encontro el campo");
         }
     }
+
+
+    /**
+     * Selecciona una opcion de un selector
+     *
+     * @author Rodrigo Crespillo
+     * @version 1.0 12/07/2017
+     *
+     * @param opcion
+     * @param selector
+     * @throws AgentException
+     */
+    @Override
+    public void selectOption(String opcion, String selector) throws AgentException {
+        SelectControl selectControl = new SelectControl(selector);
+        if (agent.checkElementIsDisplayed(selectControl.getCssSelector())){
+            agent.selectSelectorOption(selectControl.getCssSelector(), opcion);
+        }else {
+            System.out.println("No se encontro el campo");
+        }
+    }
+
+    /**
+     *
+     * Selecciona las opciones dadas(en forma de tabla) de un selector multiple
+     *
+     * @author Rodrigo Crespillo
+     * @version 1.0 14/07/2017
+     *
+     * @param options
+     * @param selector
+     *
+     * @throws AgentException
+     */
+    @Override
+    public void selectMultipleOptions(ArrayList<String> options, String selector) throws AgentException {
+        SelectorMultiple selectorMultiple = new SelectorMultiple(selector, "");
+        for (String option : options){
+            agent.selectOptions(option, selectorMultiple.getLeftOptions());
+        }
+        agent.click(selectorMultiple.getToRightButton());
+    }
+
+    /**
+     * Selecciona todas la opciones de un selector multiple
+     *
+     * @author Rodrigo Crespillo
+     * @version 1.0 17/07/2017
+     *
+     * @param selector
+     * @throws AgentException
+     */
+    @Override
+    public void selectMultipleOptionsAll(String selector) throws AgentException {
+        SelectorMultiple selectorMultiple = new SelectorMultiple(selector, "");
+        agent.click(selectorMultiple.getToRightAllButton());
+    }
+
+    /**
+     * Deselecciona las opciones dadas(en forma de tabla) de un selector multiple
+     *
+     * @author Rodrigo Crespillo
+     * @version 1.0 17/07/2017
+     *
+     * @param options
+     * @param selector
+     * @throws AgentException
+     */
+    @Override
+    public void deselectMultipleOptions(ArrayList<String> options, String selector) throws AgentException {
+        SelectorMultiple selectorMultiple = new SelectorMultiple(selector, "");
+        for (String option : options){
+            agent.selectOptions(option, selectorMultiple.getRightOptions());
+        }
+        agent.click(selectorMultiple.getToLeftAllButton());
+    }
+
+    /**
+     * Deselecciona todas la opciones de un selector multiple
+     *
+     * @author Rodrigo Crespillo
+     * @version 1.0 17/07/2017
+     *
+     * @param selector
+     * @throws AgentException
+     */
+    @Override
+    public void deselectMultipleOptionsAll(String selector) throws AgentException {
+        SelectorMultiple selectorMultiple = new SelectorMultiple(selector, "");
+        agent.click(selectorMultiple.getToLeftAllButton());
+
+    }
+
+
 }

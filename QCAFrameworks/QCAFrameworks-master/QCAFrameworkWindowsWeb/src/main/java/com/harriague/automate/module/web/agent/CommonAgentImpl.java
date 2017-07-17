@@ -1104,10 +1104,11 @@ public class CommonAgentImpl implements Agent {
     }
 
     /**
-     * Rodrigo Crespillo
-     * /12/07/2017
-     * ver 1.0
      * Agrega un archivo a un attachemnt
+     *
+     * @author Rodrigo Crespillo
+     * @version 1.0 12/07/2017
+     *
      * @param fileButtom
      * @param filePath
      */
@@ -1117,6 +1118,14 @@ public class CommonAgentImpl implements Agent {
         file_buttom.sendKeys(filePath);
     }
 
+    /**
+     * Selecciona una fecha desdde la ui del date picker
+     *
+     * @authro Rodrigo Crespillo
+     * @version 1.0 14/07/2017
+     *
+     * @param aDate
+     */
     @Override
     public void selectDateFromUi(Date aDate){
 
