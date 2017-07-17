@@ -15,13 +15,6 @@ import java.util.Date;
 
 public class ControlsGestarImpl extends BasePage implements ControlsGestar {
 
-
-    private static final By LOG_MANUAL = By.xpath("//a[@href='/w/auth/Login?']");
-    private static final String USUARIO = "//input[@id='username']";
-    private static final String BTNLOGIN = "//button[@class='buttonGradient']";
-
-    private WebDriver driver;
-
     /**
      * Constructor
      *
@@ -82,7 +75,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     }
 
     /**
-     * Ingresa un input a un campo comun
+     * Ingresa un input a un campo común
      *
      * @authot Rodrigo Crespillo
      * @version 1.0 10/07/2017
@@ -177,11 +170,11 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         Attachment attch_object = new Attachment(adjunto);
         if (agent.checkElementIsDisplayed(attch_object.getCssSelector())){
             agent.click(attch_object.getCssSelector());
-            String princalwindows = agent.switchToPopup();
+            String principalWindows = agent.switchToPopup();
             agent.selectFile(attch_object.getInputButton(), url);
             agent.click(attch_object.getAddButton());
             agent.click(attch_object.getCloseButton());
-            agent.switchToPopup(princalwindows);
+            agent.switchToPopup(principalWindows);
         } else {
             System.out.println("No se encontro el campo");
         }
@@ -319,7 +312,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         for (String option : options){
             agent.selectOptions(option, selectorMultiple.getRightOptions());
         }
-        agent.click(selectorMultiple.getToLeftAllButton());
+        agent.click(selectorMultiple.getToLeftButton());
     }
 
     /**

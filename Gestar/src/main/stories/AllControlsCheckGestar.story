@@ -35,7 +35,12 @@ When crear arhivo nuevo
 When seleccionar tabPanel tab5
 When selecciono las opciones:
 |options|
-|Jose|
 |Juan|
 del selector multiple: select11
+When deselecciono las opciones:
+|options|
+|Jose|
+del selector multiple: select11
+When selecciono todas las opciones del selector multiple: select11
+When deselecciono todas las opciones del selector multiple: select11
 

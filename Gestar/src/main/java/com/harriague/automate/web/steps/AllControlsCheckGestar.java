@@ -102,7 +102,7 @@ public class AllControlsCheckGestar extends StepBase {
      * @param selector
      * @throws Exception
      */
-    @When("selecciono todas las opciones del selector multiple: $selector")
+    @When("deselecciono todas las opciones del selector multiple: $selector")
     public void deselectMultipleOptionsAll(String selector) throws Exception {
         ArrayList<String> options = new ArrayList();
         getPage(ControlsGestar.class).deselectMultipleOptionsAll(selector);

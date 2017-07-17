@@ -8,15 +8,12 @@ import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
 
 import com.harriague.automate.core.exceptions.AgentException;
 import com.harriague.automate.core.structures.FlawedTimeUnit;
 import com.harriague.automate.core.structures.ScrollDirection;
 import com.harriague.automate.core.structures.SwipeDirection;
-
-import org.openqa.selenium.support.ui.ExpectedCondition;
-
+import org.openqa.selenium.WebElement;
 
 
 public interface Agent {
@@ -306,9 +303,9 @@ public interface Agent {
      * 13/07/2017
      * ver 1.0
      * Realiza control + click en un elemento
-     * @param by
+     * @param opcion
      */
-    public void ctrlClick(Object by) throws AgentException;
+    public void ctrlClick(WebElement opcion) throws AgentException;
 
     /**
      * Rodrigo Crespillo
@@ -318,7 +315,7 @@ public interface Agent {
      * @param option
      * @return
      */
-    void selectOptions(String option, Object element);
+    void selectOptions(String option, Object element) throws AgentException;
 
     /**
      * Rodrigo Crespillo

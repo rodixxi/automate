@@ -308,22 +308,22 @@ public class CommonAgentImpl implements Agent {
     }
 
     @Override
-    public void ctrlClick(Object by) throws AgentException {
-        WebElement context = find((By) by);
+    public void ctrlClick(WebElement opcion) throws AgentException {
         Actions action = new Actions(driver);
-        action.keyDown(Keys.CONTROL).click(context).keyUp(Keys.CONTROL).perform();
-
+        action.keyDown(Keys.CONTROL).click(opcion).keyUp(Keys.CONTROL).perform();
+        log.info("Selecciona opcion: "+ opcion.getText());
     }
 
     @Override
-    public void selectOptions(String option, Object element) {
+    public void selectOptions(String option, Object element) throws AgentException {
         ArrayList<WebElement> options = (ArrayList<WebElement>) driver.findElements((By)element);
+        log.info("Busca las opciones en el control");
         for (WebElement option_aux : options){
             String aux = option_aux.getText();
             if (aux.equals(option)){
-                Actions action = new Actions(driver);
-                action.keyDown(Keys.CONTROL).click(option_aux).keyUp(Keys.CONTROL).perform();
-            }
+                log.info("Encontro la opcion: "+ aux);
+                ctrlClick(option_aux);
+            } else  log.info("No encontro la opcion: " + aux);
         }
     }
 
@@ -339,7 +339,7 @@ public class CommonAgentImpl implements Agent {
             subWindowHandler = iterator.next();
         }
         driver.switchTo().window(subWindowHandler); // switch to popup window
-
+        log.info("Cambio a popup");
         // Now you are in the popup window, perform necessary actions here
         return parentWindowHandler;
     }
@@ -348,6 +348,7 @@ public class CommonAgentImpl implements Agent {
     @Override
     public void switchToPopup(String parentWindowHandler) throws AgentException{
         driver.switchTo().window(parentWindowHandler);
+        log.info("Cambio al control padre");
     }
     
     @Override
@@ -1161,25 +1162,30 @@ public class CommonAgentImpl implements Agent {
                 int trueDay = Integer.parseInt(dayInside.getText());
 
                if (Integer.parseInt(dayElement.getAttribute("data-year")) < year){
+                   log.info("Faltan anhos, next!");
                     next_button.click();
                     break;
                 }
                 if (Integer.parseInt(dayElement.getAttribute("data-year")) > year){
+                    log.info("Sobran anhos, prev!");
                     prev_button.click();
                     break;
                 }
 
                if (Integer.parseInt(dayElement.getAttribute("data-month")) < month){
+                   log.info("Faltan meses, next!");
                     next_button.click();
                     break;
                 }
                 if (Integer.parseInt(dayElement.getAttribute("data-month")) > month){
+                    log.info("Sobran meses, prev!");
                     prev_button.click();
                     break;
                 }
 
                 if (trueDay != day) continue;
 
+                log.info("Encontro el dia");
                 dayElement.click();
                 dateMath = true;
                 break;
