@@ -97,15 +97,14 @@ public class AllControlsCheckGestar extends StepBase {
         getPage(ControlsGestar.class).deselectMultipleOptions(options, selector);
     }
 
-    /**
-     *
-     * @param selector
-     * @throws Exception
-     */
     @When("deselecciono todas las opciones del selector multiple: $selector")
     public void deselectMultipleOptionsAll(String selector) throws Exception {
         ArrayList<String> options = new ArrayList();
         getPage(ControlsGestar.class).deselectMultipleOptionsAll(selector);
     }
 
+    @When("busco : $search, en el control de autocompletado: $autoComplete")
+    public void buscoOpcionAutoComplete(String search, String autoComplete) throws Exception {
+        getPage(ControlsGestar.class).buscoOpcionAutoComplete(search, autoComplete, );
+    }
 }

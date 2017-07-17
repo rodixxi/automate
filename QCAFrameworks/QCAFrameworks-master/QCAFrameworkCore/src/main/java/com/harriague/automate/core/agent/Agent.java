@@ -325,6 +325,8 @@ public interface Agent {
      * @param aDate
      */
     void selectDateFromUi(Date aDate);
+
+    void buscarOpcion(String search, String autoComplete, int orden);
 }
 
 

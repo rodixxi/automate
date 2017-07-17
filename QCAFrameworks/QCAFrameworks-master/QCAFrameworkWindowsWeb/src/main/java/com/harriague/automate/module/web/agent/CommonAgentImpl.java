@@ -1193,4 +1193,33 @@ public class CommonAgentImpl implements Agent {
         }
     }
 
+
+    /**
+     * Busca y selecciona una opcion en un autoComplete
+     *
+     * @author Rodrigo Crespillo
+     * @version 1.0 17/07/2017
+     *
+     * @param search
+     * @param autoComplete
+     * @param orden */
+    @Override
+    public void buscarOpcion(String search, String autoComplete, int orden) {
+
+        String searhBoxPath = autoComplete + "_folderSearchAutocomplete";
+        String optionsBoxPath = "#ui-id-"+ Integer.toString(orden) +" a";
+
+        By searhBox = By.cssSelector(searhBoxPath);
+        By optionsBox = By.cssSelector(optionsBoxPath);
+
+        WebElement serahbox_input = driver.findElement(searhBox);
+        serahbox_input.sendKeys(search);
+
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until();
+
+
+
+    }
+
 }

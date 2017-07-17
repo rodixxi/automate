@@ -6,7 +6,6 @@ import com.harriague.automate.core.page.BasePage;
 import com.harriague.automate.web.control.*;
 import com.harriague.automate.web.pages.ControlsGestar;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -331,5 +330,15 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
 
     }
 
+    @Override
+    public void buscoOpcionAutoComplete(String search, String autoComplete, String orden) throws AgentException {
+        int orden_aux = Integer.parseInt(orden);
+        AutoComplete autoComplete_control = new AutoComplete(autoComplete, orden_aux);
+        if(agent.checkElementIsDisplayed(autoComplete_control.getCssSelector())){
+            agent.buscarOpcion(search, autoComplete, orden_aux);
+        }else {
+            System.out.println("No se encontro el campo");
+        }
 
+    }
 }
