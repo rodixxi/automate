@@ -123,7 +123,11 @@ public interface Agent {
      * @param element
      * @throws AgentException
      */
+
+    @Deprecated
     public void doubleClick(Object element) throws AgentException;
+
+    public void doubleClick(WebElement opcion) throws AgentException;
     
     /**
      * Scrolls the view a certain amount in the given direction.
@@ -307,6 +311,8 @@ public interface Agent {
      */
     public void ctrlClick(WebElement opcion) throws AgentException;
 
+
+
     /**
      * Rodrigo Crespillo
      * 13/07/2017
@@ -315,7 +321,9 @@ public interface Agent {
      * @param option
      * @return
      */
-    void selectOption(String option, Object element) throws AgentException;
+    void selectOptionsCrtlClick(String option, Object element) throws AgentException;
+
+    void selectOptionsDoubleClick(String option, Object element) throws AgentException;
 
     /**
      * Rodrigo Crespillo
@@ -325,6 +333,8 @@ public interface Agent {
      * @param aDate
      */
     void selectDateFromUi(Date aDate);
+
+
 
     void searchOption(String search, String autoComplete) throws AgentException;
 }

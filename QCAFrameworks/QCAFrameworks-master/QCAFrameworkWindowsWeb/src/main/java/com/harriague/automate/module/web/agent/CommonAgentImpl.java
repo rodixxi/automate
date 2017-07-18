@@ -295,7 +295,7 @@ public class CommonAgentImpl implements Agent {
                 .sendKeys(Keys.RETURN).build().perform();
     }
 
-    
+    @Deprecated
     public void doubleClick(Object element) throws AgentException {
         WebElement el = quickFindElement((By) element, DEFAULT_DRIVER_QUICK_SEARCH);
         if (el == null) {
@@ -308,14 +308,23 @@ public class CommonAgentImpl implements Agent {
     }
 
     @Override
-    public void ctrlClick(WebElement opcion) throws AgentException {
+    public void doubleClick(WebElement opcion) throws AgentException {
         Actions action = new Actions(driver);
-        action.keyDown(Keys.CONTROL).click(opcion).keyUp(Keys.CONTROL).perform();
-        log.info("Selecciona opcion: "+ opcion.getText());
+        action.doubleClick(opcion).perform();
+        log.info("Double Click in option");
     }
 
     @Override
-    public void selectOption(String option, Object element) throws AgentException {
+    public void ctrlClick(WebElement opcion) throws AgentException {
+        Actions action = new Actions(driver);
+        action.keyDown(Keys.CONTROL).click(opcion).keyUp(Keys.CONTROL).perform();
+        log.info("Ctrl + Click: "+ opcion.getText());
+    }
+
+
+
+    @Override
+    public void selectOptionsCrtlClick(String option, Object element) throws AgentException {
         ArrayList<WebElement> options = (ArrayList<WebElement>) driver.findElements((By)element);
         log.info("Busca las opciones en el control");
         for (WebElement option_aux : options){
@@ -325,6 +334,20 @@ public class CommonAgentImpl implements Agent {
                 ctrlClick(option_aux);
             } else  log.info("No encontro la opcion: " + aux);
         }
+    }
+
+    public void selectOptionsDoubleClick(String option, Object element) throws AgentException{
+        ArrayList<WebElement> options = (ArrayList<WebElement>) driver.findElements((By)element);
+        log.info("Busca las opciones en el control");
+        for (WebElement option_aux : options){
+            String aux = option_aux.getText();
+            if (aux.equals(option)){
+                log.info("Encontro la opcion: "+ option);
+                doubleClick(option_aux);
+                break;
+            }
+        }
+        log.info("No encontro la opcion: " + option);
     }
 
 
@@ -1213,7 +1236,7 @@ public class CommonAgentImpl implements Agent {
         WebElement serahbox_input = driver.findElement(searhBox);
         serahbox_input.sendKeys(search);
         if (checkElementIsDisplayed(optionsBox)){
-            selectOption(search, optionsBox);
+            selectOptionsCrtlClick(search, optionsBox);
         }
 
     }

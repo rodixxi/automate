@@ -261,7 +261,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     public void selectMultipleOptions(ArrayList<String> options, String selector) throws AgentException {
         SelectorMultiple selectorMultiple = new SelectorMultiple(selector, "");
         for (String option : options) {
-            agent.selectOption(option, selectorMultiple.getLeftOptions());
+            agent.selectOptionsCrtlClick(option, selectorMultiple.getLeftOptions());
         }
         agent.click(selectorMultiple.getToRightButton());
     }
@@ -293,7 +293,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     public void deselectMultipleOptions(ArrayList<String> options, String selector) throws AgentException {
         SelectorMultiple selectorMultiple = new SelectorMultiple(selector, "");
         for (String option : options) {
-            agent.selectOption(option, selectorMultiple.getRightOptions());
+            agent.selectOptionsCrtlClick(option, selectorMultiple.getRightOptions());
         }
         agent.click(selectorMultiple.getToLeftButton());
     }
@@ -332,9 +332,24 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
             String parentWindow = agent.switchToPopup();
             agent.writeInElement(lookupBoxAccounts_control.getSearchBox(), search);
             agent.click(lookupBoxAccounts_control.getSearchButtonOptions());
-            agent.selectOption(search, lookupBoxAccounts_control.getOptions());
+            agent.selectOptionsDoubleClick(search, lookupBoxAccounts_control.getOptions());
             agent.click(lookupBoxAccounts_control.getAceptButton());
             agent.switchToPopup(parentWindow);
         }
     }
+
+    @Override
+    public void searchLookUpBoxAccountDobleClick(String search, String control) throws AgentException {
+        LookupBoxAccounts lookupBoxAccounts_control = new LookupBoxAccounts(control);
+        if (agent.checkElementIsDisplayed(lookupBoxAccounts_control.getCssSelector())){
+            agent.click(lookupBoxAccounts_control.getSearchButton());
+            String parentWindow = agent.switchToPopup();
+            agent.writeInElement(lookupBoxAccounts_control.getSearchBox(), search);
+            agent.click(lookupBoxAccounts_control.getSearchButtonOptions());
+            agent.selectOptionsDoubleClick(search, lookupBoxAccounts_control.getOptions());
+            agent.switchToPopup(parentWindow);
+        }
+    }
+
+
 }

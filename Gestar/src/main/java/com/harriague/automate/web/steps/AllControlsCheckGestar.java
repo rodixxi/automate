@@ -112,4 +112,8 @@ public class AllControlsCheckGestar extends StepBase {
     public void searchLookUpBoxAccount(String search, String control) throws Exception {
         getPage(ControlsGestar.class).searchLookUpBoxAccount(search, control);
     }
+    @When("busco: $search; en el control con DobleClick LookUpBoxAccount: $control")
+    public void searchLookUpBoxAccountDobleClick(String search, String control) throws Exception {
+        getPage(ControlsGestar.class).searchLookUpBoxAccountDobleClick(search, control);
+    }
 }

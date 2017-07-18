@@ -46,5 +46,5 @@ When crear arhivo nuevo
 !-- When busco : Avecilla, Rebeca; en el control de autocompletado: autoComplete1
 !-- When busco : Avecilla, Rebeca; en el control de autocompletado: autoComplete2
 When seleccionar tabPanel tab4
-When busco: Administrador; en el control LookUpBoxAccount: LookupBoxAccounts
+When busco: Administrador; en el control con DobleClick LookUpBoxAccount: LookupBoxAccounts
 
