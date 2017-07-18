@@ -32,7 +32,7 @@ When crear arhivo nuevo
 !-- When cargo por calendario la fecha: 31/12/2017, en DTPicker: DTPickerF
 !-- When cargo por calendario la fecha: 01/01/2018, en DTPicker: DTPickerF
 !-- When cargo por calendario la fecha: 01/01/2017, en DTPicker: DTPickerF
-When seleccionar tabPanel tab5
+!-- When seleccionar tabPanel tab5
 !-- When selecciono las opciones:
 !-- |options|
 !-- |Juan|
@@ -43,6 +43,8 @@ When seleccionar tabPanel tab5
 !-- del selector multiple: select11
 !-- When selecciono todas las opciones del selector multiple: select11
 !-- When deselecciono todas las opciones del selector multiple: select11
-When busco : Avecilla, Rebeca; en el control de autocompletado: autoComplete1
-When busco : Avecilla, Rebeca; en el control de autocompletado: autoComplete2
+!-- When busco : Avecilla, Rebeca; en el control de autocompletado: autoComplete1
+!-- When busco : Avecilla, Rebeca; en el control de autocompletado: autoComplete2
+When seleccionar tabPanel tab4
+When busco: Administrador; en el control LookUpBoxAccount: LookupBoxAccounts
 

@@ -315,7 +315,7 @@ public class CommonAgentImpl implements Agent {
     }
 
     @Override
-    public void selectOptions(String option, Object element) throws AgentException {
+    public void selectOption(String option, Object element) throws AgentException {
         ArrayList<WebElement> options = (ArrayList<WebElement>) driver.findElements((By)element);
         log.info("Busca las opciones en el control");
         for (WebElement option_aux : options){
@@ -1213,7 +1213,7 @@ public class CommonAgentImpl implements Agent {
         WebElement serahbox_input = driver.findElement(searhBox);
         serahbox_input.sendKeys(search);
         if (checkElementIsDisplayed(optionsBox)){
-            selectOptions(search, optionsBox);
+            selectOption(search, optionsBox);
         }
 
     }

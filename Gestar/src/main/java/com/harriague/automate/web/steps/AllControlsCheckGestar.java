@@ -104,7 +104,12 @@ public class AllControlsCheckGestar extends StepBase {
     }
 
     @When("busco : $search; en el control de autocompletado: $autoComplete")
-    public void buscoOpcionAutoComplete(String search, String autoComplete) throws Exception {
+    public void searchOptionAutoComplete(String search, String autoComplete) throws Exception {
         getPage(ControlsGestar.class).searchOptionAutoComplete(search, autoComplete);
+    }
+
+    @When("busco: $search; en el control LookUpBoxAccount: $control")
+    public void searchLookUpBoxAccount(String search, String control) throws Exception {
+        getPage(ControlsGestar.class).searchLookUpBoxAccount(search, control);
     }
 }

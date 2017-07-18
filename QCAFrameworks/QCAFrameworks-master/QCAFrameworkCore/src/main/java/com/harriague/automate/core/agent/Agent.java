@@ -315,7 +315,7 @@ public interface Agent {
      * @param option
      * @return
      */
-    void selectOptions(String option, Object element) throws AgentException;
+    void selectOption(String option, Object element) throws AgentException;
 
     /**
      * Rodrigo Crespillo

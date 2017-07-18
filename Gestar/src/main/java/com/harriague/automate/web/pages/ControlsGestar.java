@@ -39,4 +39,6 @@ public interface ControlsGestar extends Page{
     void deselectMultipleOptionsAll(String selector) throws AgentException;
 
     void searchOptionAutoComplete(String search, String autoComplete) throws AgentException;
+
+    void searchLookUpBoxAccount(String search, String control) throws AgentException;
 }
