@@ -5,19 +5,26 @@ import org.openqa.selenium.By;
 
 public class SelectorMultiple extends Control {
 
-    private By leftOptions = By.cssSelector("div#select_" + getNombre() + "_leftselect_container:nth-child(1) > select > option");
-    private By rightOptions = By.cssSelector("div#select_" + getNombre() + "_rightselect_container:nth-child(1) > select > option");
-    private By toLeftButton = By.cssSelector("#" + getNombre() + "_toleftbutton");
-    private By toRightButton = By.cssSelector("#" + getNombre() + "_torightbutton");
-    private By toLeftAllButton = By.cssSelector("#" + getNombre() + "_toleftallbutton");
-    private By toRightAllButton = By.cssSelector("#" + getNombre() + "_torightallbutton");
+    private String leftOptionsPath = "div#select_" + getName() + "_leftselect_container:nth-child(1) > select > option";
+    private String rightOptionsPath = "div#select_" + getName() + "_rightselect_container:nth-child(1) > select > option";
+    private String toLeftButtonPath = "#" + getName() + "_toleftbutton";
+    private String toRightButtonPath = "#" + getName() + "_torightbutton";
+    private String toLeftAllButtonPath = "#" + getName() + "_toleftallbutton";
+    private String toRightAllButtonPath = "#" + getName() + "_torightallbutton";
 
-    public SelectorMultiple(String nombre, String etiqueta) {
-        super(nombre, etiqueta);
+    private By leftOptions = By.cssSelector(leftOptionsPath);
+    private By rightOptions = By.cssSelector(rightOptionsPath);
+    private By toLeftButton = By.cssSelector(toLeftButtonPath);
+    private By toRightButton = By.cssSelector(toRightButtonPath);
+    private By toLeftAllButton = By.cssSelector(toLeftAllButtonPath);
+    private By toRightAllButton = By.cssSelector(toRightAllButtonPath);
+
+    public SelectorMultiple(String name, String title) {
+        super(name, title);
     }
 
-    public SelectorMultiple(String etiqueta) {
-        super(etiqueta);
+    public SelectorMultiple(String name) {
+        super(name);
     }
 
     public By getLeftOptions() {

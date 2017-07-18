@@ -5,36 +5,36 @@ import org.openqa.selenium.By;
 
 public class Control {
 
-    private String nombre;
-    private String etiqueta;
+    private String name;
+    private String title;
     private By cssSelector;
 
-    public Control(String nombre, String etiqueta) {
-        this.nombre = nombre;
-        this.etiqueta = etiqueta;
+    public Control(String name, String title) {
+        this.name = name;
+        this.title = title;
     }
 
-    public Control(String nombre) {
-        this.nombre = nombre;
-        this.etiqueta = "";
+    public Control(String name) {
+        this.name = name;
+        this.title = "";
         setCssSelector();
 
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getEtiqueta() {
-        return etiqueta;
+    public String getTitle() {
+        return title;
     }
 
-    public void setEtiqueta(String etiqueta) {
-        this.etiqueta = etiqueta;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public By getCssSelector() {
@@ -46,7 +46,7 @@ public class Control {
     }
 
     public void setCssSelector() {
-        this.cssSelector = By.cssSelector("#" + this.nombre);
+        this.cssSelector = By.cssSelector("#" + this.name);
     }
 
     /**
@@ -62,6 +62,6 @@ public class Control {
      * Toma el control por id
      */
     public void setCssSelectorById() {
-        this.cssSelector = By.cssSelector("" + this.nombre);
+        this.cssSelector = By.cssSelector("" + this.name);
     }
 }

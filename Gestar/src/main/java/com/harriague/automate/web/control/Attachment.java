@@ -8,7 +8,7 @@ public class Attachment extends Control {
     private String addButtomPath = "input[value='Agregar']";
     private String deleteButtomPath = "input[value='Eliminar']";
     private String closeButtomPath = "input[value='Cerrar']";
-    private String attachButtonPath = "#tbCtrl_" + getNombre() + " img";
+    private String attachButtonPath = "#tbCtrl_" + getName() + " img";
 
     private By inputButton = By.cssSelector(inputButtomPath);
     private By addButton = By.cssSelector(addButtomPath);
@@ -17,13 +17,13 @@ public class Attachment extends Control {
     private By attachButton = By.cssSelector(attachButtonPath);
 
 
-    public Attachment(String nombre, String etiqueta) {
-        super(nombre, etiqueta);
+    public Attachment(String name, String title) {
+        super(name, title);
     }
 
 
-    public Attachment(String nombre) {
-        super(nombre);
+    public Attachment(String name) {
+        super(name);
         setCssSelector();
     }
 
@@ -49,6 +49,6 @@ public class Attachment extends Control {
 
     @Override
     public void setCssSelector() {
-        super.setCssSelectorById("#tbCtrl_" + getNombre() + " img");
+        super.setCssSelectorById("#tbCtrl_" + getName() + " img");
     }
 }

@@ -7,20 +7,20 @@ public class Tab extends Control {
     private String height;
     private String width;
 
-    public Tab(String nombre, String etiqueta) {
-        super(nombre, etiqueta);
+    public Tab(String name, String title) {
+        super(name, title);
         setCssSelectorById();
 
     }
 
-    public Tab(String nombre) {
-        super(nombre);
+    public Tab(String name) {
+        super(name);
         setCssSelectorById();
     }
 
     @Override
     public void setCssSelectorById() {
-        String id = "#tabSpan_tabPane1_" + getNombre();
+        String id = "#tabSpan_tabPane1_" + getName();
         setCssSelector(By.cssSelector(id));
     }
 
@@ -36,6 +36,6 @@ public class Tab extends Control {
      * @return xpathAsSelected
      */
     public By tabSelectedById() {
-        return By.xpath("#tabSpan_tabPane1_" + getNombre() + ".selected");
+        return By.xpath("#tabSpan_tabPane1_" + getName() + ".selected");
     }
 }

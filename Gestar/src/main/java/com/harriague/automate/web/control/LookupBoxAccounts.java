@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class LookupBoxAccounts extends Control {
 
-    private String controlTablePath = "#tbCtrl_" + getNombre();
+    private String controlTablePath = "#tbCtrl_" + getName();
     private String searchButtonPath = controlTablePath + " img";
     private String searchBoxPath = "#txtSearch";
     private String searchButtonOptionsPath = "#cmdSearch";
@@ -21,13 +21,13 @@ public class LookupBoxAccounts extends Control {
     private By aceptButton = By.cssSelector(aceptButtonPath);
 
 
-    public LookupBoxAccounts(String nombre, String etiqueta) {
-        super(nombre, etiqueta);
+    public LookupBoxAccounts(String name, String title) {
+        super(name, title);
         setCssSelector();
     }
 
-    public LookupBoxAccounts(String nombre) {
-        super(nombre);
+    public LookupBoxAccounts(String name) {
+        super(name);
         setCssSelector();
     }
 

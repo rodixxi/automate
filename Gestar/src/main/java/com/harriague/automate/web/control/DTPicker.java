@@ -4,10 +4,10 @@ import org.openqa.selenium.By;
 
 public class DTPicker extends Control{
 
-    String buttonPath = "#" + getNombre() + " + img.ui-datepicker-trigger";
-    String datePath = "#" + getNombre();
-    String hhPath = "#" + getNombre() + "_HH";
-    String mmPath = "#" + getNombre() + "_MI";
+    String buttonPath = "#" + getName() + " + img.ui-datepicker-trigger";
+    String datePath = "#" + getName();
+    String hhPath = "#" + getName() + "_HH";
+    String mmPath = "#" + getName() + "_MI";
 
     private By button = By.cssSelector(buttonPath);
     private By date = By.cssSelector(datePath);
@@ -30,12 +30,12 @@ public class DTPicker extends Control{
         return mm;
     }
 
-    public DTPicker(String nombre, String etiqueta) {
-        super(nombre, etiqueta);
+    public DTPicker(String name, String title) {
+        super(name, title);
     }
 
-    public DTPicker(String nombre) {
-        super(nombre);
+    public DTPicker(String name) {
+        super(name);
 
     }
 }

@@ -21,20 +21,20 @@ public class TextBox extends Control {
 
     private Modes mode = Modes.one_line;
 
-    public TextBox(String nombre) {
-        super(nombre);
+    public TextBox(String name) {
+        super(name);
         setCssSelectorById();
     }
 
-    public TextBox(String nombre, Modes mode) {
-        super(nombre);
+    public TextBox(String name, Modes mode) {
+        super(name);
         this.mode = mode;
         setCssSelectorById();
 
     }
 
-    public TextBox(String nombre, Boolean isNumeric, Boolean isRequired) {
-        super(nombre);
+    public TextBox(String name, Boolean isNumeric, Boolean isRequired) {
+        super(name);
         this.isNumeric = (isNumeric) ? isNumeric : false;
         this.isRequired = (isRequired) ? isRequired : false;
         setCssSelectorById();
@@ -70,7 +70,7 @@ public class TextBox extends Control {
 
     @Override
     public void setCssSelectorById() {
-        String id = ifModeMultipleLine() + "#" + getNombre() + "[name='" + getNombre() + "']" + getAttributes();
+        String id = ifModeMultipleLine() + "#" + getName() + "[name='" + getName() + "']" + getAttributes();
         setCssSelector(By.cssSelector(id));
     }
 

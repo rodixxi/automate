@@ -5,19 +5,19 @@ import org.openqa.selenium.By;
 public class Checkbox extends Control {
 
 
-    public Checkbox(String nombre, String etiqueta) {
-        super(nombre, etiqueta);
+    public Checkbox(String name, String title) {
+        super(name, title);
         setCssSelector();
     }
 
-    public Checkbox(String nombre) {
-        super(nombre);
+    public Checkbox(String name) {
+        super(name);
         setCssSelector();
     }
 
     @Override
     public void setCssSelector() {
-        By aux = By.cssSelector(getNombre() + "_chk");
+        By aux = By.cssSelector(getName() + "_chk");
         super.setCssSelector();
     }
 }

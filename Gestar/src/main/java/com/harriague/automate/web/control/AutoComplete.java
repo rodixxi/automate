@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class AutoComplete extends Control {
 
-    private String searhBoxPath = getNombre() + "_folderSearchAutocomplete";
+    private String searhBoxPath = getName() + "_folderSearchAutocomplete";
     private String optionsBoxPath = ".ui-autocomplete a";
 
     private By searhBox = By.cssSelector(searhBoxPath);
@@ -26,19 +26,19 @@ public class AutoComplete extends Control {
         return optionsBox;
     }
 
-    public AutoComplete(String nombre) {
-        super(nombre);
+    public AutoComplete(String name) {
+        super(name);
         setCssSelector();
     }
 
-    public AutoComplete(String nombre, String etiqueta) {
-        super(nombre, etiqueta);
+    public AutoComplete(String name, String title) {
+        super(name, title);
         setCssSelector();
     }
 
     @Override
     public void setCssSelector() {
-        By cssSelector = By.cssSelector("#" + getNombre() + "_container");
+        By cssSelector = By.cssSelector("#" + getName() + "_container");
         super.setCssSelector(cssSelector);
     }
 }
