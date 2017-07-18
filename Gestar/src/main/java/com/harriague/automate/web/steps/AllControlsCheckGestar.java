@@ -12,95 +12,95 @@ import java.util.Map;
 public class AllControlsCheckGestar extends StepBase {
 
     @When("me conecto a gestar con el usuario: $usuario sin pass a la instancia $instance")
-    public void loginGestar(String usuario, String instance) throws InterruptedException, Exception {
-        getPage(LoginPage.class).hacerLogin(usuario, instance);
+    public void doLogin(String user, String instance) throws Exception {
+        getPage(LoginPage.class).doLogin(user, instance);
     }
 
     @When("crear arhivo nuevo")
-    public void crearNuevoArchivoEnFormulario() throws Exception {
-        getPage(ControlsGestar.class).crearNuevoArchivoEnFormulario();
+    public void creanteNewFileInFolder() throws Exception {
+        getPage(ControlsGestar.class).creanteNewFileInFolder();
     }
 
     @When("seleccionar tabPanel $tab")
-    public void seleccionarTabPanel(String tab) throws Exception {
-        getPage(ControlsGestar.class).seleccionarTabPanel(tab);
+    public void selectTabPanel(String tab) throws Exception {
+        getPage(ControlsGestar.class).selectTabPanel(tab);
     }
 
-    @When("ingreso $input para el campo requerido: $campo")
-    public void ingresoInputACampoRequerido(String input, String campo) throws Exception {
-        getPage(ControlsGestar.class).ingresoInputACampoRequerido(input, campo);
+    @When("ingreso $input para el campo requerido: $textBox")
+    public void inputToRequiredTextBox(String input, String textBox) throws Exception {
+        getPage(ControlsGestar.class).inputToRequiredTextBox(input, textBox);
     }
 
-    @When("ingreso $input en $campo")
-    public void ingresoInputACampo(String input, String campo) throws Exception {
-        getPage(ControlsGestar.class).ingresoInputACampo(input, campo);
+    @When("ingreso $input en $textBox")
+    public void inputToTextBox(String input, String textBox) throws Exception {
+        getPage(ControlsGestar.class).inputToTextBox(input, textBox);
     }
 
-    @When("ingreso $input para el campo numerico: $campo")
-    public void ingresoInputACampoNumerico(String input, String campo) throws Exception {
-        getPage(ControlsGestar.class).ingresoInputACampoNumerico(input, campo);
+    @When("ingreso $input para el textBox numerico: $textBox")
+    public void inputToNumericTextBox(String input, String textBox) throws Exception {
+        getPage(ControlsGestar.class).inputToNumericTextBox(input, textBox);
     }
 
-    @When("ingreso $input para campo de texto multiple: $campo")
-    public void ingresoInputACampoMultiple(String input, String campo) throws Exception {
-        getPage(ControlsGestar.class).ingresoInputACampoMultiple(input, campo);
+    @When("ingreso $input para textArea de texto multiple: $textArea")
+    public void inputToTextArea(String input, String textArea) throws Exception {
+        getPage(ControlsGestar.class).inputToTextArea(input, textArea);
     }
 
-    @When("ingreso $input para el campo password: $campo")
-    public void ingresoInputACampoPassword(String input, String campo) throws Exception {
-        getPage(ControlsGestar.class).ingresoInputACampoPassword(input, campo);
+    @When("ingreso $input para el textBox password: $textBox")
+    public void inputToPasswordTextBox(String input, String textBox) throws Exception {
+        getPage(ControlsGestar.class).inputToPasswordTextBox(input, textBox);
     }
 
-    @When("adjuntar el archivo: $url, en andjunto: $adjunto")
-    public void openPopup(String url, String adjunto) throws Exception {
-        getPage(ControlsGestar.class).attachFile(url, adjunto);
+    @When("adjuntar el archivo: $url, en andjunto: $attatchment")
+    public void attachFile(String url, String attatchment) throws Exception {
+        getPage(ControlsGestar.class).attachFile(url, attatchment);
     }
 
     @When("cargo manualmente la fecha: $date, con $hh:$mm  en DTPicker: $dtpicker")
-    public void cargarDateManual(String date, String hh, String mm, String dtpicker) throws Exception {
-        getPage(ControlsGestar.class).cargarDateManual(date, hh, mm, dtpicker);
+    public void loadDateByTextBox(String date, String hh, String mm, String dtpicker) throws Exception {
+        getPage(ControlsGestar.class).loadDateByTextBox(date, hh, mm, dtpicker);
     }
 
     @When("cargo por calendario la fecha: $date, en DTPicker: $dtpicker")
-    public void cargarDateCalendario(String date, String dtpicker) throws Exception {
-        getPage(ControlsGestar.class).cargarDateCalendario(date, dtpicker);
+    public void loadDateByCalendarUI(String date, String dtpicker) throws Exception {
+        getPage(ControlsGestar.class).loadDateByCalendarU(date, dtpicker);
     }
 
-    @When("selecciono opcion: $opcion, de el selector: $selector")
-    public void selectOption(String opcion, String selector) throws Exception {
-        getPage(ControlsGestar.class).selectOption(opcion, selector);
+    @When("selecciono option: $option, de el select: $select")
+    public void selectOption(String option, String select) throws Exception {
+        getPage(ControlsGestar.class).selectOption(option, select);
     }
 
-    @When("selecciono las opciones: $tableOptions del selector multiple: $selector")
-    public void selectMultipleOptions(ExamplesTable $tableOptions, String selector) throws Exception {
+    @When("selecciono las opciones: $tableOptions del Selector multiple: $multipleSelector")
+    public void selectMultipleOptions(ExamplesTable $tableOptions, String multipleSelector) throws Exception {
         ArrayList<String> options = new ArrayList();
         for (Map<String, String> row : $tableOptions.getRows()) {
             String option = row.get("options");
             options.add(option);
         }
-        getPage(ControlsGestar.class).selectMultipleOptions(options, selector);
+        getPage(ControlsGestar.class).selectMultipleOptions(options, multipleSelector);
     }
 
-    @When("selecciono todas las opciones del selector multiple: $selector")
-    public void selectMultipleOptionsAll(String selector) throws Exception {
+    @When("selecciono todas las opciones del selector multiple: $multipleSelector")
+    public void selectMultipleOptionsAll(String multipleSelector) throws Exception {
         ArrayList<String> options = new ArrayList();
-        getPage(ControlsGestar.class).selectMultipleOptionsAll(selector);
+        getPage(ControlsGestar.class).selectMultipleOptionsAll(multipleSelector);
     }
 
-    @When("deselecciono las opciones: $tableOptions del selector multiple: $selector")
-    public void deselectMultipleOptions(ExamplesTable $tableOptions, String selector) throws Exception {
+    @When("deselecciono las opciones: $tableOptions del selector multiple: $multipleSelector")
+    public void deselectMultipleOptions(ExamplesTable $tableOptions, String multipleSelector) throws Exception {
         ArrayList<String> options = new ArrayList();
         for (Map<String, String> row : $tableOptions.getRows()) {
             String option = row.get("options");
             options.add(option);
         }
-        getPage(ControlsGestar.class).deselectMultipleOptions(options, selector);
+        getPage(ControlsGestar.class).deselectMultipleOptions(options, multipleSelector);
     }
 
-    @When("deselecciono todas las opciones del selector multiple: $selector")
-    public void deselectMultipleOptionsAll(String selector) throws Exception {
+    @When("deselecciono todas las opciones del selector multiple: $multipleSelector")
+    public void deselectMultipleOptionsAll(String multipleSelector) throws Exception {
         ArrayList<String> options = new ArrayList();
-        getPage(ControlsGestar.class).deselectMultipleOptionsAll(selector);
+        getPage(ControlsGestar.class).deselectMultipleOptionsAll(multipleSelector);
     }
 
     @When("busco : $search; en el control de autocompletado: $autoComplete")

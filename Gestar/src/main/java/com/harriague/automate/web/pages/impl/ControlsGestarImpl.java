@@ -25,7 +25,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
 
 
     @Override
-    public void crearNuevoArchivoEnFormulario() throws AgentException, InterruptedException {
+    public void creanteNewFileInFolder() throws AgentException, InterruptedException {
         By newFileControl = By.xpath("//a[@onclick='doNew(event); return false;']");
         if (agent.checkElementIsDisplayed(newFileControl)) {
             agent.click(newFileControl);
@@ -42,7 +42,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
      * @version 1.0 10/07/2017
      */
     @Override
-    public void seleccionarTabPanel(String tab) throws AgentException, InterruptedException {
+    public void selectTabPanel(String tab) throws AgentException, InterruptedException {
         Tab newTab = new Tab(tab);
         if (agent.checkElementIsDisplayed(newTab.getCssSelector())) {
             agent.click(newTab.getCssSelector());
@@ -61,7 +61,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
      * @version 1.0 10/07/2017
      */
     @Override
-    public void ingresoInputACampoRequerido(String input, String campo) throws AgentException, InterruptedException {
+    public void inputToRequiredTextBox(String input, String campo) throws AgentException, InterruptedException {
         TextBox textBox_object = new TextBox(campo);
         textBox_object.setIsRequired();
         if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())) {
@@ -82,7 +82,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
      * @version 1.0 10/07/2017
      */
     @Override
-    public void ingresoInputACampo(String input, String campo) throws AgentException, InterruptedException {
+    public void inputToTextBox(String input, String campo) throws AgentException, InterruptedException {
         TextBox textBox_object = new TextBox(campo);
         if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())) {
             agent.writeInElement(textBox_object.getCssSelector(), input);
@@ -101,7 +101,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
      * @version 1.0 10/07/2017
      */
     @Override
-    public void ingresoInputACampoNumerico(String input, String campo) throws AgentException {
+    public void inputToNumericTextBox(String input, String campo) throws AgentException {
         TextBox textBox_object = new TextBox(campo);
         if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())) {
             agent.writeInElement(textBox_object.getCssSelector(), input);
@@ -120,7 +120,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
      * @version 1.0 10/07/2017
      */
     @Override
-    public void ingresoInputACampoMultiple(String input, String campo) throws AgentException {
+    public void inputToTextArea(String input, String campo) throws AgentException {
         TextBox textBox_object = new TextBox(campo, TextBox.Modes.multiple_line);
         if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())) {
             agent.writeInElement(textBox_object.getCssSelector(), input);
@@ -139,7 +139,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
      * @version 1.0 10/07/2017
      */
     @Override
-    public void ingresoInputACampoPassword(String input, String campo) throws AgentException {
+    public void inputToPasswordTextBox(String input, String campo) throws AgentException {
         TextBox textBox_object = new TextBox(campo, TextBox.Modes.password);
         if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())) {
             agent.writeInElement(textBox_object.getCssSelector(), input);
@@ -185,7 +185,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
      * @version 1.0 14/07/2017
      */
     @Override
-    public void cargarDateManual(String date, String hh, String mm, String dtpicker) throws AgentException {
+    public void loadDateByTextBox(String date, String hh, String mm, String dtpicker) throws AgentException {
         DTPicker dtPicker_object = new DTPicker(dtpicker);
         if (agent.checkElementIsDisplayed(dtPicker_object.getButton())) {
 
@@ -212,7 +212,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
      * @version 1.0 14/07/2017
      */
     @Override
-    public void cargarDateCalendario(String date, String dtpicker) throws AgentException, ParseException {
+    public void loadDateByCalendarU(String date, String dtpicker) throws AgentException, ParseException {
 
         DTPicker dtPicker_object = new DTPicker(dtpicker);
 

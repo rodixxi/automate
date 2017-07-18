@@ -8,7 +8,6 @@ import com.harriague.automate.core.page.BasePage;
 import com.harriague.automate.web.pages.LoginPage;
 
 //import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.concurrent.TimeUnit;
 
@@ -72,7 +71,7 @@ public class LoginPageImpl extends BasePage implements LoginPage {
 	}
 
     @Override
-    public void hacerLogin(String usuario, String instance) throws AgentException, InterruptedException {
+    public void doLogin(String usuario, String instance) throws AgentException, InterruptedException {
         if(agent.checkElementIsDisplayed(LOG_MANUAL)) {
             agent.click(LOG_MANUAL);
         }

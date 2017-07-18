@@ -7,7 +7,7 @@ public interface LoginPage extends Page {
 
 	void hacerLogin() throws AgentException, InterruptedException;
 
-    void hacerLogin(String usuario, String instance) throws AgentException, InterruptedException;
+    void doLogin(String usuario, String instance) throws AgentException, InterruptedException;
 	
 	void hacerLogin(String usuario, String pwd, String instance) throws AgentException, InterruptedException;
 	
