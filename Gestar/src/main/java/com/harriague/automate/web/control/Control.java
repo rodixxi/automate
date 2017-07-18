@@ -45,23 +45,23 @@ public class Control {
         this.cssSelector = cssSelector;
     }
 
-    public void setCssSelector()  {
+    public void setCssSelector() {
         this.cssSelector = By.cssSelector("#" + this.nombre);
     }
 
     /**
      * Toma el control por id
+     *
      * @param id
      */
-    public void setCssSelectorById(String id){
+    public void setCssSelectorById(String id) {
         this.cssSelector = By.cssSelector("" + id);
     }
 
     /**
      * Toma el control por id
-     *
      */
-    public void setCssSelectorById(){
+    public void setCssSelectorById() {
         this.cssSelector = By.cssSelector("" + this.nombre);
     }
 }

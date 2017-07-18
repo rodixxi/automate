@@ -2,7 +2,7 @@ package com.harriague.automate.web.control;
 
 import org.openqa.selenium.By;
 
-public class Attachment extends Control{
+public class Attachment extends Control {
 
     private String inputButtomPath = "input[name='file']";
     private String addButtomPath = "input[value='Agregar']";

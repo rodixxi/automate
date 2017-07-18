@@ -1,10 +1,11 @@
 package com.harriague.automate.web.control;
+
 import org.openqa.selenium.By;
 
 import java.util.ArrayList;
 
 
-public class TextBox extends Control{
+public class TextBox extends Control {
 
     private String height;
     private String width;
@@ -12,7 +13,7 @@ public class TextBox extends Control{
     private Boolean isNumeric = false;
     private Boolean isRequired = false;
 
-    public enum Modes{
+    public enum Modes {
         one_line,
         multiple_line,
         password
@@ -32,10 +33,10 @@ public class TextBox extends Control{
 
     }
 
-    public TextBox(String nombre, Boolean isNumeric, Boolean isRequired){
+    public TextBox(String nombre, Boolean isNumeric, Boolean isRequired) {
         super(nombre);
         this.isNumeric = (isNumeric) ? isNumeric : false;
-        this.isRequired = (isRequired) ? isRequired: false;
+        this.isRequired = (isRequired) ? isRequired : false;
         setCssSelectorById();
 
     }
@@ -49,7 +50,9 @@ public class TextBox extends Control{
         setCssSelectorById();
     }
 
-    public Boolean getRequired() { return isRequired; }
+    public Boolean getRequired() {
+        return isRequired;
+    }
 
     public void setIsRequired() {
         isRequired = !isRequired;
@@ -66,8 +69,8 @@ public class TextBox extends Control{
 
 
     @Override
-    public void setCssSelectorById(){
-        String id =  ifModeMultipleLine() + "#" + getNombre() + "[name='" + getNombre() + "']" + getAttributes();
+    public void setCssSelectorById() {
+        String id = ifModeMultipleLine() + "#" + getNombre() + "[name='" + getNombre() + "']" + getAttributes();
         setCssSelector(By.cssSelector(id));
     }
 
@@ -77,36 +80,37 @@ public class TextBox extends Control{
         super.setCssSelectorById(id);
     }
 
-    public String ifRequired(){
-        String text = (isRequired ? "isrequired='1'": "" );
+    public String ifRequired() {
+        String text = (isRequired ? "isrequired='1'" : "");
         return text;
     }
 
 
-    public String ifNumeric(){
-        String text = (isNumeric ? "onblur": "" );
+    public String ifNumeric() {
+        String text = (isNumeric ? "onblur" : "");
         return text;
     }
 
-    public String ifModeMultipleLine(){
+    public String ifModeMultipleLine() {
         String text = (mode == Modes.multiple_line ? "textarea" : "input");
         return text;
     }
 
-    public String ifModePassword(){
+    public String ifModePassword() {
         String text = (mode == Modes.password ? "type='password'" : "");
         return text;
     }
 
-    public String getAttributes(){
+    public String getAttributes() {
         String text = "";
         ArrayList<String> attributes = new ArrayList<String>();
         attributes.add(ifRequired());
         attributes.add(ifModePassword());
         attributes.add(ifNumeric());
-        while(attributes.remove("")) {}
+        while (attributes.remove("")) {
+        }
         int attrSize = attributes.size();
-        for (String a : attributes){
+        for (String a : attributes) {
             text += "[" + a + "]";
         }
         return text;

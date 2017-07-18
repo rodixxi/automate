@@ -2,7 +2,7 @@ package com.harriague.automate.web.control;
 
 import org.openqa.selenium.By;
 
-public class AutoComplete extends Control{
+public class AutoComplete extends Control {
 
     private String searhBoxPath = getNombre() + "_folderSearchAutocomplete";
     private String optionsBoxPath = ".ui-autocomplete a";

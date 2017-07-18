@@ -2,17 +2,22 @@ package com.harriague.automate.web.control;
 
 import org.openqa.selenium.By;
 
-public class Checkbox extends Control{
+public class Checkbox extends Control {
 
 
     public Checkbox(String nombre, String etiqueta) {
         super(nombre, etiqueta);
+        setCssSelector();
     }
 
-    public Checkbox(String etiqueta) {
-        super(etiqueta);
-        String xpath = "//span[text()='" + etiqueta + "']/ancestor::td[1]/following::td[1]/span/input[@type='checkbox']";
-        //setXpathSelectorByName(By.xpath(xpath));
+    public Checkbox(String nombre) {
+        super(nombre);
+        setCssSelector();
     }
 
+    @Override
+    public void setCssSelector() {
+        By aux = By.cssSelector(getNombre() + "_chk");
+        super.setCssSelector();
+    }
 }

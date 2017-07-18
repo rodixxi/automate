@@ -3,14 +3,14 @@ package com.harriague.automate.web.control;
 
 import org.openqa.selenium.By;
 
-public class SelectorMultiple extends Control{
+public class SelectorMultiple extends Control {
 
     private By leftOptions = By.cssSelector("div#select_" + getNombre() + "_leftselect_container:nth-child(1) > select > option");
     private By rightOptions = By.cssSelector("div#select_" + getNombre() + "_rightselect_container:nth-child(1) > select > option");
     private By toLeftButton = By.cssSelector("#" + getNombre() + "_toleftbutton");
     private By toRightButton = By.cssSelector("#" + getNombre() + "_torightbutton");
-    private By toLeftAllButton =  By.cssSelector("#" + getNombre() + "_toleftallbutton");
-    private By toRightAllButton =  By.cssSelector("#" + getNombre() + "_torightallbutton");
+    private By toLeftAllButton = By.cssSelector("#" + getNombre() + "_toleftallbutton");
+    private By toRightAllButton = By.cssSelector("#" + getNombre() + "_torightallbutton");
 
     public SelectorMultiple(String nombre, String etiqueta) {
         super(nombre, etiqueta);
