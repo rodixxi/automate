@@ -1,8 +1,8 @@
 package com.harriague.automate.web.steps;
 
 import com.harriague.automate.core.steps.StepBase;
-import com.harriague.automate.web.pages.LoginPage;
 import com.harriague.automate.web.pages.ControlsGestar;
+import com.harriague.automate.web.pages.LoginPage;
 import org.jbehave.core.annotations.When;
 import org.jbehave.core.model.ExamplesTable;
 
@@ -27,27 +27,27 @@ public class AllControlsCheckGestar extends StepBase {
     }
 
     @When("ingreso $input para el campo requerido: $campo")
-    public void ingresoInputACampoRequerido(String input, String campo) throws Exception{
+    public void ingresoInputACampoRequerido(String input, String campo) throws Exception {
         getPage(ControlsGestar.class).ingresoInputACampoRequerido(input, campo);
     }
 
     @When("ingreso $input en $campo")
-    public void ingresoInputACampo(String input, String campo) throws Exception{
+    public void ingresoInputACampo(String input, String campo) throws Exception {
         getPage(ControlsGestar.class).ingresoInputACampo(input, campo);
     }
 
     @When("ingreso $input para el campo numerico: $campo")
-    public void ingresoInputACampoNumerico(String input, String campo) throws Exception{
+    public void ingresoInputACampoNumerico(String input, String campo) throws Exception {
         getPage(ControlsGestar.class).ingresoInputACampoNumerico(input, campo);
     }
 
     @When("ingreso $input para campo de texto multiple: $campo")
-    public void ingresoInputACampoMultiple(String input, String campo) throws Exception{
+    public void ingresoInputACampoMultiple(String input, String campo) throws Exception {
         getPage(ControlsGestar.class).ingresoInputACampoMultiple(input, campo);
     }
 
     @When("ingreso $input para el campo password: $campo")
-    public void ingresoInputACampoPassword(String input, String campo) throws Exception{
+    public void ingresoInputACampoPassword(String input, String campo) throws Exception {
         getPage(ControlsGestar.class).ingresoInputACampoPassword(input, campo);
     }
 
@@ -74,7 +74,7 @@ public class AllControlsCheckGestar extends StepBase {
     @When("selecciono las opciones: $tableOptions del selector multiple: $selector")
     public void selectMultipleOptions(ExamplesTable $tableOptions, String selector) throws Exception {
         ArrayList<String> options = new ArrayList();
-        for (Map<String,String> row : $tableOptions.getRows()){
+        for (Map<String, String> row : $tableOptions.getRows()) {
             String option = row.get("options");
             options.add(option);
         }
@@ -90,7 +90,7 @@ public class AllControlsCheckGestar extends StepBase {
     @When("deselecciono las opciones: $tableOptions del selector multiple: $selector")
     public void deselectMultipleOptions(ExamplesTable $tableOptions, String selector) throws Exception {
         ArrayList<String> options = new ArrayList();
-        for (Map<String,String> row : $tableOptions.getRows()){
+        for (Map<String, String> row : $tableOptions.getRows()) {
             String option = row.get("options");
             options.add(option);
         }
@@ -103,8 +103,8 @@ public class AllControlsCheckGestar extends StepBase {
         getPage(ControlsGestar.class).deselectMultipleOptionsAll(selector);
     }
 
-    @When("busco : $search, en el control de autocompletado: $autoComplete")
+    @When("busco : $search; en el control de autocompletado: $autoComplete")
     public void buscoOpcionAutoComplete(String search, String autoComplete) throws Exception {
-        getPage(ControlsGestar.class).buscoOpcionAutoComplete(search, autoComplete, );
+        getPage(ControlsGestar.class).searchOptionAutoComplete(search, autoComplete);
     }
 }

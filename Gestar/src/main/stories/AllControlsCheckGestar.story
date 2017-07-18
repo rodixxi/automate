@@ -33,14 +33,16 @@ When crear arhivo nuevo
 !-- When cargo por calendario la fecha: 01/01/2018, en DTPicker: DTPickerF
 !-- When cargo por calendario la fecha: 01/01/2017, en DTPicker: DTPickerF
 When seleccionar tabPanel tab5
-When selecciono las opciones:
-|options|
-|Juan|
-del selector multiple: select11
-When deselecciono las opciones:
-|options|
-|Jose|
-del selector multiple: select11
-When selecciono todas las opciones del selector multiple: select11
-When deselecciono todas las opciones del selector multiple: select11
+!-- When selecciono las opciones:
+!-- |options|
+!-- |Juan|
+!-- del selector multiple: select11
+!-- When deselecciono las opciones:
+!-- |options|
+!-- |Jose|
+!-- del selector multiple: select11
+!-- When selecciono todas las opciones del selector multiple: select11
+!-- When deselecciono todas las opciones del selector multiple: select11
+When busco : Avecilla, Rebeca; en el control de autocompletado: autoComplete1
+When busco : Avecilla, Rebeca; en el control de autocompletado: autoComplete2
 

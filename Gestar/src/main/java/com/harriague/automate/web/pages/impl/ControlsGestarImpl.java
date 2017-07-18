@@ -27,7 +27,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     @Override
     public void crearNuevoArchivoEnFormulario() throws AgentException, InterruptedException {
         By newFileControl = By.xpath("//a[@onclick='doNew(event); return false;']");
-        if (agent.checkElementIsDisplayed(newFileControl)){
+        if (agent.checkElementIsDisplayed(newFileControl)) {
             agent.click(newFileControl);
         }
     }
@@ -35,17 +35,16 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     /**
      * Selecciona un tab
      *
-     * @authot Rodrigo Crespillo
-     * @version 1.0 10/07/2017
-     *
      * @param tab
      * @throws AgentException
      * @throws InterruptedException
+     * @authot Rodrigo Crespillo
+     * @version 1.0 10/07/2017
      */
     @Override
-    public void seleccionarTabPanel(String tab) throws AgentException, InterruptedException{
+    public void seleccionarTabPanel(String tab) throws AgentException, InterruptedException {
         Tab newTab = new Tab(tab);
-        if (agent.checkElementIsDisplayed(newTab.getCssSelector())){
+        if (agent.checkElementIsDisplayed(newTab.getCssSelector())) {
             agent.click(newTab.getCssSelector());
         }
     }
@@ -54,19 +53,18 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     /**
      * Ingresa texto a un campo requerido
      *
-     * @authot Rodrigo Crespillo
-     * @version 1.0 10/07/2017
-     *
      * @param input
      * @param campo
      * @throws AgentException
      * @throws InterruptedException
+     * @authot Rodrigo Crespillo
+     * @version 1.0 10/07/2017
      */
     @Override
     public void ingresoInputACampoRequerido(String input, String campo) throws AgentException, InterruptedException {
         TextBox textBox_object = new TextBox(campo);
         textBox_object.setIsRequired();
-        if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())){
+        if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())) {
             agent.writeInElement(textBox_object.getCssSelector(), input);
         } else {
             System.out.println("No se encontro el campo");
@@ -76,18 +74,17 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     /**
      * Ingresa un input a un campo común
      *
-     * @authot Rodrigo Crespillo
-     * @version 1.0 10/07/2017
-     *
      * @param input
      * @param campo
      * @throws AgentException
      * @throws InterruptedException
+     * @authot Rodrigo Crespillo
+     * @version 1.0 10/07/2017
      */
     @Override
     public void ingresoInputACampo(String input, String campo) throws AgentException, InterruptedException {
         TextBox textBox_object = new TextBox(campo);
-        if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())){
+        if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())) {
             agent.writeInElement(textBox_object.getCssSelector(), input);
         } else {
             System.out.println("No se encontro el campo");
@@ -97,17 +94,16 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     /**
      * Ingresa valores a un control de tipo numerico
      *
-     * @authot Rodrigo Crespillo
-     * @version 1.0 10/07/2017
-     *
      * @param input
      * @param campo
      * @throws AgentException
+     * @authot Rodrigo Crespillo
+     * @version 1.0 10/07/2017
      */
     @Override
     public void ingresoInputACampoNumerico(String input, String campo) throws AgentException {
         TextBox textBox_object = new TextBox(campo);
-        if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())){
+        if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())) {
             agent.writeInElement(textBox_object.getCssSelector(), input);
         } else {
             System.out.println("No se encontro el campo");
@@ -117,37 +113,35 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     /**
      * Ingresa texto a un input tipo textbox
      *
-     * @authot Rodrigo Crespillo
-     * @version 1.0 10/07/2017
-     *
      * @param input
      * @param campo
      * @throws AgentException
+     * @authot Rodrigo Crespillo
+     * @version 1.0 10/07/2017
      */
     @Override
     public void ingresoInputACampoMultiple(String input, String campo) throws AgentException {
         TextBox textBox_object = new TextBox(campo, TextBox.Modes.multiple_line);
-        if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())){
+        if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())) {
             agent.writeInElement(textBox_object.getCssSelector(), input);
         } else {
-             System.out.println("No se encontro el campo");
+            System.out.println("No se encontro el campo");
         }
     }
 
     /**
      * Ingresa valores a input tipo password
      *
-     * @authot Rodrigo Crespillo
-     * @version 1.0 10/07/2017
-     *
      * @param input
      * @param campo
      * @throws AgentException
+     * @authot Rodrigo Crespillo
+     * @version 1.0 10/07/2017
      */
     @Override
     public void ingresoInputACampoPassword(String input, String campo) throws AgentException {
         TextBox textBox_object = new TextBox(campo, TextBox.Modes.password);
-        if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())){
+        if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())) {
             agent.writeInElement(textBox_object.getCssSelector(), input);
         } else {
             System.out.println("No se encontro el campo");
@@ -157,17 +151,16 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     /**
      * Adjunta un archivo a un control de Attatchemet
      *
-     * @author Rodrigo Crespillo
-     * @version 1.0 13/07/2017
-     *
      * @param url
      * @param adjunto
      * @throws AgentException
+     * @author Rodrigo Crespillo
+     * @version 1.0 13/07/2017
      */
     @Override
     public void attachFile(String url, String adjunto) throws AgentException {
         Attachment attch_object = new Attachment(adjunto);
-        if (agent.checkElementIsDisplayed(attch_object.getCssSelector())){
+        if (agent.checkElementIsDisplayed(attch_object.getCssSelector())) {
             agent.click(attch_object.getCssSelector());
             String principalWindows = agent.switchToPopup();
             agent.selectFile(attch_object.getInputButton(), url);
@@ -181,22 +174,20 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     }
 
     /**
-     *
      * Ingresa la fecha de un datepicker directamente sobre el campo
-     *
-     * @author Rodrigo Crespillo
-     * @version 1.0 14/07/2017
      *
      * @param date
      * @param hh
      * @param mm
      * @param dtpicker
      * @throws AgentException
+     * @author Rodrigo Crespillo
+     * @version 1.0 14/07/2017
      */
     @Override
     public void cargarDateManual(String date, String hh, String mm, String dtpicker) throws AgentException {
         DTPicker dtPicker_object = new DTPicker(dtpicker);
-        if (agent.checkElementIsDisplayed(dtPicker_object.getButton())){
+        if (agent.checkElementIsDisplayed(dtPicker_object.getButton())) {
 
             agent.writeInElement(dtPicker_object.getDate(), date);
             agent.writeInElement(dtPicker_object.getHh(), hh);
@@ -213,13 +204,12 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     /**
      * Selecciona la fecha de un datepicker usando la ui, este puede ser usado en el caso de q el campo este bloqueado
      *
-     * @author Rodrigo Crespillo
-     * @version 1.0 14/07/2017
-     *
      * @param date
      * @param dtpicker
      * @throws AgentException
      * @throws ParseException
+     * @author Rodrigo Crespillo
+     * @version 1.0 14/07/2017
      */
     @Override
     public void cargarDateCalendario(String date, String dtpicker) throws AgentException, ParseException {
@@ -229,7 +219,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         SimpleDateFormat dmy = new SimpleDateFormat("dd/MM/yyyy");
         Date aDate = dmy.parse(date);
 
-        if (agent.checkElementIsDisplayed(dtPicker_object.getButton())){
+        if (agent.checkElementIsDisplayed(dtPicker_object.getButton())) {
             agent.click(dtPicker_object.getButton());
             agent.selectDateFromUi(aDate);
 
@@ -242,39 +232,35 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     /**
      * Selecciona una opcion de un selector
      *
-     * @author Rodrigo Crespillo
-     * @version 1.0 12/07/2017
-     *
      * @param opcion
      * @param selector
      * @throws AgentException
+     * @author Rodrigo Crespillo
+     * @version 1.0 12/07/2017
      */
     @Override
     public void selectOption(String opcion, String selector) throws AgentException {
         SelectControl selectControl = new SelectControl(selector);
-        if (agent.checkElementIsDisplayed(selectControl.getCssSelector())){
+        if (agent.checkElementIsDisplayed(selectControl.getCssSelector())) {
             agent.selectSelectorOption(selectControl.getCssSelector(), opcion);
-        }else {
+        } else {
             System.out.println("No se encontro el campo");
         }
     }
 
     /**
-     *
      * Selecciona las opciones dadas(en forma de tabla) de un selector multiple
-     *
-     * @author Rodrigo Crespillo
-     * @version 1.0 14/07/2017
      *
      * @param options
      * @param selector
-     *
      * @throws AgentException
+     * @author Rodrigo Crespillo
+     * @version 1.0 14/07/2017
      */
     @Override
     public void selectMultipleOptions(ArrayList<String> options, String selector) throws AgentException {
         SelectorMultiple selectorMultiple = new SelectorMultiple(selector, "");
-        for (String option : options){
+        for (String option : options) {
             agent.selectOptions(option, selectorMultiple.getLeftOptions());
         }
         agent.click(selectorMultiple.getToRightButton());
@@ -283,11 +269,10 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     /**
      * Selecciona todas la opciones de un selector multiple
      *
-     * @author Rodrigo Crespillo
-     * @version 1.0 17/07/2017
-     *
      * @param selector
      * @throws AgentException
+     * @author Rodrigo Crespillo
+     * @version 1.0 17/07/2017
      */
     @Override
     public void selectMultipleOptionsAll(String selector) throws AgentException {
@@ -298,17 +283,16 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     /**
      * Deselecciona las opciones dadas(en forma de tabla) de un selector multiple
      *
-     * @author Rodrigo Crespillo
-     * @version 1.0 17/07/2017
-     *
      * @param options
      * @param selector
      * @throws AgentException
+     * @author Rodrigo Crespillo
+     * @version 1.0 17/07/2017
      */
     @Override
     public void deselectMultipleOptions(ArrayList<String> options, String selector) throws AgentException {
         SelectorMultiple selectorMultiple = new SelectorMultiple(selector, "");
-        for (String option : options){
+        for (String option : options) {
             agent.selectOptions(option, selectorMultiple.getRightOptions());
         }
         agent.click(selectorMultiple.getToLeftButton());
@@ -317,11 +301,10 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     /**
      * Deselecciona todas la opciones de un selector multiple
      *
-     * @author Rodrigo Crespillo
-     * @version 1.0 17/07/2017
-     *
      * @param selector
      * @throws AgentException
+     * @author Rodrigo Crespillo
+     * @version 1.0 17/07/2017
      */
     @Override
     public void deselectMultipleOptionsAll(String selector) throws AgentException {
@@ -331,12 +314,11 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     }
 
     @Override
-    public void buscoOpcionAutoComplete(String search, String autoComplete, String orden) throws AgentException {
-        int orden_aux = Integer.parseInt(orden);
-        AutoComplete autoComplete_control = new AutoComplete(autoComplete, orden_aux);
-        if(agent.checkElementIsDisplayed(autoComplete_control.getCssSelector())){
-            agent.buscarOpcion(search, autoComplete, orden_aux);
-        }else {
+    public void searchOptionAutoComplete(String search, String autoComplete) throws AgentException {
+        AutoComplete autoComplete_control = new AutoComplete(autoComplete);
+        if (agent.checkElementIsDisplayed(autoComplete_control.getCssSelector())) {
+            agent.searchOption(search, autoComplete);
+        } else {
             System.out.println("No se encontro el campo");
         }
 

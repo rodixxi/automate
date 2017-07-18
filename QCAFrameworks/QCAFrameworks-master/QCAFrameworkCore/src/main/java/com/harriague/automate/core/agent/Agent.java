@@ -326,7 +326,7 @@ public interface Agent {
      */
     void selectDateFromUi(Date aDate);
 
-    void buscarOpcion(String search, String autoComplete, int orden);
+    void searchOption(String search, String autoComplete) throws AgentException;
 }
 
 
