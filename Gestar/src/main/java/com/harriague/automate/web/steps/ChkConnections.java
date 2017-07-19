@@ -29,14 +29,5 @@ private static final String CHANGE_CONN = "chk_conn";
 
 	}
 
-	//@AfterScenario
-    public void closeBrowser(){
-        log.info("cerrando broser ...");
-        try {
-            closeApplication();
-            log.info("... browser cerrado!");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
 }

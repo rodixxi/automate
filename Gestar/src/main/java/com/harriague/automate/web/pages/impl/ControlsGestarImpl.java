@@ -3,6 +3,7 @@ package com.harriague.automate.web.pages.impl;
 import com.harriague.automate.core.agent.Agent;
 import com.harriague.automate.core.exceptions.AgentException;
 import com.harriague.automate.core.page.BasePage;
+import com.harriague.automate.core.structures.FlawedTimeUnit;
 import com.harriague.automate.web.control.*;
 import com.harriague.automate.web.pages.ControlsGestar;
 import org.openqa.selenium.By;
@@ -163,6 +164,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         if (agent.checkElementIsDisplayed(attch_object.getCssSelector())) {
             agent.click(attch_object.getCssSelector());
             String principalWindows = agent.switchToPopup();
+            agent.checkElementIsDisplayed(attch_object.getAttachButton(), FlawedTimeUnit.seconds(2));
             agent.selectFile(attch_object.getInputButton(), url);
             agent.click(attch_object.getAddButton());
             agent.click(attch_object.getCloseButton());

@@ -6,45 +6,56 @@ Selecciono el tab2
 Selecciono el tab1
 Cargo el campo textbox1 con texto plano
 
-Scenario: entro a automate y pruebo los tabs y el control de texto
-Given Navigate to the http://10.201.4.191/w/ url in the chrome browser
-When me conecto a gestar con el usuario: admin sin pass a la instancia DESA
-When abrir la carpeta autoMate
-When abrir la carpeta autoMATE - prueba
-When crear arhivo nuevo
-!-- When seleccionar tabPanel tab2
-!-- When seleccionar tabPanel tab3
-!-- When seleccionar tabPanel tab4
-!-- When seleccionar tabPanel tab5
-!-- When seleccionar tabPanel tab1
-!-- When ingreso abc para el campo requerido: RequiredTextBox
-!-- When ingreso lala en comunTextBox
-!-- When ingreso 123 para el campo numerico: NumericTexBox
-!-- When ingreso jojojujaju para campo de texto multiple: MultiTexBox
-!-- When ingreso lapolola para el campo password: PassTexBox
-!-- When seleccionar tabPanel tab2
-!-- When adjuntar el archivo: C:/lala.txt, en andjunto: attachments
-!-- When seleccionar tabPanel tab3
-!-- When cargo manualmente la fecha: 07/07/2017, con 03:24 en DTPicker: DTPciker
-!-- When cargo por calendario la fecha: 07/07/2017, en DTPicker: DTPickerF
-!-- When cargo por calendario la fecha: 27/07/2017, en DTPicker: DTPickerF
-!-- When cargo por calendario la fecha: 01/07/2017, en DTPicker: DTPickerF
-!-- When cargo por calendario la fecha: 31/12/2017, en DTPicker: DTPickerF
-!-- When cargo por calendario la fecha: 01/01/2018, en DTPicker: DTPickerF
-!-- When cargo por calendario la fecha: 01/01/2017, en DTPicker: DTPickerF
-!-- When seleccionar tabPanel tab5
-!-- When selecciono las opciones:
-!-- |options|
-!-- |Juan|
-!-- del selector multiple: select11
-!-- When deselecciono las opciones:
-!-- |options|
-!-- |Jose|
-!-- del selector multiple: select11
-!-- When selecciono todas las opciones del selector multiple: select11
-!-- When deselecciono todas las opciones del selector multiple: select11
-!-- When busco : Avecilla, Rebeca; en el control de autocompletado: autoComplete1
-!-- When busco : Avecilla, Rebeca; en el control de autocompletado: autoComplete2
-When seleccionar tabPanel tab4
-When busco: Administrador; en el control con DobleClick LookUpBoxAccount: LookupBoxAccounts
+!-- Given Navigate to the http://10.201.4.191/w/ url in the chrome browser
+!-- When me conecto a gestar con el usuario: admin sin pass a la instancia DESA.
+!--When abrir la carpeta autoMate
+!-- When abrir la carpeta autoMATE - prueba
+!-- When crear arhivo nuevo.
 
+Scenario: pruebo los tabs
+When seleccionar tabPanel: tab2.
+When seleccionar tabPanel: tab3.
+When seleccionar tabPanel: tab4.
+When seleccionar tabPanel: tab5.
+When seleccionar tabPanel: tab1.
+
+Scenario: prubo los campos de texto
+When seleccionar tabPanel: tab1.
+When ingreso abc; para el campo requerido: RequiredTextBox.
+When ingreso lala; para el textBox: comunTextBox.
+When ingreso 123; para el textBox numerico: NumericTexBox.
+When ingreso jojojujaju asdasd asdasdas; para textArea: MultiTexBox.
+When ingreso lapolola; para el textBox password: PassTexBox.
+
+Scenario: prueblo el control de adjunto en tab 2
+When seleccionar tabPanel: tab2.
+When adjuntar el archivo: C:\lala.txt; en andjunto: attachments.
+
+Scenario: prubo el datepicker en tab3
+When seleccionar tabPanel: tab3.
+When cargo manualmente la fecha: 07/07/2017, con 03:24 en DTPicker: DTPciker.
+When cargo por calendario la fecha: 07/07/2017, en DTPicker: DTPickerF.
+When cargo por calendario la fecha: 27/07/2017, en DTPicker: DTPickerF.
+When cargo por calendario la fecha: 01/07/2017, en DTPicker: DTPickerF.
+When cargo por calendario la fecha: 31/12/2017, en DTPicker: DTPickerF.
+When cargo por calendario la fecha: 01/01/2018, en DTPicker: DTPickerF.
+When cargo por calendario la fecha: 01/01/2017, en DTPicker: DTPickerF.
+
+Scenario: pruebo el LookupBoxAccounts en tab4
+When seleccionar tabPanel: tab4.
+When busco: Administrador; en el control con DobleClick LookUpBoxAccount: LookupBoxAccounts.
+
+Scenario: pruebo multipleSelector Y AutoComplete en tab5
+When seleccionar tabPanel: tab5.
+When selecciono las opciones:
+|options|
+|Juan|
+del Selector multiple: select11.
+When deselecciono las opciones:
+|options|
+|Jose|
+del selector multiple: select11.
+When selecciono todas las opciones del selector multiple: select11.
+When deselecciono todas las opciones del selector multiple: select11.
+When busco : Avecilla, Rebeca; en el control de autocompletado: autoComplete1.
+When busco : Avecilla, Rebeca; en el control de autocompletado: autoComplete2.

@@ -10,7 +10,7 @@ import com.harriague.automate.web.pages.GestarFolder;
 public class GestarFolders extends StepBase {
 	
 	@When("abrir la carpeta $folder")
-	public void abrirCarpeta(String folder) throws AgentException,  Exception{
+	public void abrirCarpeta(String folder) throws  Exception{
 		log.info("intento abrir la carpeta: " + folder);
         getPage(GestarFolder.class).OpenFolder(folder);
 
