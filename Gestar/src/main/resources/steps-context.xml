@@ -30,8 +30,10 @@
 	
 	<bean id="CheckLicencia" class="com.harriague.automate.web.steps.CheckLicencia"></bean>
 	 
-	<bean id="LogoutSteps"       class="com.harriague.automate.web.steps.LogoutSteps"></bean>
+	<bean id="LogoutSteps" class="com.harriague.automate.web.steps.LogoutSteps"></bean>
 
-	<bean id="AllControlsCheckGestar"       class="com.harriague.automate.web.steps.AllControlsCheckGestar"></bean>
+	<bean id="AllControlsCheckGestar" class="com.harriague.automate.web.steps.AllControlsCheckGestar"></bean>
+
+	<bean id="AllControlsCheckValuesGestar" class="com.harriague.automate.web.steps.AllControlsCheckValuesGestar"></bean>
 
 </beans>

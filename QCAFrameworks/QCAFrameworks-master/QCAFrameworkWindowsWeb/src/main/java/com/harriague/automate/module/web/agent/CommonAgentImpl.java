@@ -39,6 +39,7 @@ import com.harriague.automate.core.structures.FlawedTimeUnit;
 import com.harriague.automate.core.structures.ScrollDirection;
 import com.harriague.automate.core.structures.SwipeDirection;
 import com.harriague.automate.core.utils.ReadProperty;
+import org.testng.Assert;
 
 public class CommonAgentImpl implements Agent {
 
@@ -1222,7 +1223,7 @@ public class CommonAgentImpl implements Agent {
      *
      * @author Rodrigo Crespillo
      * @version 1.0 17/07/2017
-     *@param search
+     * @param search
      * @param autoComplete    */
     @Override
     public void searchOption(String search, String autoComplete) throws AgentException {
@@ -1239,6 +1240,49 @@ public class CommonAgentImpl implements Agent {
             selectOptionsCrtlClick(search, optionsBox);
         }
 
+    }
+
+    /**
+     * Compara si un String es igual a otro
+     *
+     * @author Rodrigo Crespillo
+     * @version 1.0 25/07/2017
+     *
+     * @param thisOne
+     * @param equalToThis
+     */
+    @Override
+    public void acceptStringIfEqualTo(String thisOne, String equalToThis) {
+        Assert.assertEquals(thisOne, equalToThis);
+    }
+
+    @Override
+    public void selectFormWhere(String field, String valueEqualTo) {
+        int index = -1;
+        String tableHeadPath = ".pq-td-div>span[title]";
+        By tableHead_byCSS = By.cssSelector(tableHeadPath);
+
+        ArrayList <WebElement> tableHead_elements = (ArrayList<WebElement>) driver.findElements((By)tableHead_byCSS);
+
+        for (WebElement field_element : tableHead_elements){
+            String columnTitle = field_element.getText();
+            if (columnTitle.equals(field)){
+                index = tableHead_elements.indexOf(field_element);
+                break;
+            }
+        }
+        if (index != -1){
+            String tableCellColumnPath = "tr.pq-grid-row td[pq-col-indx='"+ index +"'] a";
+            By tableCellColumn = By.cssSelector(tableCellColumnPath);
+            ArrayList <WebElement> tableCellColumn_elements = (ArrayList<WebElement>) driver.findElements(tableCellColumn);
+            for (WebElement cell : tableCellColumn_elements){
+                String cellText = cell.getText();
+                if (cellText.equals(valueEqualTo)){
+                    cell.click();
+                    break;
+                }
+            }
+        }
     }
 
 }

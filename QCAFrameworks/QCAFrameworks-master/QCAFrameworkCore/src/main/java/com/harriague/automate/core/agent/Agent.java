@@ -206,8 +206,7 @@ public interface Agent {
 
     /**
      * Select a option in a combobox
-     * 
-     * @param xpath combo box Id
+     *
      * @param value option
      * @throws AgentException
      */
@@ -238,8 +237,7 @@ public interface Agent {
 
     /**
      * Hover in element
-     * 
-     * @param xpath element
+     *
      * @throws AgentException
      */
     public Object hover(Object element) throws AgentException;
@@ -337,6 +335,10 @@ public interface Agent {
 
 
     void searchOption(String search, String autoComplete) throws AgentException;
+
+    void acceptStringIfEqualTo(String thisOne, String equalToThis);
+
+    void selectFormWhere(String field, String valueEqualTo);
 }
 
 
