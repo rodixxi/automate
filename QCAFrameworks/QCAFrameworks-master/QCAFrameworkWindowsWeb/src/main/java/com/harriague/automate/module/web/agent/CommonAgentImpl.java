@@ -248,7 +248,7 @@ public class CommonAgentImpl implements Agent {
         ((JavascriptExecutor) driver).executeScript("arguments[0].style.border='3px solid red'", x);
         WebDriverWait wait = new WebDriverWait(driver, 2);
         try {
-            wait.until(ExpectedConditions.invisibilityOfElementLocated((By) element));
+            //wait.until(ExpectedConditions.invisibilityOfElementLocated((By) element));
         } catch (TimeoutException e) {
             ((JavascriptExecutor) driver).executeScript("arguments[0].style.border='0'", x);
         }
@@ -393,7 +393,7 @@ public class CommonAgentImpl implements Agent {
     	boolean foundAlert = false;
         WebDriverWait wait = new WebDriverWait(driver, 4 /*timeout in seconds*/);
         try {
-            wait.until(ExpectedConditions.alertIsPresent());
+            //wait.until(ExpectedConditions.alertIsPresent());
             foundAlert = true;
         } catch (TimeoutException eTO) {
             foundAlert = false;
@@ -1093,7 +1093,7 @@ public class CommonAgentImpl implements Agent {
      */
     public void waitUntil(ExpectedCondition<WebElement> condition) {
         WebDriverWait wait = new WebDriverWait(driver, 15);
-        wait.until(condition);
+        //wait.until(condition);
     }
 
     @Override
@@ -1258,31 +1258,40 @@ public class CommonAgentImpl implements Agent {
 
     @Override
     public void selectFormWhere(String field, String valueEqualTo) {
-        int index = -1;
-        String tableHeadPath = ".pq-td-div>span[title]";
+        int index = getFieldValueIndex(field);
+        if (fieldFound(index)){
+            getCellByValueInColumn(valueEqualTo, index);
+        }
+    }
+
+    private int getFieldValueIndex(String field){
+        String tableHeadPath = ".pq-td-div > span[title]";
         By tableHead_byCSS = By.cssSelector(tableHeadPath);
-
-        ArrayList <WebElement> tableHead_elements = (ArrayList<WebElement>) driver.findElements((By)tableHead_byCSS);
-
+        ArrayList <WebElement> tableHead_elements = (ArrayList<WebElement>) driver.findElements(tableHead_byCSS);
         for (WebElement field_element : tableHead_elements){
             String columnTitle = field_element.getText();
             if (columnTitle.equals(field)){
-                index = tableHead_elements.indexOf(field_element);
-                break;
+                return tableHead_elements.indexOf(field_element);
             }
         }
-        if (index != -1){
-            String tableCellColumnPath = "tr.pq-grid-row td[pq-col-indx='"+ index +"'] a";
-            By tableCellColumn = By.cssSelector(tableCellColumnPath);
-            ArrayList <WebElement> tableCellColumn_elements = (ArrayList<WebElement>) driver.findElements(tableCellColumn);
-            for (WebElement cell : tableCellColumn_elements){
-                String cellText = cell.getText();
-                if (cellText.equals(valueEqualTo)){
-                    cell.click();
-                    break;
-                }
+        return -1;
+    }
+
+    private WebElement getCellByValueInColumn(String valueEqualTo, int column) {
+        String tableCellColumnPath = "tr.pq-grid-row td[pq-col-indx='" + column + "'] a";
+        By tableCellColumn = By.cssSelector(tableCellColumnPath);
+        ArrayList<WebElement> tableCellColumn_elements = (ArrayList<WebElement>) driver.findElements(tableCellColumn);
+        for (WebElement cell : tableCellColumn_elements) {
+            String cellText = cell.getText();
+            if (cellText.equals(valueEqualTo)) {
+                return cell;
             }
         }
+        return null;
+    }
+
+    private boolean fieldFound(int index){
+        return index >= 0;
     }
 
 }
