@@ -19,7 +19,6 @@ public class AllControlsCheckGestar extends StepBase {
     public void beforeStory() throws Exception {
         navigateUrlBrowser("http://10.201.4.191/w/", "chrome");
         doLogin("admin", "DESA");
-        creanteNewFileInFolder();
     }
 
     @AfterStory
