@@ -9,7 +9,7 @@ public class Attachment extends Control {
     private String deleteButtomPath = "input[value='Eliminar']";
     private String closeButtomPath = "input[value='Cerrar']";
     private String attachButtonPath = "#tbCtrl_" + getName() + " img";
-    private String attatchNamePath = "#tbCtrl_ " + getName() + " a";
+    private String attatchNamePath = "#tbCtrl_" + getName() + " a";
 
     private By inputButton = By.cssSelector(inputButtomPath);
     private By addButton = By.cssSelector(addButtomPath);

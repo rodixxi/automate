@@ -26,8 +26,7 @@
 	<bean id="CheckConnections" class="com.harriague.automate.web.steps.ChkConnections"></bean>
 	
 	<bean id="OpenFolder" class="com.harriague.automate.web.steps.GestarFolders"></bean>
-	
-	
+
 	<bean id="CheckLicencia" class="com.harriague.automate.web.steps.CheckLicencia"></bean>
 	 
 	<bean id="LogoutSteps" class="com.harriague.automate.web.steps.LogoutSteps"></bean>

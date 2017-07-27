@@ -1,6 +1,7 @@
 package com.harriague.automate.core.agent;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -353,6 +354,10 @@ public interface Agent {
     boolean getIsChecked(By cssSelector);
 
     void aceptIfBoolean(boolean isChecked_control, boolean isChecked);
+
+    void aceptSelectOption(By selectByCss, String optionExpected);
+
+    void aceptSelectOptions(By optionList, ArrayList<String> optionsExpected);
 }
 
 

@@ -2,7 +2,7 @@ package com.harriague.automate.web.control;
 
 import org.openqa.selenium.By;
 
-public class LookupBoxAccounts extends Control {
+public class LookUpBoxAccounts extends Control {
 
     private String controlTablePath = "#tbCtrl_" + getName();
     private String searchButtonPath = controlTablePath + " img";
@@ -11,6 +11,7 @@ public class LookupBoxAccounts extends Control {
     private String optionsPath = "#lstSearch option";
     private String cancelButtonPath = "#cmdCancel";
     private String aceptButtonPath = "#cmdOk";
+    private String accountSelectedPath = "#" + getName() + "_div span";
 
     private By controlTable = By.cssSelector(controlTablePath);
     private By searchButton = By.cssSelector(searchButtonPath);
@@ -19,14 +20,15 @@ public class LookupBoxAccounts extends Control {
     private By options = By.cssSelector(optionsPath);
     private By cancelButton = By.cssSelector(cancelButtonPath);
     private By aceptButton = By.cssSelector(aceptButtonPath);
+    private By accountSelected = By.cssSelector(accountSelectedPath);
 
 
-    public LookupBoxAccounts(String name, String title) {
+    public LookUpBoxAccounts(String name, String title) {
         super(name, title);
         setCssSelector();
     }
 
-    public LookupBoxAccounts(String name) {
+    public LookUpBoxAccounts(String name) {
         super(name);
         setCssSelector();
     }
@@ -57,6 +59,10 @@ public class LookupBoxAccounts extends Control {
 
     public By getAceptButton() {
         return aceptButton;
+    }
+
+    public By getAccountSelected() {
+        return accountSelected;
     }
 
     @Override

@@ -11,6 +11,8 @@ public class SelectorMultiple extends Control {
     private String toRightButtonPath = "#" + getName() + "_torightbutton";
     private String toLeftAllButtonPath = "#" + getName() + "_toleftallbutton";
     private String toRightAllButtonPath = "#" + getName() + "_torightallbutton";
+    private String rightListPath = "#" + getName() + "_rightselect";
+    private String leftListPath = "#" + getName() + "_leftselect";
 
     private By leftOptions = By.cssSelector(leftOptionsPath);
     private By rightOptions = By.cssSelector(rightOptionsPath);
@@ -18,6 +20,8 @@ public class SelectorMultiple extends Control {
     private By toRightButton = By.cssSelector(toRightButtonPath);
     private By toLeftAllButton = By.cssSelector(toLeftAllButtonPath);
     private By toRightAllButton = By.cssSelector(toRightAllButtonPath);
+    private By rightList = By.cssSelector(rightListPath);
+    private By leftList = By.cssSelector(leftListPath);
 
     public SelectorMultiple(String name, String title) {
         super(name, title);
@@ -49,5 +53,13 @@ public class SelectorMultiple extends Control {
 
     public By getToRightAllButton() {
         return toRightAllButton;
+    }
+
+    public By getRightList() {
+        return rightList;
+    }
+
+    public By getLeftList() {
+        return leftList;
     }
 }

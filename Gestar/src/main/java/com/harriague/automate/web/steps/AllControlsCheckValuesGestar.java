@@ -4,14 +4,17 @@ import com.harriague.automate.core.steps.StepBase;
 import com.harriague.automate.web.pages.CheckForm;
 import com.harriague.automate.web.pages.CheckFormValues;
 import com.harriague.automate.web.pages.GestarFolder;
-import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
+import org.jbehave.core.model.ExamplesTable;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 public class AllControlsCheckValuesGestar extends StepBase {
 
-    @BeforeScenario
-    public void beforeScenario() throws Exception {
+    @Given("abrir la carpeta de automate.")
+    public void openAutomateFolder() throws Exception {
         getPage(GestarFolder.class).OpenFolder("autoMate");
         getPage(GestarFolder.class).OpenFolder("autoMATE - prueba");
     }
@@ -55,4 +58,45 @@ public class AllControlsCheckValuesGestar extends StepBase {
     public void checkCheckBoxChecked(String checkboxId) throws Exception {
         getPage(CheckFormValues.class).checkCheckBoxChecked(checkboxId, true);
     }
+
+    @Then("el DTPicker: $dtpicker; tiene la fecha y hora: $date, con $hh:$mm.")
+    public void checkDtpickerDateAndHour(String dtpicker, String date, String hh, String mm) throws Exception {
+        getPage(CheckFormValues.class).checkDtpickerDateAndHour(dtpicker, date, hh, mm);
+    }
+
+    @Then("el DTPicker: $dtpicker; tiene la fecha: $date.")
+    public void checkDtpickerDate(String dtpicker, String date) throws Exception {
+        getPage(CheckFormValues.class).checkDtpickerDate(dtpicker, date);
+    }
+
+    @Then("el LookUpBoxAccount: $lookUpBoxAccount; tiene seleccionado: $account.")
+    public void checkLookUpBoxAccount(String lookUpBoxAccount, String account) throws Exception {
+        getPage(CheckFormValues.class).checkLookUpBoxAccount(lookUpBoxAccount, account);
+    }
+
+    @Then("el Select: $selectControl; tiene seleccionado: $optionExpected.")
+    public void checkSelectedOption(String selectControl, String optionExpected) throws Exception {
+        getPage(CheckFormValues.class).checkSelectedOption(selectControl, optionExpected);
+    }
+
+    @Then("el Selector multiple: $multipleSelector; selecciono las opciones: $tableOptions.")
+    public void checkMultipleOptionsRightList(String  multipleSelector, ExamplesTable tableOptions) throws Exception {
+        ArrayList<String> options = new ArrayList();
+        for (Map<String, String> row : tableOptions.getRows()) {
+            String option = row.get("options");
+            options.add(option);
+        }
+        getPage(CheckFormValues.class).checkMultipleOptionsRightList(options, multipleSelector);
+    }
+
+    @Then("el Selector multiple: $multipleSelector; no selecciono las opciones: $tableOptions.")
+    public void checkMultipleOptionsLeftList(String  multipleSelector, ExamplesTable tableOptions) throws Exception {
+        ArrayList<String> options = new ArrayList();
+        for (Map<String, String> row : tableOptions.getRows()) {
+            String option = row.get("options");
+            options.add(option);
+        }
+        getPage(CheckFormValues.class).checkMultipleOptionsLeftList(options, multipleSelector);
+    }
+
 }

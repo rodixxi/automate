@@ -328,27 +328,27 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
 
     @Override
     public void searchLookUpBoxAccount(String search, String control) throws AgentException {
-        LookupBoxAccounts lookupBoxAccounts_control = new LookupBoxAccounts(control);
-        if (agent.checkElementIsDisplayed(lookupBoxAccounts_control.getCssSelector())){
-            agent.click(lookupBoxAccounts_control.getSearchButton());
+        LookUpBoxAccounts lookUpBoxAccounts_control = new LookUpBoxAccounts(control);
+        if (agent.checkElementIsDisplayed(lookUpBoxAccounts_control.getCssSelector())){
+            agent.click(lookUpBoxAccounts_control.getSearchButton());
             String parentWindow = agent.switchToPopup();
-            agent.writeInElement(lookupBoxAccounts_control.getSearchBox(), search);
-            agent.click(lookupBoxAccounts_control.getSearchButtonOptions());
-            agent.selectOptionsDoubleClick(search, lookupBoxAccounts_control.getOptions());
-            agent.click(lookupBoxAccounts_control.getAceptButton());
+            agent.writeInElement(lookUpBoxAccounts_control.getSearchBox(), search);
+            agent.click(lookUpBoxAccounts_control.getSearchButtonOptions());
+            agent.selectOptionsDoubleClick(search, lookUpBoxAccounts_control.getOptions());
+            agent.click(lookUpBoxAccounts_control.getAceptButton());
             agent.switchToPopup(parentWindow);
         }
     }
 
     @Override
     public void searchLookUpBoxAccountDobleClick(String search, String control) throws AgentException {
-        LookupBoxAccounts lookupBoxAccounts_control = new LookupBoxAccounts(control);
-        if (agent.checkElementIsDisplayed(lookupBoxAccounts_control.getCssSelector())){
-            agent.click(lookupBoxAccounts_control.getSearchButton());
+        LookUpBoxAccounts lookUpBoxAccounts_control = new LookUpBoxAccounts(control);
+        if (agent.checkElementIsDisplayed(lookUpBoxAccounts_control.getCssSelector())){
+            agent.click(lookUpBoxAccounts_control.getSearchButton());
             String parentWindow = agent.switchToPopup();
-            agent.writeInElement(lookupBoxAccounts_control.getSearchBox(), search);
-            agent.click(lookupBoxAccounts_control.getSearchButtonOptions());
-            agent.selectOptionsDoubleClick(search, lookupBoxAccounts_control.getOptions());
+            agent.writeInElement(lookUpBoxAccounts_control.getSearchBox(), search);
+            agent.click(lookUpBoxAccounts_control.getSearchButtonOptions());
+            agent.selectOptionsDoubleClick(search, lookUpBoxAccounts_control.getOptions());
             agent.switchToPopup(parentWindow);
         }
     }

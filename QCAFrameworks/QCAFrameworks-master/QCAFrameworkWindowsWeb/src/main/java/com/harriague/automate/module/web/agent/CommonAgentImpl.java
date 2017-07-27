@@ -1258,6 +1258,7 @@ public class CommonAgentImpl implements Agent {
     @Override
     public void aceptStringIfEqualTo(String thisOne, String equalToThis) {
         Assert.assertEquals(thisOne, equalToThis);
+        log.info("expected [" + thisOne + "], found [" + equalToThis +"]");
     }
 
     @Override
@@ -1273,7 +1274,10 @@ public class CommonAgentImpl implements Agent {
 
     @Override
     public boolean getIsChecked(By cssSelector) {
-       String isChecked = find((By) cssSelector).getAttribute("checked");
+        String isChecked = find((By) cssSelector).getAttribute("checked");
+        if (isChecked == null){
+            isChecked = "false";
+        }
        return isChecked.equals("true");
     }
 
@@ -1284,6 +1288,32 @@ public class CommonAgentImpl implements Agent {
         }else {
             Assert.assertFalse(isChecked_control);
         }
+    }
+
+    @Override
+    public void aceptSelectOption(By selectByCss, String optionExpected) {
+        Select select_select = new Select(find(selectByCss));
+        String option_selected = select_select.getFirstSelectedOption().getText();
+        Assert.assertEquals(option_selected, optionExpected);
+        log.info("optionExpected: " + optionExpected + ", optionFind: " + option_selected);
+    }
+
+    @Override
+    public void aceptSelectOptions(By optionList, ArrayList<String> optionsExpected) {
+        Select select = new Select(find(optionList));
+        ArrayList<WebElement> selectOptions = (ArrayList<WebElement>) select.getOptions();
+        ArrayList<String> options = new ArrayList<>();
+        for (WebElement option : selectOptions){
+            options.add(option.getText());
+        }
+        Assert.assertTrue(listEqualsNoOrder(options, optionsExpected));
+    }
+
+    public static <T> boolean listEqualsNoOrder(List<T> l1, List<T> l2) {
+        final Set<T> s1 = new HashSet<>(l1);
+        final Set<T> s2 = new HashSet<>(l2);
+
+        return s1.equals(s2);
     }
 
     private int getFieldValueIndex(String field){

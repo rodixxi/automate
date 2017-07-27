@@ -12,7 +12,12 @@ Cargo el campo textbox1 con texto plano
 !-- When abrir la carpeta autoMATE - prueba
 !-- When crear arhivo nuevo.
 
+Scenario: me loge a gestar
+Given Navigate to the http://10.201.4.191/w/ url in the chrome browser
+And me conecto a gestar con el usuario: admin sin pass a la instancia DESA.
+
 Scenario: pruebo los tabs
+Given abrir la carpeta de automate y creo un nuevo formulario.
 When seleccionar tabPanel: tab2.
 When seleccionar tabPanel: tab3.
 When seleccionar tabPanel: tab4.
@@ -20,6 +25,7 @@ When seleccionar tabPanel: tab5.
 When seleccionar tabPanel: tab1.
 
 Scenario: prubo los campos de texto
+Given abrir la carpeta de automate y creo un nuevo formulario.
 When seleccionar tabPanel: tab1.
 When ingreso abc; para el campo requerido: RequiredTextBox.
 When ingreso lala; para el textBox: comunTextBox.
@@ -28,10 +34,12 @@ When ingreso jojojujaju asdasd asdasdas; para textArea: MultiTexBox.
 When ingreso lapolola; para el textBox password: PassTexBox.
 
 Scenario: prueblo el control de adjunto en tab 2
+Given abrir la carpeta de automate y creo un nuevo formulario.
 When seleccionar tabPanel: tab2.
 When adjuntar el archivo: C:\lala.txt; en andjunto: attachments.
 
 Scenario: prubo el datepicker en tab3
+Given abrir la carpeta de automate y creo un nuevo formulario.
 When seleccionar tabPanel: tab3.
 When cargo manualmente la fecha: 07/07/2017, con 03:24 en DTPicker: DTPciker.
 When cargo por calendario la fecha: 07/07/2017, en DTPicker: DTPickerF.
@@ -42,10 +50,12 @@ When cargo por calendario la fecha: 01/01/2018, en DTPicker: DTPickerF.
 When cargo por calendario la fecha: 01/01/2017, en DTPicker: DTPickerF.
 
 Scenario: pruebo el LookupBoxAccounts en tab4
+Given abrir la carpeta de automate y creo un nuevo formulario.
 When seleccionar tabPanel: tab4.
 When busco: Administrador; en el control con DobleClick LookUpBoxAccount: LookupBoxAccounts.
 
 Scenario: pruebo multipleSelector Y AutoComplete en tab5
+Given abrir la carpeta de automate y creo un nuevo formulario.
 When seleccionar tabPanel: tab5.
 When selecciono las opciones:
 |options|
