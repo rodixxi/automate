@@ -1,9 +1,7 @@
 package com.harriague.automate.web.steps;
 
 import com.harriague.automate.core.steps.StepBase;
-import com.harriague.automate.web.pages.ControlsGestar;
-import com.harriague.automate.web.pages.LoginPage;
-import com.harriague.automate.web.pages.GestarFolder;
+import com.harriague.automate.web.pages.*;
 import org.jbehave.core.annotations.*;
 import org.jbehave.core.model.ExamplesTable;
 
@@ -141,5 +139,14 @@ public class AllControlsCheckGestar extends StepBase {
     @When("busco: $search; en el control con DobleClick LookUpBoxAccount: $control.")
     public void searchLookUpBoxAccountDobleClick(String search, String control) throws Exception {
         getPage(ControlsGestar.class).searchLookUpBoxAccountDobleClick(search, control);
+    }
+    @When("guardar y salir del formulario.")
+    public void saveForm() throws Exception {
+        getPage(FormControlBar.class).saveForm();
+    }
+
+    @Then("estas a nivel de folder.")
+    public void atFolderLevel() throws Exception {
+        getPage(FolderControlBar.class).atFolderLevel();
     }
 }

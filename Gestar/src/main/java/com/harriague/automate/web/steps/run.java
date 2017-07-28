@@ -10,7 +10,7 @@ public class run extends RunStory {
 	@Override
     protected List<String> storyPaths() {
 		
-	   storyPath = "./AllControlsCheckValuesGestar.story";
+	   storyPath = "./AllControlsCheckGestar.story";
 
 	   findBeforeAndAfter();
        return story;
