@@ -358,6 +358,8 @@ public interface Agent {
     void aceptSelectOption(By selectByCss, String optionExpected);
 
     void aceptSelectOptions(By optionList, ArrayList<String> optionsExpected);
+
+    void aceptSearchMultiple(By selectOption, ArrayList<String> optionsExpected);
 }
 
 

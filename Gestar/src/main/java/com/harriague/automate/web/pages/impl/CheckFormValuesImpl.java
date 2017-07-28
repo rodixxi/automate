@@ -113,4 +113,18 @@ public class CheckFormValuesImpl extends BasePage implements CheckFormValues {
         agent.aceptSelectOptions(selectorMultiple_control.getLeftList(), options);
     }
 
+    @Override
+    public void checkAutoComplete(String autoCompleteControl, String valueExpected) throws AgentException {
+        AutoComplete autoComplete_control = new AutoComplete(autoCompleteControl);
+        String selected_text = agent.getTextValue(autoComplete_control.getSelectOption());
+        agent.aceptStringIfEqualTo(selected_text, valueExpected);
+    }
+
+    @Override
+    public void checkAutoCompleteMultiple(String autoCompleteControl, ArrayList<String> optionsExpected) {
+        AutoComplete autoComplete_control = new AutoComplete(autoCompleteControl);
+        agent.aceptSearchMultiple(autoComplete_control.getSelectOption(), optionsExpected);
+
+    }
+
 }

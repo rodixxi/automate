@@ -1302,17 +1302,29 @@ public class CommonAgentImpl implements Agent {
     public void aceptSelectOptions(By optionList, ArrayList<String> optionsExpected) {
         Select select = new Select(find(optionList));
         ArrayList<WebElement> selectOptions = (ArrayList<WebElement>) select.getOptions();
+        ArrayList<String> options = getElementsListText(selectOptions);
+        Assert.assertTrue(listEqualsNoOrder(options, optionsExpected));
+    }
+
+    @Override
+    public void aceptSearchMultiple(By selectOption, ArrayList<String> optionsExpected) {
+        ArrayList<WebElement> selectValues = (ArrayList<WebElement>) driver.findElements(selectOption);
+        ArrayList<String> options = getElementsListText(selectValues);
+        Assert.assertTrue(listEqualsNoOrder(options, optionsExpected));
+    }
+
+    public ArrayList<String> getElementsListText(ArrayList<WebElement> selectOptions){
         ArrayList<String> options = new ArrayList<>();
         for (WebElement option : selectOptions){
             options.add(option.getText());
         }
-        Assert.assertTrue(listEqualsNoOrder(options, optionsExpected));
+        return options;
     }
 
     public static <T> boolean listEqualsNoOrder(List<T> l1, List<T> l2) {
         final Set<T> s1 = new HashSet<>(l1);
         final Set<T> s2 = new HashSet<>(l2);
-
+        log.info("find [" + s1.toString() +"] expected [" + s2.toString() + "]");
         return s1.equals(s2);
     }
 

@@ -99,4 +99,19 @@ public class AllControlsCheckValuesGestar extends StepBase {
         getPage(CheckFormValues.class).checkMultipleOptionsLeftList(options, multipleSelector);
     }
 
+    @Then("el Autocomplete: $autoCompleteControl; selecciono el valor: $valueExpected.")
+    public void checkAutoComplete(String autoCompleteControl, String valueExpected) throws Exception {
+        getPage(CheckFormValues.class).checkAutoComplete(autoCompleteControl, valueExpected);
+    }
+
+    @Then("el Autocomplete: $autoCompleteControl; selecciono los valores: $valuesExpected.")
+    public void checkAutoCompleteMultiple(String autoCompleteControl, ExamplesTable valuesExpected) throws Exception {
+        ArrayList<String> optionsExpected = new ArrayList();
+        for (Map<String, String> row : valuesExpected.getRows()) {
+            String option = row.get("options");
+            optionsExpected.add(option);
+        }
+        getPage(CheckFormValues.class).checkAutoCompleteMultiple(autoCompleteControl, optionsExpected);
+    }
+
 }

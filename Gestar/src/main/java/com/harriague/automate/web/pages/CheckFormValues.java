@@ -30,4 +30,8 @@ public interface CheckFormValues {
     void checkMultipleOptionsRightList(ArrayList<String> options, String multipleSelector);
 
     void checkMultipleOptionsLeftList(ArrayList<String> options, String multipleSelector);
+
+    void checkAutoComplete(String autoCompleteControl, String valueExpected) throws AgentException;
+
+    void checkAutoCompleteMultiple(String autoCompleteControl, ArrayList<String> optionsExpected);
 }

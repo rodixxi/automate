@@ -23,6 +23,14 @@ When seleccionar tabPanel: tab4.
 Then el LookUpBoxAccount: LookupBoxAccounts; tiene seleccionado: Administrador.
 When seleccionar tabPanel: tab5.
 Then el Select: selectFolder; tiene seleccionado: Jose.
-Then el Selector multiple: select11; selecciono las opciones:
+And el Selector multiple: select11; selecciono las opciones:
 |options|
 |Juan|.
+And el Selector multiple: select11; no selecciono las opciones:
+|options|
+|Jose|.
+And el Autocomplete: autoComplete2; selecciono el valor: Avecilla, Rebeca.
+And el Autocomplete: autoComplete1; selecciono los valores:
+|options|
+|avecillas, rebeca|
+|Avecilla, Rebeca|.
