@@ -13,7 +13,7 @@ public class AllControlsCheckGestar extends StepBase {
 
 
     @AfterStory
-    public void afterStory(){
+    public  void afterStory(){
         log.info("cerrando broser ...");
         try {
             closeApplication();
@@ -35,8 +35,8 @@ public class AllControlsCheckGestar extends StepBase {
 
     @Given("abrir la carpeta de automate y creo un nuevo formulario.")
     public void openAutomateForm() throws Exception {
-        getPage(GestarFolder.class).OpenFolder("autoMate");
-        getPage(GestarFolder.class).OpenFolder("autoMATE - prueba");
+        //getPage(GestarFolder.class).OpenFolder("autoMate");
+        //getPage(GestarFolder.class).OpenFolder("autoMATE - prueba");
         creanteNewFileInFolder();
     }
 
