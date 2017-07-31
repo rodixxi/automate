@@ -17,7 +17,7 @@ public class Checkbox extends Control {
 
     @Override
     public void setCssSelector() {
-        By aux = By.cssSelector(getName() + "_chk");
-        super.setCssSelector();
+        By aux = By.cssSelector("#" + getName() + "_chk");
+        super.setCssSelector(aux);
     }
 }

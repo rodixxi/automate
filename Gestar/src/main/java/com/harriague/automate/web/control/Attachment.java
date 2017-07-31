@@ -9,12 +9,14 @@ public class Attachment extends Control {
     private String deleteButtomPath = "input[value='Eliminar']";
     private String closeButtomPath = "input[value='Cerrar']";
     private String attachButtonPath = "#tbCtrl_" + getName() + " img";
+    private String attatchNamePath = "#tbCtrl_" + getName() + " a";
 
     private By inputButton = By.cssSelector(inputButtomPath);
     private By addButton = By.cssSelector(addButtomPath);
     private By deleteButton = By.cssSelector(deleteButtomPath);
     private By closeButton = By.cssSelector(closeButtomPath);
     private By attachButton = By.cssSelector(attachButtonPath);
+    private By attatchName = By.cssSelector(attatchNamePath);
 
 
     public Attachment(String name, String title) {
@@ -45,6 +47,10 @@ public class Attachment extends Control {
 
     public By getAttachButton() {
         return attachButton;
+    }
+
+    public By getAttatchName() {
+        return attatchName;
     }
 
     @Override

@@ -41,6 +41,10 @@ public class Control {
         return cssSelector;
     }
 
+    public void setCssSelector(String cssSelector) {
+        this.cssSelector = By.cssSelector(cssSelector);
+    }
+
     public void setCssSelector(By cssSelector) {
         this.cssSelector = cssSelector;
     }

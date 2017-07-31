@@ -1,6 +1,7 @@
 package com.harriague.automate.core.agent;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -196,6 +197,16 @@ public interface Agent {
     public String getValue(Object element, String attribute) throws AgentException;
 
     /**
+     * Get the property of a element by his selector
+     *
+     * @param element to find by
+     * @param attribute needit
+     * @return
+     * @throws AgentException
+     */
+    public String getValue(By element, String attribute) throws AgentException;
+
+    /**
      * Get a grid
      * 
      * @param id of the grid
@@ -336,9 +347,19 @@ public interface Agent {
 
     void searchOption(String search, String autoComplete) throws AgentException;
 
-    void acceptStringIfEqualTo(String thisOne, String equalToThis);
+    void aceptStringIfEqualTo(String thisOne, String equalToThis);
 
-    void selectFormWhere(String field, String valueEqualTo);
+    void selectFormWhere(String field, String valueEqualTo) throws AgentException;
+
+    boolean getIsChecked(By cssSelector);
+
+    void aceptIfBoolean(boolean isChecked_control, boolean isChecked);
+
+    void aceptSelectOption(By selectByCss, String optionExpected);
+
+    void aceptSelectOptions(By optionList, ArrayList<String> optionsExpected);
+
+    void aceptSearchMultiple(By selectOption, ArrayList<String> optionsExpected);
 }
 
 

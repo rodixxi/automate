@@ -2,7 +2,7 @@ package com.harriague.automate.web.pages;
 
 import com.harriague.automate.core.exceptions.AgentException;
 
-public interface CheckForm {
+public interface FolderControlBar {
 
-    void getFormWhere(String field, String valueEqualTo) throws AgentException;
+    void atFolderLevel() throws AgentException;
 }

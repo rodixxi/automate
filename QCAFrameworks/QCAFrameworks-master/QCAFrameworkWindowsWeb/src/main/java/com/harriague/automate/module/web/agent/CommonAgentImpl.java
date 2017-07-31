@@ -27,7 +27,6 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -965,6 +964,11 @@ public class CommonAgentImpl implements Agent {
     }
 
     @Override
+    public String getValue(By element, String attribute) throws AgentException {
+        return find((By) element).getAttribute(attribute);
+    }
+
+    @Override
     public List<Map<String, Object>> getGrid(Object id) throws AgentException {
         // TODO Auto-generated method stub
         return null;
@@ -1252,23 +1256,84 @@ public class CommonAgentImpl implements Agent {
      * @param equalToThis
      */
     @Override
-    public void acceptStringIfEqualTo(String thisOne, String equalToThis) {
+    public void aceptStringIfEqualTo(String thisOne, String equalToThis) {
         Assert.assertEquals(thisOne, equalToThis);
+        log.info("expected [" + thisOne + "], found [" + equalToThis +"]");
     }
 
     @Override
-    public void selectFormWhere(String field, String valueEqualTo) {
+    public void selectFormWhere(String field, String valueEqualTo) throws AgentException {
         int index = getFieldValueIndex(field);
         if (fieldFound(index)){
-            getCellByValueInColumn(valueEqualTo, index);
+            WebElement cell = getCellByValueInColumn(valueEqualTo, index);
+            if (cell != null){
+                doubleClick(cell);
+            }
         }
+    }
+
+    @Override
+    public boolean getIsChecked(By cssSelector) {
+        String isChecked = find((By) cssSelector).getAttribute("checked");
+        if (isChecked == null){
+            isChecked = "false";
+        }
+       return isChecked.equals("true");
+    }
+
+    @Override
+    public void aceptIfBoolean(boolean isChecked_control, boolean isChecked) {
+        if (isChecked){
+            Assert.assertTrue(isChecked_control);
+        }else {
+            Assert.assertFalse(isChecked_control);
+        }
+    }
+
+    @Override
+    public void aceptSelectOption(By selectByCss, String optionExpected) {
+        Select select_select = new Select(find(selectByCss));
+        String option_selected = select_select.getFirstSelectedOption().getText();
+        Assert.assertEquals(option_selected, optionExpected);
+        log.info("optionExpected: " + optionExpected + ", optionFind: " + option_selected);
+    }
+
+    @Override
+    public void aceptSelectOptions(By optionList, ArrayList<String> optionsExpected) {
+        Select select = new Select(find(optionList));
+        ArrayList<WebElement> selectOptions = (ArrayList<WebElement>) select.getOptions();
+        ArrayList<String> options = getElementsListText(selectOptions);
+        Assert.assertTrue(listEqualsNoOrder(options, optionsExpected));
+    }
+
+    @Override
+    public void aceptSearchMultiple(By selectOption, ArrayList<String> optionsExpected) {
+        ArrayList<WebElement> selectValues = (ArrayList<WebElement>) driver.findElements(selectOption);
+        ArrayList<String> options = getElementsListText(selectValues);
+        Assert.assertTrue(listEqualsNoOrder(options, optionsExpected));
+    }
+
+    public ArrayList<String> getElementsListText(ArrayList<WebElement> selectOptions){
+        ArrayList<String> options = new ArrayList<>();
+        for (WebElement option : selectOptions){
+            options.add(option.getText());
+        }
+        return options;
+    }
+
+    public static <T> boolean listEqualsNoOrder(List<T> l1, List<T> l2) {
+        final Set<T> s1 = new HashSet<>(l1);
+        final Set<T> s2 = new HashSet<>(l2);
+        log.info("find [" + s1.toString() +"] expected [" + s2.toString() + "]");
+        return s1.equals(s2);
     }
 
     private int getFieldValueIndex(String field){
         String tableHeadPath = ".pq-td-div > span[title]";
         By tableHead_byCSS = By.cssSelector(tableHeadPath);
+        driver.switchTo().defaultContent();
         ArrayList <WebElement> tableHead_elements = (ArrayList<WebElement>) driver.findElements(tableHead_byCSS);
-        for (WebElement field_element : tableHead_elements){
+        for (WebElement field_element : tableHead_elements){ //img[@id='rama6385']
             String columnTitle = field_element.getText();
             if (columnTitle.equals(field)){
                 return tableHead_elements.indexOf(field_element);
@@ -1278,7 +1343,8 @@ public class CommonAgentImpl implements Agent {
     }
 
     private WebElement getCellByValueInColumn(String valueEqualTo, int column) {
-        String tableCellColumnPath = "tr.pq-grid-row td[pq-col-indx='" + column + "'] a";
+        int index = column + 1;
+        String tableCellColumnPath = "tr.pq-grid-row td[pq-col-indx='" + index + "'] a";
         By tableCellColumn = By.cssSelector(tableCellColumnPath);
         ArrayList<WebElement> tableCellColumn_elements = (ArrayList<WebElement>) driver.findElements(tableCellColumn);
         for (WebElement cell : tableCellColumn_elements) {

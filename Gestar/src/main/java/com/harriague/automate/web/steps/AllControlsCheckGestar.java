@@ -1,13 +1,8 @@
 package com.harriague.automate.web.steps;
 
 import com.harriague.automate.core.steps.StepBase;
-import com.harriague.automate.web.pages.ControlsGestar;
-import com.harriague.automate.web.pages.LoginPage;
-import com.harriague.automate.web.pages.GestarFolder;
-import org.jbehave.core.annotations.AfterStory;
-import org.jbehave.core.annotations.BeforeScenario;
-import org.jbehave.core.annotations.BeforeStory;
-import org.jbehave.core.annotations.When;
+import com.harriague.automate.web.pages.*;
+import org.jbehave.core.annotations.*;
 import org.jbehave.core.model.ExamplesTable;
 
 import java.util.ArrayList;
@@ -15,12 +10,7 @@ import java.util.Map;
 
 public class AllControlsCheckGestar extends StepBase {
 
-    @BeforeStory
-    public void beforeStory() throws Exception {
-        navigateUrlBrowser("http://10.201.4.191/w/", "chrome");
-        doLogin("admin", "DESA");
-        creanteNewFileInFolder();
-    }
+
 
     @AfterStory
     public void afterStory(){
@@ -33,17 +23,21 @@ public class AllControlsCheckGestar extends StepBase {
         }
     }
 
+    @Given("Navigate to the url: $url; in the browser: chrome.")
+    public void navigateUrlBrowser(String url, String browser) throws Exception {
+        getPage(StepBase.class).navigateUrlBrowser(url, browser);
+    }
 
-    @BeforeScenario
-    public void beforeScenario() throws Exception {
+    @Given("me conecto a gestar con el usuario: $usuario sin pass a la instancia $instance.")
+    public void doLogin(String user, String instance) throws Exception {
+        getPage(LoginPage.class).doLogin(user, instance);
+    }
+
+    @Given("abrir la carpeta de automate y creo un nuevo formulario.")
+    public void openAutomateForm() throws Exception {
         getPage(GestarFolder.class).OpenFolder("autoMate");
         getPage(GestarFolder.class).OpenFolder("autoMATE - prueba");
         creanteNewFileInFolder();
-    }
-
-    @When("me conecto a gestar con el usuario: $usuario sin pass a la instancia $instance.")
-    public void doLogin(String user, String instance) throws Exception {
-        getPage(LoginPage.class).doLogin(user, instance);
     }
 
     @When("crear arhivo nuevo.")
@@ -145,5 +139,14 @@ public class AllControlsCheckGestar extends StepBase {
     @When("busco: $search; en el control con DobleClick LookUpBoxAccount: $control.")
     public void searchLookUpBoxAccountDobleClick(String search, String control) throws Exception {
         getPage(ControlsGestar.class).searchLookUpBoxAccountDobleClick(search, control);
+    }
+    @When("guardar y salir del formulario.")
+    public void saveForm() throws Exception {
+        getPage(FormControlBar.class).saveForm();
+    }
+
+    @Then("estas a nivel de folder.")
+    public void atFolderLevel() throws Exception {
+        getPage(FolderControlBar.class).atFolderLevel();
     }
 }
