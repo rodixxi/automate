@@ -1,8 +1,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Suite1">
+<suite name="Suite1" parallel="false">
     <test name="TestCheckControls">
-        <packages>
-            <package name="com.harriague.automate.web.steps"/>
-        </packages>
+        <parameter name="storyName"  value="./AllControlsCheckGestar.story"/>
+        <classes>
+            <class name="com.harriague.automate.core.test.RunStory"/>
+        </classes>
+    </test>
+    <test name="TestCheckValuesControls">
+        <parameter name="storyName"  value="./AllControlsCheckValuesGestar.story"/>
+        <classes>
+            <class name="com.harriague.automate.core.test.RunStory"/>
+        </classes>
     </test>
 </suite>

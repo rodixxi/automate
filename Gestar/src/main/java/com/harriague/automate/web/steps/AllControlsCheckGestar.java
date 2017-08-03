@@ -1,8 +1,14 @@
 package com.harriague.automate.web.steps;
 
 import com.harriague.automate.core.steps.StepBase;
-import com.harriague.automate.web.pages.*;
-import org.jbehave.core.annotations.*;
+import com.harriague.automate.web.pages.ControlsGestar;
+import com.harriague.automate.web.pages.FolderControlBar;
+import com.harriague.automate.web.pages.FormControlBar;
+import com.harriague.automate.web.pages.LoginPage;
+import org.jbehave.core.annotations.AfterStory;
+import org.jbehave.core.annotations.Given;
+import org.jbehave.core.annotations.Then;
+import org.jbehave.core.annotations.When;
 import org.jbehave.core.model.ExamplesTable;
 
 import java.util.ArrayList;
@@ -11,9 +17,8 @@ import java.util.Map;
 public class AllControlsCheckGestar extends StepBase {
 
 
-
-    @AfterStory
-    public  void afterStory(){
+    //@AfterStory
+    public void afterStory() {
         log.info("cerrando broser ...");
         try {
             closeApplication();
@@ -136,10 +141,12 @@ public class AllControlsCheckGestar extends StepBase {
     public void searchLookUpBoxAccount(String search, String control) throws Exception {
         getPage(ControlsGestar.class).searchLookUpBoxAccount(search, control);
     }
+
     @When("busco: $search; en el control con DobleClick LookUpBoxAccount: $control.")
     public void searchLookUpBoxAccountDobleClick(String search, String control) throws Exception {
         getPage(ControlsGestar.class).searchLookUpBoxAccountDobleClick(search, control);
     }
+
     @When("guardar y salir del formulario.")
     public void saveForm() throws Exception {
         getPage(FormControlBar.class).saveForm();

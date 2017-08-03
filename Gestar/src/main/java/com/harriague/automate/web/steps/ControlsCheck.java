@@ -7,10 +7,10 @@ import java.util.List;
 
 public class ControlsCheck extends RunStory {
 
-    @Parameters({ "storyName" })
-    protected List<String> storyPaths(String storyName) {
+    @Override
+    protected List<String> storyPaths() {
 
-        storyPath = storyName;
+        storyPath = "./AllControlsCheckValuesGestar.story";
 
         findBeforeAndAfter();
         return story;
