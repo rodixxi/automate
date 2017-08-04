@@ -23,4 +23,14 @@ public class FolderControlBarImpl extends BasePage implements FolderControlBar{
     public void atFolderLevel() throws AgentException {
         agent.checkElementIsDisplayed(folderOptionsBar.getIdSelector());
     }
+
+    @Override
+    public void selectOptionFromDocumentsMenu(String option) {
+        agent.selectOptionMenu(folderOptionsBar.getDocumentsOptionsSelector(), option);
+    }
+
+    @Override
+    public void creanteNewFileInFolder() throws AgentException {
+        agent.click(folderOptionsBar.getNewFormSelector());
+    }
 }

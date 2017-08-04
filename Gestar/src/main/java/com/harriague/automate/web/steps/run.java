@@ -6,7 +6,7 @@ import com.harriague.automate.core.test.RunStory;
 
 
 public class run extends RunStory {
-	
+
 	@Override
     protected List<String> storyPaths() {
 		

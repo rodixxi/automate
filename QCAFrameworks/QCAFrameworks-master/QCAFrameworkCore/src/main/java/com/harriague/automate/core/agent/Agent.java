@@ -360,6 +360,8 @@ public interface Agent {
     void aceptSelectOptions(By optionList, ArrayList<String> optionsExpected);
 
     void aceptSearchMultiple(By selectOption, ArrayList<String> optionsExpected);
+
+    void selectOptionMenu(By documentsOptionsSelector, String optionExpected);
 }
 
 
