@@ -149,4 +149,9 @@ public class AllControlsCheckGestar extends StepBase {
     public void atFolderLevel() throws Exception {
         getPage(FolderControlBar.class).atFolderLevel();
     }
+
+    @Then("seleccionar la vista: $viewName.")
+    public void selectView(String viewName) throws Exception {
+        getPage(FolderControlBar.class).selectView(viewName);
+    }
 }
