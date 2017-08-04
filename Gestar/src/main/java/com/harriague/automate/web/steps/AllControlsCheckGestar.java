@@ -1,7 +1,10 @@
 package com.harriague.automate.web.steps;
 
 import com.harriague.automate.core.steps.StepBase;
-import com.harriague.automate.web.pages.*;
+import com.harriague.automate.web.pages.ControlsGestar;
+import com.harriague.automate.web.pages.FolderControlBar;
+import com.harriague.automate.web.pages.FormControlBar;
+import com.harriague.automate.web.pages.LoginPage;
 import org.jbehave.core.annotations.*;
 import org.jbehave.core.model.ExamplesTable;
 
@@ -11,9 +14,8 @@ import java.util.Map;
 public class AllControlsCheckGestar extends StepBase {
 
 
-
-    @AfterStory
-    public void afterStory(){
+    //@AfterStory
+    public void afterStory() {
         log.info("cerrando broser ...");
         try {
             closeApplication();
@@ -35,14 +37,9 @@ public class AllControlsCheckGestar extends StepBase {
 
     @Given("abrir la carpeta de automate y creo un nuevo formulario.")
     public void openAutomateForm() throws Exception {
-        getPage(GestarFolder.class).OpenFolder("autoMate");
-        getPage(GestarFolder.class).OpenFolder("autoMATE - prueba");
+        //getPage(GestarFolder.class).OpenFolder("autoMate");
+        //getPage(GestarFolder.class).OpenFolder("autoMATE - prueba");
         creanteNewFileInFolder();
-    }
-
-    @When("crear arhivo nuevo.")
-    public void creanteNewFileInFolder() throws Exception {
-        getPage(ControlsGestar.class).creanteNewFileInFolder();
     }
 
     @When("seleccionar tabPanel: $tab.")
@@ -136,10 +133,12 @@ public class AllControlsCheckGestar extends StepBase {
     public void searchLookUpBoxAccount(String search, String control) throws Exception {
         getPage(ControlsGestar.class).searchLookUpBoxAccount(search, control);
     }
+
     @When("busco: $search; en el control con DobleClick LookUpBoxAccount: $control.")
     public void searchLookUpBoxAccountDobleClick(String search, String control) throws Exception {
         getPage(ControlsGestar.class).searchLookUpBoxAccountDobleClick(search, control);
     }
+
     @When("guardar y salir del formulario.")
     public void saveForm() throws Exception {
         getPage(FormControlBar.class).saveForm();
@@ -154,4 +153,17 @@ public class AllControlsCheckGestar extends StepBase {
     public void selectView(String viewName) throws Exception {
         getPage(FolderControlBar.class).selectView(viewName);
     }
+
+    @When("seleccionar la opcion: $optionExpected; del menu Documentos.")
+    public void selectOptionFromDomuentsMenu(String $optionExpected) throws Exception {
+        getPage(FolderControlBar.class).selectOptionFromDocumentsMenu($optionExpected);
+    }
+
+    @When("crear arhivo nuevo.")
+    public void creanteNewFileInFolder() throws Exception {
+        getPage(FolderControlBar.class).creanteNewFileInFolder();
+    }
+
 }
+
+

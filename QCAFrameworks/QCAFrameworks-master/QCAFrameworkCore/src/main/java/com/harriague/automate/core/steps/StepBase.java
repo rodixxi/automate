@@ -380,7 +380,7 @@ public class StepBase {
 
     @When("close application")
     public void closeApplication() throws Exception {
-        isTrue(DeviceManager.getCurrentApp().close(), "The application is not stopped");;
+        isTrue(DeviceManager.getCurrentApp().close(), "The application is not stopped");
     }
 
     @Then("the application key should be $appKeyExpected")

@@ -10,29 +10,29 @@
 	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-     
-	<bean id="LoginSteps" class="com.harriague.automate.web.steps.LoginSteps"></bean>
-	
-	<bean id="AddUser" class="com.harriague.automate.web.steps.AddUser"></bean>
-	
-	<bean id="SFSteps" class="com.harriague.automate.web.steps.SFSteps"></bean>
-	
-	<bean id="ChangePasswd" class="com.harriague.automate.web.steps.ChangePass"></bean>
-	
-	<bean id="CheckConfigurations" class="com.harriague.automate.web.steps.CheckConfigurations"></bean>
-	
-	<bean id="PlanningWeek" class="com.harriague.automate.web.steps.PlannigWeek"></bean>
-	          
-	<bean id="CheckConnections" class="com.harriague.automate.web.steps.ChkConnections"></bean>
-	
-	<bean id="OpenFolder" class="com.harriague.automate.web.steps.GestarFolders"></bean>
 
-	<bean id="CheckLicencia" class="com.harriague.automate.web.steps.CheckLicencia"></bean>
-	 
-	<bean id="LogoutSteps" class="com.harriague.automate.web.steps.LogoutSteps"></bean>
+	<bean id="LoginSteps" class="com.harriague.automate.web.steps.LoginSteps"/>
 
-	<bean id="AllControlsCheckGestar" class="com.harriague.automate.web.steps.AllControlsCheckGestar"></bean>
+	<bean id="AddUser" class="com.harriague.automate.web.steps.AddUser"/>
 
-	<bean id="AllControlsCheckValuesGestar" class="com.harriague.automate.web.steps.AllControlsCheckValuesGestar"></bean>
+	<bean id="SFSteps" class="com.harriague.automate.web.steps.SFSteps"/>
+
+	<bean id="ChangePasswd" class="com.harriague.automate.web.steps.ChangePass"/>
+
+	<bean id="CheckConfigurations" class="com.harriague.automate.web.steps.CheckConfigurations"/>
+
+	<bean id="PlanningWeek" class="com.harriague.automate.web.steps.PlannigWeek"/>
+
+	<bean id="CheckConnections" class="com.harriague.automate.web.steps.ChkConnections"/>
+
+	<bean id="OpenFolder" class="com.harriague.automate.web.steps.GestarFolders"/>
+
+	<bean id="CheckLicencia" class="com.harriague.automate.web.steps.CheckLicencia"/>
+
+	<bean id="LogoutSteps" class="com.harriague.automate.web.steps.LogoutSteps"/>
+
+	<bean id="AllControlsCheckGestar" class="com.harriague.automate.web.steps.AllControlsCheckGestar"/>
+
+	<bean id="AllControlsCheckValuesGestar" class="com.harriague.automate.web.steps.AllControlsCheckValuesGestar"/>
 
 </beans>

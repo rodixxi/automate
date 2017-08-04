@@ -25,7 +25,16 @@ public class FolderControlBarImpl extends BasePage implements FolderControlBar{
     }
 
     @Override
-    public void selectView(String viewName) {
-        agent.selectSelectorOption(folderOptionsBar.);
+    public void selectView(String viewName) throws AgentException {
+        agent.selectSelectorOption(folderOptionsBar.getViewsSelectSelector(), viewName);
+    }
+
+    public void selectOptionFromDocumentsMenu(String option) {
+        agent.selectOptionMenu(folderOptionsBar.getDocumentsOptionsSelector(), option);
+    }
+
+    @Override
+    public void creanteNewFileInFolder() throws AgentException {
+        agent.click(folderOptionsBar.getNewFormSelector());
     }
 }

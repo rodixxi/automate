@@ -6,5 +6,9 @@ public interface FolderControlBar {
 
     void atFolderLevel() throws AgentException;
 
-    void selectView(String viewName);
+
+    void selectView(String viewName) throws AgentException;
+    void selectOptionFromDocumentsMenu(String option);
+
+    void creanteNewFileInFolder() throws AgentException;
 }

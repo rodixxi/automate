@@ -5,10 +5,7 @@ import java.util.List;
 
 import org.testng.ITest;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.testng.internal.BaseTestMethod;
 
 import com.harriague.automate.core.runner.JBehaveRunner;
@@ -27,6 +24,7 @@ public class RunStory extends TestBase implements ITest {
 	 * Tc Name
 	 */
 	protected String name;
+
 
 	@Parameters({ "storyName" })
 	@BeforeClass

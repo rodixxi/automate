@@ -8,8 +8,6 @@ import java.util.ArrayList;
 
 public interface ControlsGestar extends Page{
 
-    void creanteNewFileInFolder() throws AgentException, InterruptedException;
-
     void selectTabPanel(String tab) throws AgentException, InterruptedException;
 
     void inputToRequiredTextBox(String input, String campo) throws AgentException, InterruptedException;
