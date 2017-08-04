@@ -1313,6 +1313,18 @@ public class CommonAgentImpl implements Agent {
         Assert.assertTrue(listEqualsNoOrder(options, optionsExpected));
     }
 
+    @Override
+    public void selectOptionMenu(By documentsOptionsSelector, String optionExpected) {
+        ArrayList<WebElement> optionsMenu = (ArrayList<WebElement>) findElements(documentsOptionsSelector);
+        for (WebElement option : optionsMenu){
+            WebElement insideOption = option.findElement(By.cssSelector("div.menu-text"));
+            if (insideOption.getText().equals(optionExpected)){
+                option.click();
+                break;
+            }
+        }
+    }
+
     public ArrayList<String> getElementsListText(ArrayList<WebElement> selectOptions){
         ArrayList<String> options = new ArrayList<>();
         for (WebElement option : selectOptions){

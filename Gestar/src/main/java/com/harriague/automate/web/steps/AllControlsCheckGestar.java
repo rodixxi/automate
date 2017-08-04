@@ -5,10 +5,7 @@ import com.harriague.automate.web.pages.ControlsGestar;
 import com.harriague.automate.web.pages.FolderControlBar;
 import com.harriague.automate.web.pages.FormControlBar;
 import com.harriague.automate.web.pages.LoginPage;
-import org.jbehave.core.annotations.AfterStory;
-import org.jbehave.core.annotations.Given;
-import org.jbehave.core.annotations.Then;
-import org.jbehave.core.annotations.When;
+import org.jbehave.core.annotations.*;
 import org.jbehave.core.model.ExamplesTable;
 
 import java.util.ArrayList;
@@ -43,11 +40,6 @@ public class AllControlsCheckGestar extends StepBase {
         //getPage(GestarFolder.class).OpenFolder("autoMate");
         //getPage(GestarFolder.class).OpenFolder("autoMATE - prueba");
         creanteNewFileInFolder();
-    }
-
-    @When("crear arhivo nuevo.")
-    public void creanteNewFileInFolder() throws Exception {
-        getPage(ControlsGestar.class).creanteNewFileInFolder();
     }
 
     @When("seleccionar tabPanel: $tab.")
@@ -156,4 +148,17 @@ public class AllControlsCheckGestar extends StepBase {
     public void atFolderLevel() throws Exception {
         getPage(FolderControlBar.class).atFolderLevel();
     }
+
+    @When("seleccionar la opcion: $optionExpected; del menu Documentos.")
+    public  void selectOptionFromDomuentsMenu(String $optionExpected) throws Exception {
+        getPage(FolderControlBar.class).selectOptionFromDocumentsMenu($optionExpected);
+    }
+
+    @When("crear arhivo nuevo.")
+    public void creanteNewFileInFolder() throws Exception {
+        getPage(FolderControlBar.class).creanteNewFileInFolder();
+    }
+
+
+
 }

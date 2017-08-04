@@ -6,7 +6,6 @@ import com.harriague.automate.core.page.BasePage;
 import com.harriague.automate.core.structures.FlawedTimeUnit;
 import com.harriague.automate.web.control.*;
 import com.harriague.automate.web.pages.ControlsGestar;
-import org.openqa.selenium.By;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -24,14 +23,6 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         super(agent);
     }
 
-
-    @Override
-    public void creanteNewFileInFolder() throws AgentException, InterruptedException {
-        By newFileControl = By.xpath("//a[@onclick='doNew(event); return false;']");
-        if (agent.checkElementIsDisplayed(newFileControl)) {
-            agent.click(newFileControl);
-        }
-    }
 
     /**
      * Selecciona un tab
