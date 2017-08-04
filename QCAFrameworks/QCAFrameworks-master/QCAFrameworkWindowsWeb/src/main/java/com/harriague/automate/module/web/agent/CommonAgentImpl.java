@@ -1273,6 +1273,20 @@ public class CommonAgentImpl implements Agent {
     }
 
     @Override
+    public void selectFormWhere(String field, ArrayList<String> options) {
+        int index = getFieldValueIndex(field);
+        if (fieldFound(index)) {
+            for (String option: options){
+                WebElement checkBox = getCheckBoxforOption(option, index);
+                if (checkBox != null) {
+                    checkBox.click();
+                }
+            }
+        }
+    }
+
+
+    @Override
     public boolean getIsChecked(By cssSelector) {
         String isChecked = find((By) cssSelector).getAttribute("checked");
         if (isChecked == null){
@@ -1352,6 +1366,20 @@ public class CommonAgentImpl implements Agent {
             }
         }
         return -1;
+    }
+
+    private WebElement getCheckBoxforOption(String valueEqualTo, int column){
+        int index = column + 1;
+        String tableRowPath = "tr.pq-grid-row[pq-row-indx]";
+        By tableRow = By.cssSelector(tableRowPath);
+        ArrayList<WebElement> tableRows_elements = (ArrayList<WebElement>) driver.findElements(tableRow);
+        for (WebElement row : tableRows_elements){
+            String rowValue = row.findElement(By.cssSelector("td[pq-col-indx='" + index + "'] a")).getText();
+            if (rowValue.equals(valueEqualTo)){
+                return row.findElement(By.cssSelector("td[pq-col-indx='0'] input"));
+            }
+        }
+        return null;
     }
 
     private WebElement getCellByValueInColumn(String valueEqualTo, int column) {

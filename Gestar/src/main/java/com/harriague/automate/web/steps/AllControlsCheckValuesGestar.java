@@ -24,6 +24,16 @@ public class AllControlsCheckValuesGestar extends StepBase {
         getPage(CheckForm.class).getFormWhere(field, valueEqualTo);
     }
 
+    @Given("seleccionado los formularios donde el campo: $field; es igual a: $valueEqualTo.")
+    public void selectFormWhere(String field, ExamplesTable valueEqualTo) throws Exception {
+        ArrayList<String> options = new ArrayList();
+        for (Map<String, String> row : valueEqualTo.getRows()) {
+            String option = row.get("options");
+            options.add(option);
+        }
+        getPage(CheckForm.class).selectFormWhere(field, options);
+    }
+
     @Then("el campo textBox: $textBox; tiene el valor: $value.")
     public void checkValueInTextBox(String textBox, String value) throws Exception {
         getPage(CheckFormValues.class).checkValueInTextBox(textBox, value);

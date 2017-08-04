@@ -6,6 +6,10 @@ Scenario: conprueva los datos del primer tab
 Given Navigate to the http://10.201.4.191/w/ url in the chrome browser
 And me conecto a gestar con el usuario: admin sin pass a la instancia DESA.
 And abrir la carpeta de automate.
+And seleccionado los formularios donde el campo: comunTextBox; es igual a:
+|options|
+|adasdas|
+|vcbcvb|.
 And seleccionado el formulario donde el campo: comunTextBox; es igual a: adasdas.
 When seleccionar tabPanel: tab1.
 Then el campo textBox: comunTextBox; tiene el valor: adasdas.

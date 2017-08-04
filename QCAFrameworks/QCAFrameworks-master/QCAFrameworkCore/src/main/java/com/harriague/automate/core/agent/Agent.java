@@ -351,6 +351,8 @@ public interface Agent {
 
     void selectFormWhere(String field, String valueEqualTo) throws AgentException;
 
+    void selectFormWhere(String field, ArrayList<String> options);
+
     boolean getIsChecked(By cssSelector);
 
     void aceptIfBoolean(boolean isChecked_control, boolean isChecked);
