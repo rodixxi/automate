@@ -314,7 +314,6 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         } else {
             System.out.println("No se encontro el campo");
         }
-
     }
 
     @Override
@@ -341,6 +340,18 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
             agent.click(lookUpBoxAccounts_control.getSearchButtonOptions());
             agent.selectOptionsDoubleClick(search, lookUpBoxAccounts_control.getOptions());
             agent.switchToPopup(parentWindow);
+        }
+    }
+
+    @Override
+    public void searchOptionAutoCompleteMultiple(String autoComplete, ArrayList<String> options) throws AgentException {
+        AutoComplete autoComplete_control = new AutoComplete(autoComplete);
+        if (agent.checkElementIsDisplayed(autoComplete_control.getCssSelector())) {
+            for (String option : options) {
+                agent.searchOption(option, autoComplete);
+            }
+        } else {
+            System.out.println("No se encontro el campo");
         }
     }
 

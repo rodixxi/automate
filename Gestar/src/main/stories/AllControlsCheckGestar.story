@@ -20,40 +20,41 @@ Scenario: pruebo los tabs
 Given abrir la carpeta de automate y creo un nuevo formulario.
 
 When seleccionar tabPanel: tab1.
-And ingreso abc; para el campo requerido: RequiredTextBox.
-And ingreso lala; para el textBox: comunTextBox.
-And ingreso 123; para el textBox numerico: NumericTexBox.
-And ingreso jojojujaju asdasd asdasdas; para textArea: MultiTexBox.
-And ingreso lapolola; para el textBox password: PassTexBox.
+And en el campo requerido: RequiredTextBox; ingreso abc.
+And en el textBox: comunTextBox; ingreso lala.
+And en el textBox numerico: NumericTexBox; ingreso 123.
+And en el textArea: MultiTexBox; ingreso jojojujaju asdasd asdasdas.
+And en el textBox password: PassTexBox; ingreso lapolola.
 
 And seleccionar tabPanel: tab2.
-And adjuntar el archivo: C:\lala.txt; en andjunto: attachments.
+And en el campo andjunto: attachments; adjuntar el archivo: C:\lala.txt -
 
 And seleccionar tabPanel: tab3.
-And cargo manualmente la fecha: 07/07/2017, con 03:24 en DTPicker: DTPciker.
-And cargo por calendario la fecha: 07/07/2017, en DTPicker: DTPickerF.
-And cargo por calendario la fecha: 27/07/2017, en DTPicker: DTPickerF.
-And cargo por calendario la fecha: 01/07/2017, en DTPicker: DTPickerF.
-And cargo por calendario la fecha: 31/12/2017, en DTPicker: DTPickerF.
-And cargo por calendario la fecha: 01/01/2018, en DTPicker: DTPickerF.
-And cargo por calendario la fecha: 01/01/2017, en DTPicker: DTPickerF.
+And en el DTPicker: DTPciker; cargo manualmente la fecha: 07/07/2017, con 03:24.
+And en el DTPicker: DTPickerF; cargo por calendario la fecha: 07/07/2017.
+And en el DTPicker: DTPickerF; cargo por calendario la fecha: 27/07/2017.
+And en el DTPicker: DTPickerF; cargo por calendario la fecha: 01/07/2017.
+And en el DTPicker: DTPickerF; cargo por calendario la fecha: 31/12/2017.
+And en el DTPicker: DTPickerF; cargo por calendario la fecha: 01/01/2018.
+And en el DTPicker: DTPickerF; cargo por calendario la fecha: 01/01/2017.
 
 And seleccionar tabPanel: tab4.
-And busco: Administrador; en el control con DobleClick LookUpBoxAccount: LookupBoxAccounts.
+And en el lookUpBoxAccount: LookupBoxAccounts; busco: Administrador.
+When seleccionar tabPanel: tab5.
 
-And seleccionar tabPanel: tab5.
-And selecciono las opciones:
+And en el selector multiple: select11; selecciono las opciones:
 |options|
-|Juan|
-del Selector multiple: select11.
-And deselecciono las opciones:
+|Juan|.
+And en el selector multiple: select11; deselecciono las opciones:
 |options|
-|Jose|
-del selector multiple: select11.
-And selecciono todas las opciones del selector multiple: select11.
-And deselecciono todas las opciones del selector multiple: select11.
-And busco : Avecilla, Rebeca; en el control de autocompletado: autoComplete1.
-And busco : Avecilla, Rebeca; en el control de autocompletado: autoComplete2.
+|Jose|.
+And en el selector multiple: select11; selecciono todas las opciones.
+And en el selector multiple: select11; deselecciono todas las opciones.
+And en el control de autocompletado: autoComplete1; busqueda multiple:
+|options|
+|Avecilla, Rebeca|
+|avecillas, rebeca|.
+And en el control de autocompletado: autoComplete2; busco: Avecilla, Rebeca.
 And guardar y salir del formulario.
 Then estas a nivel de folder.
 When close application
@@ -86,6 +87,7 @@ Then el Selector multiple: select11; no selecciono las opciones:
 And el Autocomplete: autoComplete2; selecciono el valor: Avecilla, Rebeca.
 And el Autocomplete: autoComplete1; selecciono los valores:
 |options|
-|Avecilla, Rebeca|.
+|Avecilla, Rebeca|
+|avecilla, rebeca|.
 
 When close application
