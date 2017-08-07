@@ -8,19 +8,19 @@ import java.util.ArrayList;
 
 public interface ControlsGestar extends Page{
 
-    void selectTabPanel(String tab) throws AgentException, InterruptedException;
+    void selectTabPanel(String tabName) throws AgentException, InterruptedException;
 
-    void inputToRequiredTextBox(String input, String campo) throws AgentException, InterruptedException;
+    void inputToRequiredTextBox(String textBoxName, String input) throws AgentException, InterruptedException;
 
-    void inputToTextBox(String input, String campo) throws AgentException, InterruptedException;
+    void inputToTextBox(String textBoxName, String input) throws AgentException, InterruptedException;
 
-    void inputToNumericTextBox(String input, String campo) throws AgentException;
+    void inputToNumericTextBox(String textBoxName, String input) throws AgentException;
 
-    void inputToTextArea(String input, String campo) throws AgentException;
+    void inputToTextArea(String textAreaName, String input) throws AgentException;
 
-    void inputToPasswordTextBox(String input, String campo) throws AgentException;
+    void inputToPasswordTextBox(String textBoxName, String input) throws AgentException;
 
-    void attachFile(String url, String popup) throws AgentException;
+    void attachFileToAttatchmentControl(String attachmentControlName, String fileURL) throws AgentException;
 
     void loadDateByTextBox(String date, String hh, String mm, String dtpicker) throws AgentException;
 
@@ -28,7 +28,7 @@ public interface ControlsGestar extends Page{
 
     void selectMultipleOptions(ArrayList<String> options, String selector) throws AgentException;
 
-    void loadDateByCalendarU(String date, String dtpicker) throws AgentException, ParseException;
+    void loadDateByCalendarUI(String date, String dtpicker) throws AgentException, ParseException;
 
     void selectMultipleOptionsAll(String selector) throws AgentException;
 

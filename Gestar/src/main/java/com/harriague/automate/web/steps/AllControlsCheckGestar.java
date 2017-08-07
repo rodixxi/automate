@@ -35,49 +35,49 @@ public class AllControlsCheckGestar extends StepBase {
         creanteNewFileInFolder();
     }
 
-    @When("seleccionar tabPanel: $tab.")
-    public void selectTabPanel(String tab) throws Exception {
-        getPage(ControlsGestar.class).selectTabPanel(tab);
+    @When("seleccionar tabPanel: $tabName.")
+    public void selectTabPanel(String tabName) throws Exception {
+        getPage(ControlsGestar.class).selectTabPanel(tabName);
     }
 
     @When("en el campo requerido: $textBox; ingreso $input.")
-    public void inputToRequiredTextBox(String textBox, String input) throws Exception {
-        getPage(ControlsGestar.class).inputToRequiredTextBox(input, textBox);
+    public void inputToRequiredTextBox(String textBoxName, String input) throws Exception {
+        getPage(ControlsGestar.class).inputToRequiredTextBox(textBoxName, input);
     }
 
-    @When("en el textBox: $textBox; ingreso $input.")
-    public void inputToTextBox(String textBox, String input) throws Exception {
-        getPage(ControlsGestar.class).inputToTextBox(input, textBox);
+    @When("en el textBox: $textBoxName; ingreso $input.")
+    public void inputToTextBox(String textBoxName, String input) throws Exception {
+        getPage(ControlsGestar.class).inputToTextBox(textBoxName, input);
     }
 
-    @When("en el textBox numerico: $textBox; ingreso $input.")
-    public void inputToNumericTextBox(String textBox, String input) throws Exception {
-        getPage(ControlsGestar.class).inputToNumericTextBox(input, textBox);
+    @When("en el textBox numerico: $textBoxName; ingreso $input.")
+    public void inputToNumericTextBox(String textBoxName, String input) throws Exception {
+        getPage(ControlsGestar.class).inputToNumericTextBox(textBoxName, input);
     }
 
     @When("en el textArea: $textArea; ingreso $input.")
-    public void inputToTextArea(String textArea, String input) throws Exception {
-        getPage(ControlsGestar.class).inputToTextArea(input, textArea);
+    public void inputToTextArea(String textAreaName, String input) throws Exception {
+        getPage(ControlsGestar.class).inputToTextArea(textAreaName, input);
     }
 
-    @When("en el textBox password: $textBox; ingreso $input.")
-    public void inputToPasswordTextBox(String textBox, String input) throws Exception {
-        getPage(ControlsGestar.class).inputToPasswordTextBox(input, textBox);
+    @When("en el textBox password: $textBoxName; ingreso $input.")
+    public void inputToPasswordTextBox(String textBoxName, String input) throws Exception {
+        getPage(ControlsGestar.class).inputToPasswordTextBox(textBoxName, input);
     }
 
-    @When("en el campo andjunto: $attatchment; adjuntar el archivo: $url -")
-    public void attachFile(String attatchment, String url) throws Exception {
-        getPage(ControlsGestar.class).attachFile(url, attatchment);
+    @When("en el campo andjunto: $attachmentControlName; adjuntar el archivo: $fileURL -")
+    public void attachFileToAttatchmentControl(String attachmentControlName, String fileURL) throws Exception {
+        getPage(ControlsGestar.class).attachFileToAttatchmentControl(attachmentControlName, fileURL);
     }
 
-    @When("en el DTPicker: $dtpicker; cargo manualmente la fecha: $date, con $hh:$mm.")
-    public void loadDateByTextBox(String dtpicker, String date, String hh, String mm) throws Exception {
-        getPage(ControlsGestar.class).loadDateByTextBox(date, hh, mm, dtpicker);
+    @When("en el DTPicker: $dtpickerName; cargo manualmente la fecha: $date, con $hh:$mm.")
+    public void loadDateByTextBox(String dtpickerName, String date, String hh, String mm) throws Exception {
+        getPage(ControlsGestar.class).loadDateByTextBox(date, hh, mm, dtpickerName);
     }
 
     @When("en el DTPicker: $dtpicker; cargo por calendario la fecha: $date.")
     public void loadDateByCalendarUI(String dtpicker, String date) throws Exception {
-        getPage(ControlsGestar.class).loadDateByCalendarU(date, dtpicker);
+        getPage(ControlsGestar.class).loadDateByCalendarUI(date, dtpicker);
     }
 
     @When("en el select: $select; selecciono option: $option.")

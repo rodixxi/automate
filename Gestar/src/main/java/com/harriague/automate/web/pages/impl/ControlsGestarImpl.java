@@ -45,16 +45,16 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     /**
      * Ingresa texto a un campo requerido
      *
+     * @param textBoxName
      * @param input
-     * @param campo
      * @throws AgentException
      * @throws InterruptedException
      * @authot Rodrigo Crespillo
      * @version 1.0 10/07/2017
      */
     @Override
-    public void inputToRequiredTextBox(String input, String campo) throws AgentException, InterruptedException {
-        TextBox textBox_object = new TextBox(campo);
+    public void inputToRequiredTextBox(String textBoxName, String input) throws AgentException, InterruptedException {
+        TextBox textBox_object = new TextBox(textBoxName);
         textBox_object.setIsRequired();
         if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())) {
             agent.writeInElement(textBox_object.getCssSelector(), input);
@@ -67,15 +67,14 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
      * Ingresa un input a un campo común
      *
      * @param input
-     * @param campo
      * @throws AgentException
      * @throws InterruptedException
      * @authot Rodrigo Crespillo
      * @version 1.0 10/07/2017
      */
     @Override
-    public void inputToTextBox(String input, String campo) throws AgentException, InterruptedException {
-        TextBox textBox_object = new TextBox(campo);
+    public void inputToTextBox(String textBoxName, String input) throws AgentException, InterruptedException {
+        TextBox textBox_object = new TextBox(textBoxName);
         if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())) {
             agent.writeInElement(textBox_object.getCssSelector(), input);
         } else {
@@ -87,14 +86,13 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
      * Ingresa valores a un control de tipo numerico
      *
      * @param input
-     * @param campo
      * @throws AgentException
      * @authot Rodrigo Crespillo
      * @version 1.0 10/07/2017
      */
     @Override
-    public void inputToNumericTextBox(String input, String campo) throws AgentException {
-        TextBox textBox_object = new TextBox(campo);
+    public void inputToNumericTextBox(String textBoxName, String input) throws AgentException {
+        TextBox textBox_object = new TextBox(textBoxName);
         if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())) {
             agent.writeInElement(textBox_object.getCssSelector(), input);
         } else {
@@ -106,14 +104,13 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
      * Ingresa texto a un input tipo textbox
      *
      * @param input
-     * @param campo
      * @throws AgentException
      * @authot Rodrigo Crespillo
      * @version 1.0 10/07/2017
      */
     @Override
-    public void inputToTextArea(String input, String campo) throws AgentException {
-        TextBox textBox_object = new TextBox(campo, TextBox.Modes.multiple_line);
+    public void inputToTextArea(String textAreaName, String input) throws AgentException {
+        TextBox textBox_object = new TextBox(textAreaName, TextBox.Modes.multiple_line);
         if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())) {
             agent.writeInElement(textBox_object.getCssSelector(), input);
         } else {
@@ -125,14 +122,13 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
      * Ingresa valores a input tipo password
      *
      * @param input
-     * @param campo
      * @throws AgentException
      * @authot Rodrigo Crespillo
      * @version 1.0 10/07/2017
      */
     @Override
-    public void inputToPasswordTextBox(String input, String campo) throws AgentException {
-        TextBox textBox_object = new TextBox(campo, TextBox.Modes.password);
+    public void inputToPasswordTextBox(String textBoxName, String input) throws AgentException {
+        TextBox textBox_object = new TextBox(textBoxName, TextBox.Modes.password);
         if (agent.checkElementIsDisplayed(textBox_object.getCssSelector())) {
             agent.writeInElement(textBox_object.getCssSelector(), input);
         } else {
@@ -143,27 +139,40 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     /**
      * Adjunta un archivo a un control de Attatchemet
      *
-     * @param url
-     * @param adjunto
+     * @param attachmentControlName
+     * @param fileURL
      * @throws AgentException
      * @author Rodrigo Crespillo
      * @version 1.0 13/07/2017
      */
     @Override
-    public void attachFile(String url, String adjunto) throws AgentException {
-        Attachment attch_object = new Attachment(adjunto);
-        if (agent.checkElementIsDisplayed(attch_object.getCssSelector())) {
-            agent.click(attch_object.getCssSelector());
-            String principalWindows = agent.switchToPopup();
-            agent.checkElementIsDisplayed(attch_object.getAttachButton(), FlawedTimeUnit.seconds(2));
-            agent.selectFile(attch_object.getInputButton(), url);
-            agent.click(attch_object.getAddButton());
-            agent.click(attch_object.getCloseButton());
-            agent.switchToPopup(principalWindows);
+    public void attachFileToAttatchmentControl(String attachmentControlName, String fileURL) throws AgentException {
+        Attachment attatch_object = new Attachment(attachmentControlName);
+        if (agent.checkElementIsDisplayed(attatch_object.getCssSelector())) {
+            String principalWindows = openAttatchmentControlPopup(attatch_object);
+            attatchFileInPopup(fileURL, attatch_object);
+            closeAttatchmentPopup(principalWindows, attatch_object);
         } else {
             System.out.println("No se encontro el campo");
         }
 
+    }
+
+    private void closeAttatchmentPopup(String principalWindows, Attachment attatch_object) throws AgentException {
+        agent.switchToPopup(principalWindows);
+        agent.click(attatch_object.getCloseButton());
+    }
+
+    private void attatchFileInPopup(String fileURL, Attachment attch_object) throws AgentException {
+        agent.selectFile(attch_object.getInputButton(), fileURL);
+        agent.click(attch_object.getAddButton());
+    }
+
+    private String openAttatchmentControlPopup(Attachment attch_object) throws AgentException {
+        agent.click(attch_object.getCssSelector());
+        String principalWindows = agent.switchToPopup();
+        agent.checkElementIsDisplayed(attch_object.getAttachButton(), FlawedTimeUnit.seconds(2));
+        return principalWindows;
     }
 
     /**
@@ -205,7 +214,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
      * @version 1.0 14/07/2017
      */
     @Override
-    public void loadDateByCalendarU(String date, String dtpicker) throws AgentException, ParseException {
+    public void loadDateByCalendarUI(String date, String dtpicker) throws AgentException, ParseException {
 
         DTPicker dtPicker_object = new DTPicker(dtpicker);
 
