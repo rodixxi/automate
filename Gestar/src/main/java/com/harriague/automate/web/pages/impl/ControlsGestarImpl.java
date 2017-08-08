@@ -159,8 +159,8 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     }
 
     private void closeAttatchmentPopup(String principalWindows, Attachment attatch_object) throws AgentException {
-        agent.switchToPopup(principalWindows);
         agent.click(attatch_object.getCloseButton());
+        agent.switchToPopup(principalWindows);
     }
 
     private void attatchFileInPopup(String fileURL, Attachment attch_object) throws AgentException {
@@ -234,17 +234,15 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     /**
      * Selecciona una opcion de un selector
      *
-     * @param opcion
-     * @param selector
      * @throws AgentException
      * @author Rodrigo Crespillo
      * @version 1.0 12/07/2017
      */
     @Override
-    public void selectOption(String opcion, String selector) throws AgentException {
-        SelectControl selectControl = new SelectControl(selector);
+    public void selectOption(String selectName, String optionToSelect) throws AgentException {
+        SelectControl selectControl = new SelectControl(selectName);
         if (agent.checkElementIsDisplayed(selectControl.getCssSelector())) {
-            agent.selectSelectorOption(selectControl.getCssSelector(), opcion);
+            agent.selectSelectorOption(selectControl.getCssSelector(), optionToSelect);
         } else {
             System.out.println("No se encontro el campo");
         }
@@ -253,110 +251,106 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     /**
      * Selecciona las opciones dadas(en forma de tabla) de un selector multiple
      *
-     * @param options
-     * @param selector
      * @throws AgentException
      * @author Rodrigo Crespillo
      * @version 1.0 14/07/2017
      */
     @Override
-    public void selectMultipleOptions(ArrayList<String> options, String selector) throws AgentException {
-        SelectorMultiple selectorMultiple = new SelectorMultiple(selector, "");
-        for (String option : options) {
-            agent.selectOptionsCrtlClick(option, selectorMultiple.getLeftOptions());
+    public void selectMultipleOptions(String multipleSelectorName, ArrayList<String> optionsToSelect) throws AgentException {
+        SelectorMultiple selectorMultipleObject = new SelectorMultiple(multipleSelectorName);
+        for (String optionToSelect : optionsToSelect) {
+            agent.markOptionSelectorMultiple(optionToSelect, selectorMultipleObject.getLeftOptions());
         }
-        agent.click(selectorMultiple.getToRightButton());
+        agent.click(selectorMultipleObject.getToRightButton());
     }
 
     /**
      * Selecciona todas la opciones de un selector multiple
      *
-     * @param selector
+     * @param multipleSelectorName
      * @throws AgentException
      * @author Rodrigo Crespillo
      * @version 1.0 17/07/2017
      */
     @Override
-    public void selectMultipleOptionsAll(String selector) throws AgentException {
-        SelectorMultiple selectorMultiple = new SelectorMultiple(selector, "");
+    public void selectMultipleOptionsAll(String multipleSelectorName) throws AgentException {
+        SelectorMultiple selectorMultiple = new SelectorMultiple(multipleSelectorName, "");
         agent.click(selectorMultiple.getToRightAllButton());
     }
 
     /**
      * Deselecciona las opciones dadas(en forma de tabla) de un selector multiple
      *
-     * @param options
-     * @param selector
      * @throws AgentException
      * @author Rodrigo Crespillo
      * @version 1.0 17/07/2017
      */
     @Override
-    public void deselectMultipleOptions(ArrayList<String> options, String selector) throws AgentException {
-        SelectorMultiple selectorMultiple = new SelectorMultiple(selector, "");
-        for (String option : options) {
-            agent.selectOptionsCrtlClick(option, selectorMultiple.getRightOptions());
+    public void deselectMultipleOptions(String multipleSelectorName, ArrayList<String> optionsToUnselect) throws AgentException {
+        SelectorMultiple selectorMultipleObject = new SelectorMultiple(multipleSelectorName);
+        for (String optionToUnselect : optionsToUnselect) {
+            agent.markOptionSelectorMultiple(optionToUnselect, selectorMultipleObject.getRightOptions());
         }
-        agent.click(selectorMultiple.getToLeftButton());
+        agent.click(selectorMultipleObject.getToLeftButton());
     }
 
     /**
      * Deselecciona todas la opciones de un selector multiple
      *
-     * @param selector
+     * @param multipleSelectorName
      * @throws AgentException
      * @author Rodrigo Crespillo
      * @version 1.0 17/07/2017
      */
     @Override
-    public void deselectMultipleOptionsAll(String selector) throws AgentException {
-        SelectorMultiple selectorMultiple = new SelectorMultiple(selector, "");
+    public void deselectMultipleOptionsAll(String multipleSelectorName) throws AgentException {
+        SelectorMultiple selectorMultiple = new SelectorMultiple(multipleSelectorName, "");
         agent.click(selectorMultiple.getToLeftAllButton());
 
     }
 
     @Override
-    public void searchOptionAutoComplete(String search, String autoComplete) throws AgentException {
-        AutoComplete autoComplete_control = new AutoComplete(autoComplete);
-        if (agent.checkElementIsDisplayed(autoComplete_control.getCssSelector())) {
-            agent.searchOption(search, autoComplete);
+    public void searchOptionAutoComplete(String autoCompleteName, String optionToSearch) throws AgentException {
+        AutoComplete autoCompletObject = new AutoComplete(autoCompleteName);
+        if (agent.checkElementIsDisplayed(autoCompletObject.getCssSelector())) {
+            agent.searchOption(optionToSearch, autoCompleteName);
         } else {
             System.out.println("No se encontro el campo");
         }
     }
 
     @Override
-    public void searchLookUpBoxAccount(String search, String control) throws AgentException {
-        LookUpBoxAccounts lookUpBoxAccounts_control = new LookUpBoxAccounts(control);
-        if (agent.checkElementIsDisplayed(lookUpBoxAccounts_control.getCssSelector())){
-            agent.click(lookUpBoxAccounts_control.getSearchButton());
+    public void searchInLookUpBoxAccount(String lookUpBoxAccountName, String optionToSearch) throws AgentException {
+        LookUpBoxAccounts lookUpBoxAccountObject = new LookUpBoxAccounts(lookUpBoxAccountName);
+        if (agent.checkElementIsDisplayed(lookUpBoxAccountObject.getCssSelector())){
+            agent.click(lookUpBoxAccountObject.getSearchButton());
             String parentWindow = agent.switchToPopup();
-            agent.writeInElement(lookUpBoxAccounts_control.getSearchBox(), search);
-            agent.click(lookUpBoxAccounts_control.getSearchButtonOptions());
-            agent.selectOptionsDoubleClick(search, lookUpBoxAccounts_control.getOptions());
-            agent.click(lookUpBoxAccounts_control.getAceptButton());
+            agent.writeInElement(lookUpBoxAccountObject.getSearchBox(), optionToSearch);
+            agent.click(lookUpBoxAccountObject.getSearchButtonOptions());
+            agent.selectOptionsDoubleClick(optionToSearch, lookUpBoxAccountObject.getOptions());
+            agent.click(lookUpBoxAccountObject.getAceptButton());
             agent.switchToPopup(parentWindow);
         }
     }
 
     @Override
-    public void searchLookUpBoxAccountDobleClick(String search, String control) throws AgentException {
-        LookUpBoxAccounts lookUpBoxAccounts_control = new LookUpBoxAccounts(control);
-        if (agent.checkElementIsDisplayed(lookUpBoxAccounts_control.getCssSelector())){
-            agent.click(lookUpBoxAccounts_control.getSearchButton());
+    public void searchInLookUpBoxAccountDobleClick(String lookUpBoxAccountName, String optionToSearch) throws AgentException {
+        LookUpBoxAccounts lookUpBoxAccountsObject = new LookUpBoxAccounts(lookUpBoxAccountName);
+        if (agent.checkElementIsDisplayed(lookUpBoxAccountsObject.getCssSelector())){
+            agent.click(lookUpBoxAccountsObject.getSearchButton());
             String parentWindow = agent.switchToPopup();
-            agent.writeInElement(lookUpBoxAccounts_control.getSearchBox(), search);
-            agent.click(lookUpBoxAccounts_control.getSearchButtonOptions());
-            agent.selectOptionsDoubleClick(search, lookUpBoxAccounts_control.getOptions());
+            agent.writeInElement(lookUpBoxAccountsObject.getSearchBox(), optionToSearch);
+            agent.click(lookUpBoxAccountsObject.getSearchButtonOptions());
+            agent.selectOptionsDoubleClick(optionToSearch, lookUpBoxAccountsObject.getOptions());
             agent.switchToPopup(parentWindow);
         }
     }
 
     @Override
-    public void searchOptionAutoCompleteMultiple(String autoComplete, ArrayList<String> options) throws AgentException {
-        AutoComplete autoComplete_control = new AutoComplete(autoComplete);
-        if (agent.checkElementIsDisplayed(autoComplete_control.getCssSelector())) {
-            for (String option : options) {
+    public void searchOptionAutoCompleteMultiple(String autoComplete, ArrayList<String> optionsToSearch) throws AgentException {
+        AutoComplete autoCompleteObject = new AutoComplete(autoComplete);
+        if (agent.checkElementIsDisplayed(autoCompleteObject.getCssSelector())) {
+            for (String option : optionsToSearch) {
                 agent.searchOption(option, autoComplete);
             }
         } else {

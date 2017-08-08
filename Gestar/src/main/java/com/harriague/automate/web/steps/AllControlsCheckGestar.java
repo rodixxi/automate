@@ -80,66 +80,64 @@ public class AllControlsCheckGestar extends StepBase {
         getPage(ControlsGestar.class).loadDateByCalendarUI(date, dtpicker);
     }
 
-    @When("en el select: $select; selecciono option: $option.")
-    public void selectOption(String select, String option) throws Exception {
-        getPage(ControlsGestar.class).selectOption(option, select);
+    @When("en el select: $selectName; selecciono option: $optionToSelect.")
+    public void selectOption(String selectName, String optionToSelect) throws Exception {
+        getPage(ControlsGestar.class).selectOption(selectName, optionToSelect);
     }
 
-    @When("en el selector multiple: $multipleSelector; selecciono las opciones: $tableOptions.")
-    public void selectMultipleOptions(String multipleSelector, ExamplesTable $tableOptions) throws Exception {
-        ArrayList<String> options = new ArrayList();
-        for (Map<String, String> row : $tableOptions.getRows()) {
+    @When("en el selector multiple: $multipleSelectorName; selecciono las opciones: $optionsTable.")
+    public void selectMultipleOptions(String multipleSelectorName, ExamplesTable optionsTable) throws Exception {
+        ArrayList<String> optionsToSelect = new ArrayList();
+        for (Map<String, String> row : optionsTable.getRows()) {
             String option = row.get("options");
-            options.add(option);
+            optionsToSelect.add(option);
         }
-        getPage(ControlsGestar.class).selectMultipleOptions(options, multipleSelector);
+        getPage(ControlsGestar.class).selectMultipleOptions(multipleSelectorName, optionsToSelect);
     }
 
-    @When("en el selector multiple: $multipleSelecto; selecciono todas las opciones.")
-    public void selectMultipleOptionsAll(String multipleSelector) throws Exception {
-        ArrayList<String> options = new ArrayList();
-        getPage(ControlsGestar.class).selectMultipleOptionsAll(multipleSelector);
+    @When("en el selector multiple: $multipleSelectorName; selecciono todas las opciones.")
+    public void selectMultipleOptionsAll(String multipleSelectorName) throws Exception {
+        getPage(ControlsGestar.class).selectMultipleOptionsAll(multipleSelectorName);
     }
 
-    @When("en el selector multiple: $multipleSelector; deselecciono las opciones: $tableOptions.")
-    public void deselectMultipleOptions(String multipleSelector, ExamplesTable tableOptions) throws Exception {
-        ArrayList<String> options = new ArrayList();
-        for (Map<String, String> row : tableOptions.getRows()) {
+    @When("en el selector multiple: $multipleSelectorName; deselecciono las opciones: $optionsTable.")
+    public void deselectMultipleOptions(String multipleSelectorName, ExamplesTable optionsTable) throws Exception {
+        ArrayList<String> optionsToUnselect = new ArrayList();
+        for (Map<String, String> row : optionsTable.getRows()) {
             String option = row.get("options");
-            options.add(option);
+            optionsToUnselect.add(option);
         }
-        getPage(ControlsGestar.class).deselectMultipleOptions(options, multipleSelector);
+        getPage(ControlsGestar.class).deselectMultipleOptions(multipleSelectorName, optionsToUnselect);
     }
 
-    @When("en el selector multiple: $multipleSelector; deselecciono todas las opciones.")
-    public void deselectMultipleOptionsAll(String multipleSelector) throws Exception {
-        ArrayList<String> options = new ArrayList();
-        getPage(ControlsGestar.class).deselectMultipleOptionsAll(multipleSelector);
+    @When("en el selector multiple: $multipleSelectorName; deselecciono todas las opciones.")
+    public void deselectMultipleOptionsAll(String multipleSelectorName) throws Exception {
+        getPage(ControlsGestar.class).deselectMultipleOptionsAll(multipleSelectorName);
     }
 
-    @When("en el control de autocompletado: $autoComplete; busco: $search.")
-    public void searchOptionAutoComplete(String autoComplete, String search) throws Exception {
-        getPage(ControlsGestar.class).searchOptionAutoComplete(search, autoComplete);
+    @When("en el control de autocompletado: $autoCompleteName; busco: $optionToSearch.")
+    public void searchOptionAutoComplete(String autoCompleteName, String optionToSearch) throws Exception {
+        getPage(ControlsGestar.class).searchOptionAutoComplete(autoCompleteName, optionToSearch);
     }
 
-    @When("en el control de autocompletado: $autoComplete; busqueda multiple: $searchOptions.")
-    public void searchOptionAutoCompleteMultiple(String autoComplete, ExamplesTable searchOptions) throws Exception {
-        ArrayList<String> options = new ArrayList();
-        for (Map<String, String> row : searchOptions.getRows()) {
+    @When("en el control de autocompletado: $autoCompleteName; busqueda multiple: $optionsToSearchTable.")
+    public void searchOptionAutoCompleteMultiple(String autoCompleteName, ExamplesTable optionsToSearchTable) throws Exception {
+        ArrayList<String> optionsToSearch = new ArrayList();
+        for (Map<String, String> row : optionsToSearchTable.getRows()) {
             String option = row.get("options");
-            options.add(option);
+            optionsToSearch.add(option);
         }
-        getPage(ControlsGestar.class).searchOptionAutoCompleteMultiple(autoComplete, options);
+        getPage(ControlsGestar.class).searchOptionAutoCompleteMultiple(autoCompleteName, optionsToSearch);
     }
 
-    @When("en el control lookUpBoxAccount: $control; busco: $search.")
-    public void searchLookUpBoxAccount(String control, String search) throws Exception {
-        getPage(ControlsGestar.class).searchLookUpBoxAccount(search, control);
+    @When("en el control lookUpBoxAccount: $lookUpBoxAccountName; busco: $optionToSearch.")
+    public void searchInLookUpBoxAccount(String lookUpBoxAccountName, String optionToSearch) throws Exception {
+        getPage(ControlsGestar.class).searchInLookUpBoxAccount(lookUpBoxAccountName, optionToSearch);
     }
 
     @When("en el lookUpBoxAccount: $control; busco: $search.")
-    public void searchLookUpBoxAccountDobleClick(String control, String search) throws Exception {
-        getPage(ControlsGestar.class).searchLookUpBoxAccountDobleClick(search, control);
+    public void searchInLookUpBoxAccountDobleClick(String control, String search) throws Exception {
+        getPage(ControlsGestar.class).searchInLookUpBoxAccountDobleClick(control, search);
     }
 
     @When("guardar y salir del formulario.")

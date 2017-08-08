@@ -9,6 +9,11 @@ public class Control {
     private String title;
     private By cssSelector;
 
+    public Control() {
+        this.name = "";
+        this.title = "";
+    }
+
     public Control(String name, String title) {
         this.name = name;
         this.title = title;

@@ -24,23 +24,23 @@ public interface ControlsGestar extends Page{
 
     void loadDateByTextBox(String date, String hh, String mm, String dtpicker) throws AgentException;
 
-    void selectOption(String opcion, String selector) throws AgentException;
+    void selectOption(String selectName, String optionToSelect) throws AgentException;
 
-    void selectMultipleOptions(ArrayList<String> options, String selector) throws AgentException;
+    void selectMultipleOptions(String multipleSelectorName, ArrayList<String> optionsToSelect) throws AgentException;
 
     void loadDateByCalendarUI(String date, String dtpicker) throws AgentException, ParseException;
 
-    void selectMultipleOptionsAll(String selector) throws AgentException;
+    void selectMultipleOptionsAll(String multipleSelectorName) throws AgentException;
 
-    void deselectMultipleOptions(ArrayList<String> options, String selector) throws AgentException;
+    void deselectMultipleOptions(String multipleSelectorName, ArrayList<String> optionsToUnselect) throws AgentException;
 
-    void deselectMultipleOptionsAll(String selector) throws AgentException;
+    void deselectMultipleOptionsAll(String multipleSelectorName) throws AgentException;
 
-    void searchOptionAutoComplete(String search, String autoComplete) throws AgentException;
+    void searchOptionAutoComplete(String autoCompleteName, String optionToSearch) throws AgentException;
 
-    void searchLookUpBoxAccount(String search, String control) throws AgentException;
+    void searchInLookUpBoxAccount(String lookUpBoxAccountName, String optionToSearch) throws AgentException;
 
-    void searchLookUpBoxAccountDobleClick(String search, String control) throws AgentException;
+    void searchInLookUpBoxAccountDobleClick(String lookUpBoxAccountName, String optionToSearch) throws AgentException;
 
-    void searchOptionAutoCompleteMultiple(String search, ArrayList<String> options) throws AgentException;
+    void searchOptionAutoCompleteMultiple(String autoCompleteName, ArrayList<String> optionsToSearch) throws AgentException;
 }

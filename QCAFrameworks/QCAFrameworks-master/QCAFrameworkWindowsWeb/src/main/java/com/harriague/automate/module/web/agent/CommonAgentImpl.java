@@ -324,16 +324,24 @@ public class CommonAgentImpl implements Agent {
 
 
     @Override
-    public void selectOptionsCrtlClick(String option, Object element) throws AgentException {
-        ArrayList<WebElement> options = (ArrayList<WebElement>) driver.findElements((By)element);
+    public void markOptionSelectorMultiple(String optionToSelect, Object selectorMultipleLeftOptionBox) throws AgentException {
+        ArrayList<WebElement> options = (ArrayList<WebElement>) driver.findElements((By) selectorMultipleLeftOptionBox);
         log.info("Busca las opciones en el control");
+        WebElement optionToSelectObject = findOptionInBox(optionToSelect, options);
+        if (optionToSelectObject != null){
+            ctrlClick(optionToSelectObject);
+        }
+    }
+
+    private WebElement findOptionInBox(String optionToSelect, ArrayList<WebElement> options) {
         for (WebElement option_aux : options){
             String aux = option_aux.getText();
-            if (aux.equals(option)){
+            if (aux.equals(optionToSelect)){
                 log.info("Encontro la opcion: "+ aux);
-                ctrlClick(option_aux);
+                return option_aux;
             } else  log.info("No encontro la opcion: " + aux);
         }
+        return null;
     }
 
     public void selectOptionsDoubleClick(String option, Object element) throws AgentException{
@@ -1227,21 +1235,21 @@ public class CommonAgentImpl implements Agent {
      *
      * @author Rodrigo Crespillo
      * @version 1.0 17/07/2017
-     * @param search
-     * @param autoComplete    */
+     * @param optionToSearch
+     * @param autoCompleteName      */
     @Override
-    public void searchOption(String search, String autoComplete) throws AgentException {
+    public void searchOption(String optionToSearch, String autoCompleteName) throws AgentException {
 
-        String searhBoxPath = "#" + autoComplete + "_folderSearchAutocomplete";
+        String searhBoxPath = "#" + autoCompleteName + "_folderSearchAutocomplete";
         String optionsBoxPath = ".ui-autocomplete a";
 
         By searhBox = By.cssSelector(searhBoxPath);
         By optionsBox = By.cssSelector(optionsBoxPath);
 
-        WebElement serahbox_input = driver.findElement(searhBox);
-        serahbox_input.sendKeys(search);
+        WebElement searhBox_input = driver.findElement(searhBox);
+        searhBox_input.sendKeys(optionToSearch);
         if (checkElementIsDisplayed(optionsBox)){
-            selectOptionsCrtlClick(search, optionsBox);
+            markOptionSelectorMultiple(optionToSearch, optionsBox);
         }
 
     }

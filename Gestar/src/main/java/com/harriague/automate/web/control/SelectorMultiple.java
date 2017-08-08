@@ -23,6 +23,11 @@ public class SelectorMultiple extends Control {
     private By rightList = By.cssSelector(rightListPath);
     private By leftList = By.cssSelector(leftListPath);
 
+
+    public SelectorMultiple() {
+        super();
+    }
+
     public SelectorMultiple(String name, String title) {
         super(name, title);
     }

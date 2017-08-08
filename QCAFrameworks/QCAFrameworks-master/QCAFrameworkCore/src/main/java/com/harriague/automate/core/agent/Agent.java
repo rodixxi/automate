@@ -327,10 +327,11 @@ public interface Agent {
      * 13/07/2017
      * ver 1.0
      *
-     * @param option
+     * @param optionToSelect
+     * @param selectorMultipleLeftOptionBox
      * @return
      */
-    void selectOptionsCrtlClick(String option, Object element) throws AgentException;
+    void markOptionSelectorMultiple(String optionToSelect, Object selectorMultipleLeftOptionBox) throws AgentException;
 
     void selectOptionsDoubleClick(String option, Object element) throws AgentException;
 
@@ -345,7 +346,7 @@ public interface Agent {
 
 
 
-    void searchOption(String search, String autoComplete) throws AgentException;
+    void searchOption(String optionToSearch, String autoCompleteName) throws AgentException;
 
     void aceptStringIfEqualTo(String thisOne, String equalToThis);
 
