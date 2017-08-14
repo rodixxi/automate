@@ -59,7 +59,7 @@ public class AllControlsCheckValuesGestar extends StepBase {
         getPage(CheckFormValues.class).checkValueInPasswordTextBox(textBox, value);
     }
 
-    @Then("el campo andjunto: $attatchField; tiene el archivo: $attachName")
+    @Then("el campo andjunto: $attatchField; tiene el archivo: $attachName-")
     public void checkAttatchment(String attatchField, String attachName) throws Exception {
         getPage(CheckFormValues.class).checkAttatchment(attatchField, attachName);
     }
