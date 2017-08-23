@@ -84,7 +84,7 @@ public class AllControlsCheckGestar extends StepBase {
         getPage(ControlsGestar.class).attachFileToAttatchmentControl(attachmentControlName, fileURL);
     }
 
-    @When("en el campo andjunto: $attachmentControlName; adjuntar el archivo: $fileURL -")
+    @When("en el campo andjuntoNuevo: $attachmentControlName; adjuntar el archivo: $fileURL -")
     public void attachFileToAttatchmentControlNew(String attachmentControlName, String fileURL) throws Exception {
         getPage(ControlsGestar.class).attachFileToAttatchmentControlNew(attachmentControlName, fileURL);
     }

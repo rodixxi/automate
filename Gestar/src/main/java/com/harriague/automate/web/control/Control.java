@@ -3,7 +3,7 @@ package com.harriague.automate.web.control;
 import org.openqa.selenium.By;
 
 
-public abstract class Control {
+public class Control implements ControlInterface{
 
     private String name;
     private String title;
@@ -42,6 +42,7 @@ public abstract class Control {
         this.title = title;
     }
 
+    @Override
     public By getCssSelector() {
         return cssSelector;
     }

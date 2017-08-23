@@ -1,7 +1,9 @@
 package com.harriague.automate.module.web.agent;
 
 import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -10,6 +12,7 @@ import java.util.*;
 import javax.imageio.ImageIO;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -1346,6 +1349,75 @@ public class CommonAgentImpl implements Agent {
             }
         }
     }
+
+    @Override
+    public String switchToTab() {
+        ArrayList<String> tabsManager = new ArrayList<String> (driver.getWindowHandles());
+        driver.switchTo().window(tabsManager.get(1));
+        return tabsManager.get(0);
+    }
+
+    @Override
+    public void switchToTab(String tabOriginal) {
+        driver.switchTo().window(tabOriginal);
+    }
+
+    @Override
+    public void closeTab() {
+        driver.close();
+    }
+
+    // TODO: 23/08/2017 Buscar forma de saber el tipo de archivo, por que por ahora solo funciona con txt.
+    @Override
+    public void dropFile(By dropzonePath, String fileURL) throws IOException {
+        File file = new File(fileURL);
+        String fileInBase64 = convertFileToBase64String(file);
+        String jsSriptForUpload = dropdownJsFileInBase64(fileInBase64);
+        String fileExtencion = FilenameUtils.getExtension(fileURL);
+        jsSriptForUpload += dropdownJsFileTypeAndExtencion("text", fileExtencion);
+        String fileName = FilenameUtils.getName(fileURL);
+        jsSriptForUpload += dropdownJsFileName(fileName);
+        //String jsSriptForUpload = dropdownJsFileInBase64(fileInBase64);
+        executeJsInDriver(jsSriptForUpload);
+    }
+
+
+    private void executeJsInDriver(String jsScript){
+        if (driver instanceof JavascriptExecutor) {
+            JavascriptExecutor js = (JavascriptExecutor)driver;
+            js.executeScript(jsScript);
+        }
+    }
+
+    private String dropdownJsFileInBase64(String fileToUploadInBase64){
+        return  "var myZone, blob, base64File; " +
+                "myZone = Dropzone.forElement('#my-dropzone'); " +
+                "base64File = '"+ fileToUploadInBase64 +"'; " +
+                "function base64toBlob(r,e,n){e=e||\"\",n=n||512;for(var t=atob(r),a=[],o=0;o<t.length;o+=n){for(var l=t.slice(o,o+n),h=new Array(l.length),b=0;b<l.length;b++)h[b]=l.charCodeAt(b);var v=new Uint8Array(h);a.push(v)}var c=new Blob(a,{type:e});return c} ";
+    }
+
+    private String dropdownJsFileTypeAndExtencion(String fileType, String fileExtencion){
+        return "blob = base64toBlob(base64File, '"+ fileType +"/"+ fileExtencion +"'); ";
+    }
+
+    private String dropdownJsFileName(String fileName){
+        return  "blob.name = '"+ fileName +"'; " +
+                "myZone.addFile(blob);";
+    }
+
+
+    private static String convertFileToBase64String(File file) throws IOException {
+        int length = (int) file.length();
+        BufferedInputStream reader = new BufferedInputStream(new FileInputStream(file));
+        byte[] bytes = new byte[length];
+        reader.read(bytes, 0, length);
+        reader.close();
+        String encodedFile = Base64.getEncoder().encodeToString(bytes);
+
+        return encodedFile;
+    }
+
+
 
     public ArrayList<String> getElementsListText(ArrayList<WebElement> selectOptions){
         ArrayList<String> options = new ArrayList<>();

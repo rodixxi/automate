@@ -7,6 +7,7 @@ import com.harriague.automate.core.structures.FlawedTimeUnit;
 import com.harriague.automate.web.control.*;
 import com.harriague.automate.web.pages.ControlsGestar;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -359,15 +360,32 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     }
 
     @Override
-    public void attachFileToAttatchmentControlNew(String attachmentControlName, String fileURL) throws AgentException {
+    public void attachFileToAttatchmentControlNew(String attachmentControlName, String fileURL) throws AgentException, IOException {
         AttachmentNew attatch_object = new AttachmentNew(attachmentControlName);
         if (agent.checkElementIsDisplayed(attatch_object.getCssSelector())) {
-            String principalWindows = openAttatchmentControlPopup(attatch_object);
-            attatchFileInPopup(fileURL, attatch_object);
-            closeAttatchmentPopup(principalWindows, attatch_object);
+            String tabOriginal = openAttatchmentControlNewTab(attatch_object);
+            attatchFileInNewTab(fileURL, attatch_object);
+            closeAttatchmentNewTab(tabOriginal, attatch_object);
         } else {
             System.out.println("No se encontro el campo");
         }
+    }
+
+    private void closeAttatchmentNewTab(String tabOriginal, Attachment attatch_object) throws AgentException {
+        agent.click(attatch_object.getCloseButton());
+        //agent.closeTab();
+        agent.switchToTab(tabOriginal);
+    }
+
+    private void attatchFileInNewTab(String fileURL, Attachment attatch_object) throws IOException {
+        agent.dropFile(attatch_object.getInputButton(), fileURL);
+    }
+
+    private String openAttatchmentControlNewTab(Attachment attatch_object) throws AgentException {
+        agent.click(attatch_object.getCssSelector());
+        String tabOriginal = agent.switchToTab();
+        agent.checkElementIsDisplayed(attatch_object.getInputButton(), FlawedTimeUnit.seconds(2));
+        return tabOriginal;
     }
 
 

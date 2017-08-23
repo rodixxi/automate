@@ -2,7 +2,7 @@ package com.harriague.automate.web.control;
 
 import org.openqa.selenium.By;
 
-public interface Attachment{
+public interface Attachment extends ControlInterface{
 
     By getInputButton();
 

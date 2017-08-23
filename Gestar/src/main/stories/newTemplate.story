@@ -19,5 +19,5 @@ And en el textBox password: passTexBox; ingreso lapolola.
 
 
 !-- And seleccionar tabPanel: tab2.
-And en el campo andjunto: attachments; adjuntar el archivo: C:\lala.txt -
+And en el campo andjuntoNuevo: attachments; adjuntar el archivo: C:\lala.txt -
 

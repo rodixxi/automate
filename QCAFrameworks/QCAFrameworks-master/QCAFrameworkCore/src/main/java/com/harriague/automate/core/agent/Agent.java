@@ -1,6 +1,7 @@
 package com.harriague.automate.core.agent;
 
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -365,6 +366,14 @@ public interface Agent {
     void aceptSearchMultiple(By selectOption, ArrayList<String> optionsExpected);
 
     void selectOptionMenu(By documentsOptionsSelector, String optionExpected);
+
+    String switchToTab();
+
+    void switchToTab(String tabOriginal);
+
+    void closeTab();
+
+    void dropFile(By dropzonePath, String fileURL) throws IOException;
 }
 
 
