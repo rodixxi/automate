@@ -2,7 +2,7 @@ package com.harriague.automate.web.control;
 
 import org.openqa.selenium.By;
 
-public class DTPicker extends Control{
+public class DTPickerOld extends Control{
 
     String buttonPath = "#" + getName() + " + img.ui-datepicker-trigger";
     String datePath = "#" + getName();
@@ -14,6 +14,15 @@ public class DTPicker extends Control{
     private By hh = By.cssSelector(hhPath);
     private By mm = By.cssSelector(mmPath);
 
+    public DTPickerOld(String name, String title) {
+        super(name, title);
+    }
+
+    public DTPickerOld(String name) {
+        super(name);
+
+    }
+
     public By getButton() {
         return button;
     }
@@ -22,20 +31,11 @@ public class DTPicker extends Control{
         return date;
     }
 
-    public By getHh() {
+    public By getHH() {
         return hh;
     }
 
-    public By getMm() {
+    public By getMM() {
         return mm;
-    }
-
-    public DTPicker(String name, String title) {
-        super(name, title);
-    }
-
-    public DTPicker(String name) {
-        super(name);
-
     }
 }

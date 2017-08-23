@@ -22,10 +22,19 @@ public class AllControlsCheckGestar extends StepBase {
         }
     }
 
+    @Given("switch to $url; url.")
+    public void switchURL(String url) throws Exception {
+        getPage(LoginPage.class).switchURL(url);
+    }
 
     @Given("me conecto a gestar con el usuario: $user sin pass a la instancia $instance.")
     public void doLogin(String user, String instance) throws Exception {
         getPage(LoginPage.class).doLogin(user, instance);
+    }
+
+    @Given("me conecto a gestar con el usuario: $user; con la pass: $pass; a la instancia $instance.")
+    public void doLoginWithPassAndTextInstance(String user, String pass, String instance) throws Exception {
+        getPage(LoginPage.class).doLoginWithPassAndTextInstance(user, pass, instance);
     }
 
     @Given("abrir la carpeta de automate y creo un nuevo formulario.")
@@ -33,6 +42,11 @@ public class AllControlsCheckGestar extends StepBase {
         getPage(GestarFolder.class).OpenFolder("autoMate");
         getPage(GestarFolder.class).OpenFolder("autoMATE - prueba");
         creanteNewFileInFolder();
+    }
+
+    @Given("abrir la carpeta: $folder.")
+    public void openFolder(String folder) throws Exception {
+        getPage(GestarFolder.class).OpenFolder(folder);
     }
 
     @When("seleccionar tabPanel: $tabName.")
@@ -70,12 +84,17 @@ public class AllControlsCheckGestar extends StepBase {
         getPage(ControlsGestar.class).attachFileToAttatchmentControl(attachmentControlName, fileURL);
     }
 
-    @When("en el DTPicker: $dtpickerName; cargo manualmente la fecha: $date, con $hh:$mm.")
+    @When("en el campo andjunto: $attachmentControlName; adjuntar el archivo: $fileURL -")
+    public void attachFileToAttatchmentControlNew(String attachmentControlName, String fileURL) throws Exception {
+        getPage(ControlsGestar.class).attachFileToAttatchmentControlNew(attachmentControlName, fileURL);
+    }
+
+    @When("en el DTPickerOld: $dtpickerName; cargo manualmente la fecha: $date, con $hh:$mm.")
     public void loadDateByTextBox(String dtpickerName, String date, String hh, String mm) throws Exception {
         getPage(ControlsGestar.class).loadDateByTextBox(date, hh, mm, dtpickerName);
     }
 
-    @When("en el DTPicker: $dtpicker; cargo por calendario la fecha: $date.")
+    @When("en el DTPickerOld: $dtpicker; cargo por calendario la fecha: $date.")
     public void loadDateByCalendarUI(String dtpicker, String date) throws Exception {
         getPage(ControlsGestar.class).loadDateByCalendarUI(date, dtpicker);
     }

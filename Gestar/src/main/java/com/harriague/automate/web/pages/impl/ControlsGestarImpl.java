@@ -147,7 +147,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
      */
     @Override
     public void attachFileToAttatchmentControl(String attachmentControlName, String fileURL) throws AgentException {
-        Attachment attatch_object = new Attachment(attachmentControlName);
+        AttachmentOld attatch_object = new AttachmentOld(attachmentControlName);
         if (agent.checkElementIsDisplayed(attatch_object.getCssSelector())) {
             String principalWindows = openAttatchmentControlPopup(attatch_object);
             attatchFileInPopup(fileURL, attatch_object);
@@ -188,14 +188,14 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
      */
     @Override
     public void loadDateByTextBox(String date, String hh, String mm, String dtpicker) throws AgentException {
-        DTPicker dtPicker_object = new DTPicker(dtpicker);
-        if (agent.checkElementIsDisplayed(dtPicker_object.getButton())) {
+        DTPickerOld dtPicker_Old_object = new DTPickerOld(dtpicker);
+        if (agent.checkElementIsDisplayed(dtPicker_Old_object.getButton())) {
 
-            agent.writeInElement(dtPicker_object.getDate(), date);
-            agent.writeInElement(dtPicker_object.getHh(), hh);
-            agent.writeInElement(dtPicker_object.getMm(), mm);
+            agent.writeInElement(dtPicker_Old_object.getDate(), date);
+            agent.writeInElement(dtPicker_Old_object.getHH(), hh);
+            agent.writeInElement(dtPicker_Old_object.getMM(), mm);
 
-            //agent.click(dtPicker_object.getButton());
+            //agent.click(dtPicker_Old_object.getButton());
             System.out.printf("lala");
         } else {
             System.out.println("No se encontro el campo");
@@ -216,13 +216,13 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     @Override
     public void loadDateByCalendarUI(String date, String dtpicker) throws AgentException, ParseException {
 
-        DTPicker dtPicker_object = new DTPicker(dtpicker);
+        DTPickerOld dtPicker_Old_object = new DTPickerOld(dtpicker);
 
         SimpleDateFormat dmy = new SimpleDateFormat("dd/MM/yyyy");
         Date aDate = dmy.parse(date);
 
-        if (agent.checkElementIsDisplayed(dtPicker_object.getButton())) {
-            agent.click(dtPicker_object.getButton());
+        if (agent.checkElementIsDisplayed(dtPicker_Old_object.getButton())) {
+            agent.click(dtPicker_Old_object.getButton());
             agent.selectDateFromUi(aDate);
 
         } else {
@@ -353,6 +353,18 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
             for (String option : optionsToSearch) {
                 agent.searchOption(option, autoComplete);
             }
+        } else {
+            System.out.println("No se encontro el campo");
+        }
+    }
+
+    @Override
+    public void attachFileToAttatchmentControlNew(String attachmentControlName, String fileURL) throws AgentException {
+        AttachmentNew attatch_object = new AttachmentNew(attachmentControlName);
+        if (agent.checkElementIsDisplayed(attatch_object.getCssSelector())) {
+            String principalWindows = openAttatchmentControlPopup(attatch_object);
+            attatchFileInPopup(fileURL, attatch_object);
+            closeAttatchmentPopup(principalWindows, attatch_object);
         } else {
             System.out.println("No se encontro el campo");
         }

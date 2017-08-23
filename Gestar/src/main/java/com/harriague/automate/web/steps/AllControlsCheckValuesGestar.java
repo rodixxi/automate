@@ -69,12 +69,12 @@ public class AllControlsCheckValuesGestar extends StepBase {
         getPage(CheckFormValues.class).checkCheckBoxChecked(checkboxId, true);
     }
 
-    @Then("el DTPicker: $dtpicker; tiene la fecha y hora: $date, con $hh:$mm.")
+    @Then("el DTPickerOld: $dtpicker; tiene la fecha y hora: $date, con $hh:$mm.")
     public void checkDtpickerDateAndHour(String dtpicker, String date, String hh, String mm) throws Exception {
         getPage(CheckFormValues.class).checkDtpickerDateAndHour(dtpicker, date, hh, mm);
     }
 
-    @Then("el DTPicker: $dtpicker; tiene la fecha: $date.")
+    @Then("el DTPickerOld: $dtpicker; tiene la fecha: $date.")
     public void checkDtpickerDate(String dtpicker, String date) throws Exception {
         getPage(CheckFormValues.class).checkDtpickerDate(dtpicker, date);
     }

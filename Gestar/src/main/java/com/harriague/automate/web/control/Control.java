@@ -3,7 +3,7 @@ package com.harriague.automate.web.control;
 import org.openqa.selenium.By;
 
 
-public class Control {
+public abstract class Control {
 
     private String name;
     private String title;

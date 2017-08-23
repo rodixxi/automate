@@ -58,7 +58,7 @@ public class CheckFormValuesImpl extends BasePage implements CheckFormValues {
 
     @Override
     public void checkAttatchment(String attatchField, String attachNameExpected) throws AgentException {
-        Attachment attachField_control = new Attachment(attatchField);
+        AttachmentOld attachField_control = new AttachmentOld(attatchField);
         String attatchName_text = agent.getTextValue(attachField_control.getAttatchName());
         agent.aceptStringIfEqualTo(attachNameExpected, attatchName_text);
     }
@@ -72,17 +72,17 @@ public class CheckFormValuesImpl extends BasePage implements CheckFormValues {
 
     @Override
     public void checkDtpickerDateAndHour(String dtpicker, String date, String hh, String mm) throws AgentException {
-        DTPicker dtPicker_control = new DTPicker(dtpicker);
-        String dtPicker_control_fulldate = agent.getValue(dtPicker_control.getDate(), "value");
-        dtPicker_control_fulldate += agent.getValue(dtPicker_control.getHh(), "value");
-        dtPicker_control_fulldate += agent.getValue(dtPicker_control.getMm(), "value");
+        DTPickerOld dtPicker_Old_control = new DTPickerOld(dtpicker);
+        String dtPicker_control_fulldate = agent.getValue(dtPicker_Old_control.getDate(), "value");
+        dtPicker_control_fulldate += agent.getValue(dtPicker_Old_control.getHH(), "value");
+        dtPicker_control_fulldate += agent.getValue(dtPicker_Old_control.getMM(), "value");
         agent.aceptStringIfEqualTo(dtPicker_control_fulldate, date+hh+mm);
     }
 
     @Override
     public void checkDtpickerDate(String dtpicker, String date) throws AgentException {
-        DTPicker dtPicker_control = new DTPicker(dtpicker);
-        String dtPicker_control_date = agent.getValue(dtPicker_control.getDate(), "value");
+        DTPickerOld dtPicker_Old_control = new DTPickerOld(dtpicker);
+        String dtPicker_control_date = agent.getValue(dtPicker_Old_control.getDate(), "value");
         agent.aceptStringIfEqualTo(dtPicker_control_date, date);
 
     }

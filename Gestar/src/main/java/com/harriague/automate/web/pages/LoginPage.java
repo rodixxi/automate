@@ -14,4 +14,8 @@ public interface LoginPage extends Page {
 	void hacerLogout() throws AgentException;
 	
 	void pruebo() throws AgentException;
+
+    void doLoginWithPassAndTextInstance(String user, String pass, String instance) throws AgentException;
+
+	void switchURL(String url) throws AgentException;
 }

@@ -19,6 +19,7 @@ public class LoginPageImpl extends BasePage implements LoginPage {
 	private static final String PWD = "#password";
 	private static final String BTNLOGIN = "button.buttonGradient";
 	//private static final String LNKLOGIN =  "//a[@href='/w/auth/Login?']";
+	private static  final String TEXT_INPUT_INSTANCE = "#instanceName";
 	private static final String CMBINSTANCE = "//select[@id='instanceName']/option[@value='DESAV2']";
 	private static final String PUBLICFOLDER = "//div[@id='1001']";
 	private static final String INCIDENTFOLDER = "//div[@id='5488']";
@@ -116,5 +117,22 @@ public class LoginPageImpl extends BasePage implements LoginPage {
 	@Override 
 	public void pruebo() throws AgentException {
 		log.info("entro a prueba");
+	}
+
+	@Override
+	public void doLoginWithPassAndTextInstance(String user, String pass, String instance) throws AgentException {
+		if(agent.checkElementIsDisplayed(LOG_MANUAL)) {
+			agent.click(LOG_MANUAL);
+		}
+
+		agent.writeInElement(By.cssSelector(USUARIO), user);
+		agent.writeInElement(By.cssSelector(PWD), pass);
+		agent.writeInElement(By.cssSelector(TEXT_INPUT_INSTANCE), instance);
+		agent.click(By.cssSelector(BTNLOGIN));
+	}
+
+	@Override
+	public void switchURL(String url) throws AgentException {
+		agent.navigateTo(url);
 	}
 }

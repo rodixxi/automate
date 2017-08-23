@@ -43,4 +43,6 @@ public interface ControlsGestar extends Page{
     void searchInLookUpBoxAccountDobleClick(String lookUpBoxAccountName, String optionToSearch) throws AgentException;
 
     void searchOptionAutoCompleteMultiple(String autoCompleteName, ArrayList<String> optionsToSearch) throws AgentException;
+
+    void attachFileToAttatchmentControlNew(String attachmentControlName, String fileURL) throws AgentException;
 }

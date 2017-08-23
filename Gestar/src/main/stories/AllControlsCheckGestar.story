@@ -30,13 +30,13 @@ And seleccionar tabPanel: tab2.
 And en el campo andjunto: attachments; adjuntar el archivo: C:\lala.txt -
 
 And seleccionar tabPanel: tab3.
-And en el DTPicker: DTPciker; cargo manualmente la fecha: 07/07/2017, con 03:24.
-And en el DTPicker: DTPickerF; cargo por calendario la fecha: 07/07/2017.
-And en el DTPicker: DTPickerF; cargo por calendario la fecha: 27/07/2017.
-And en el DTPicker: DTPickerF; cargo por calendario la fecha: 01/07/2017.
-And en el DTPicker: DTPickerF; cargo por calendario la fecha: 31/12/2017.
-And en el DTPicker: DTPickerF; cargo por calendario la fecha: 01/01/2018.
-And en el DTPicker: DTPickerF; cargo por calendario la fecha: 01/01/2017.
+And en el DTPickerOld: DTPciker; cargo manualmente la fecha: 07/07/2017, con 03:24.
+And en el DTPickerOld: DTPickerF; cargo por calendario la fecha: 07/07/2017.
+And en el DTPickerOld: DTPickerF; cargo por calendario la fecha: 27/07/2017.
+And en el DTPickerOld: DTPickerF; cargo por calendario la fecha: 01/07/2017.
+And en el DTPickerOld: DTPickerF; cargo por calendario la fecha: 31/12/2017.
+And en el DTPickerOld: DTPickerF; cargo por calendario la fecha: 01/01/2018.
+And en el DTPickerOld: DTPickerF; cargo por calendario la fecha: 01/01/2017.
 
 And seleccionar tabPanel: tab4.
 And en el lookUpBoxAccount: LookupBoxAccounts; busco: Administrador.
