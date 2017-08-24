@@ -1367,14 +1367,14 @@ public class CommonAgentImpl implements Agent {
         driver.close();
     }
 
-    // TODO: 23/08/2017 Buscar forma de saber el tipo de archivo, por que por ahora solo funciona con txt.
+
     @Override
-    public void dropFile(By dropzonePath, String fileURL) throws IOException {
+    public void dropFile(By dropzoneID, String fileURL) throws IOException {
         File file = new File(fileURL);
         String fileInBase64 = convertFileToBase64String(file);
         String jsSriptForUpload = dropdownJsFileInBase64(fileInBase64);
         String fileExtencion = FilenameUtils.getExtension(fileURL);
-        jsSriptForUpload += dropdownJsFileTypeAndExtencion("text", fileExtencion);
+        jsSriptForUpload += dropdownJsFileTypeAndExtencion("plain", "text");
         String fileName = FilenameUtils.getName(fileURL);
         jsSriptForUpload += dropdownJsFileName(fileName);
         //String jsSriptForUpload = dropdownJsFileInBase64(fileInBase64);

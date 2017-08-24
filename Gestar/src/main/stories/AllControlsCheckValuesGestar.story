@@ -18,11 +18,11 @@ And el campo textBox numerico: NumericTexBox; tiene el valor: 3454353.
 And el campo textArea: MultiTexBox; tiene el valor: sdfsdfsdfsdfsf s fsdffs sdfs df sdfs fsdf  s.
 And el campo textBox password: PassTexBox; tiene el valor: 123qwe.
 When seleccionar tabPanel: tab2.
-Then el campo andjunto: attachments; tiene el archivo: lala.txt (4 B)
+Then el campo andjunto: attachments; tiene el archivo: lala.txt (4 B) -
 And el checkbox: checkBox; esta seleccionado
 When seleccionar tabPanel: tab3.
-Then el DTPicker: DTPciker; tiene la fecha y hora: 25/07/2017, con 05:03.
-And el DTPicker: DTPickerF; tiene la fecha: 19/07/2017.
+Then el DTPickerOld: DTPciker; tiene la fecha y hora: 25/07/2017, con 05:03.
+And el DTPickerOld: DTPickerF; tiene la fecha: 19/07/2017.
 When seleccionar tabPanel: tab4.
 Then el LookUpBoxAccount: LookupBoxAccounts; tiene seleccionado: Administrador.
 When seleccionar tabPanel: tab5.

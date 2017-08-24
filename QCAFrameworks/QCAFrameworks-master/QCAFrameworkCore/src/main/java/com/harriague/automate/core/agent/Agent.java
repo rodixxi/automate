@@ -367,13 +367,30 @@ public interface Agent {
 
     void selectOptionMenu(By documentsOptionsSelector, String optionExpected);
 
+    /**
+     * Switch to next tab and gives back original tab identifier
+     * @return original tab identifier
+     */
     String switchToTab();
 
+    /**
+     * Switch focus to another tab
+     * @param tabOriginal tab to go identifier
+     */
     void switchToTab(String tabOriginal);
 
     void closeTab();
 
-    void dropFile(By dropzonePath, String fileURL) throws IOException;
+    /**
+     * Add a file to a dropzone
+     *
+     * @author Rodrigo Crespillo
+     *
+     * @param dropzoneID dropzone css id
+     * @param fileURL url adress to file to be upload
+     * @throws IOException
+     */
+    void dropFile(By dropzoneID, String fileURL) throws IOException;
 }
 
 

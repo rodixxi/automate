@@ -20,4 +20,9 @@ And en el textBox password: passTexBox; ingreso lapolola.
 
 !-- And seleccionar tabPanel: tab2.
 And en el campo andjuntoNuevo: attachments; adjuntar el archivo: C:\lala.txt -
+And en el campo andjuntoNuevo: attachments; adjuntar el archivo: C:\enigma.txt -
+And en el campo andjuntoNuevo: attachments; adjuntar el archivo: C:\Users\rcrespillo\Pictures\wallpapers\lake.jpg -
+And en el campo andjuntoNuevo: attachments; adjuntar el archivo: C:\Users\rcrespillo\Downloads\Estado_Kanavs_V4 (Rodrigo Crespillo).xlsx -
+And en el campo andjuntoNuevo: attachments; adjuntar el archivo: C:\Users\rcrespillo\Downloads\vista1.xml -
+And en el campo andjuntoNuevo: attachments; adjuntar el archivo: C:\Users\rcrespillo\Downloads\CDP_CV2017_3.pdf -
 
