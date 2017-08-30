@@ -127,4 +127,9 @@ public class CheckFormValuesImpl extends BasePage implements CheckFormValues {
 
     }
 
+    @Override
+    public void checkDtpickerNewDateAndHour(String dtpicker, String date, String hh, String mm) {
+
+    }
+
 }

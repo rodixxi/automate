@@ -184,6 +184,20 @@ public class AllControlsCheckGestar extends StepBase {
         getPage(FolderControlBar.class).creanteNewFileInFolder();
     }
 
+    @When("en el DTPickerNew: $dtpicker; cargo por calendario la fecha: $date, con $hh:$mm.")
+    public void loadDateByCalendarUINew(String dtpicker, String date, String hh, String mm) throws Exception {
+        getPage(ControlsGestar.class).loadDateByCalendarUIBoostrap(date, dtpicker, hh, mm);
+    }
+
+    @When("en el DTPickerNewOnlyDate: $dtpicker; cargo por calendario la fecha: $date.")
+    public void loadDateByCalendarUINewOnlyDate(String dtpicker, String date) throws Exception {
+        getPage(ControlsGestar.class).loadDateByCalendarUIBoostrapOnlyDate(date, dtpicker);
+    }
+
+    @When("en el DTPickerNewOnlyTime: $dtpicker; con $hh:$mm.")
+    public void loadDateByCalendarUINewOnlyTime(String dtpicker, String hh, String mm) throws Exception {
+        getPage(ControlsGestar.class).loadDateByCalendarUINewOnlyTime(dtpicker, hh, mm);
+    }
 }
 
 

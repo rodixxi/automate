@@ -46,4 +46,10 @@ public interface ControlsGestar extends Page{
     void searchOptionAutoCompleteMultiple(String autoCompleteName, ArrayList<String> optionsToSearch) throws AgentException;
 
     void attachFileToAttatchmentControlNew(String attachmentControlName, String fileURL) throws AgentException, IOException;
+
+    void loadDateByCalendarUIBoostrap(String date, String dtpicker, String hh, String mm) throws ParseException, AgentException;
+
+    void loadDateByCalendarUIBoostrapOnlyDate(String date, String dtpicker) throws AgentException, ParseException;
+
+    void loadDateByCalendarUINewOnlyTime(String dtpicker, String hh, String mm) throws AgentException;
 }

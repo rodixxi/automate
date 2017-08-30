@@ -2,6 +2,7 @@ package com.harriague.automate.core.agent;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -391,6 +392,12 @@ public interface Agent {
      * @throws IOException
      */
     void dropFile(By dropzoneID, String fileURL) throws IOException;
+
+    void selectDateFromUIBoostrap(String aDate, String dtpickerName) throws ParseException;
+
+    void selectTimeFromUIBoostrap(String hh, String mm, String dtpickerName);
+
+    void waitForUpload(String fileURL);
 }
 
 

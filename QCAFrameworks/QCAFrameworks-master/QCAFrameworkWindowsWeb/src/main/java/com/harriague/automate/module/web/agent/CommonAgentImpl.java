@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -1379,6 +1380,138 @@ public class CommonAgentImpl implements Agent {
         jsSriptForUpload += dropdownJsFileName(fileName);
         //String jsSriptForUpload = dropdownJsFileInBase64(fileInBase64);
         executeJsInDriver(jsSriptForUpload);
+    }
+
+
+    @Override
+    public void selectDateFromUIBoostrap(String aDate, String dtpickerName) throws ParseException {
+        if (selectDayInBoostrap(aDate, dtpickerName)){
+            log.info("Date ("+aDate+") selected");
+        }
+    }
+
+    @Override
+    public void selectTimeFromUIBoostrap(String hh, String mm, String dtpickerName) {
+        if (selectTimeInBoostrap(hh, mm, dtpickerName)){
+            log.info("Time ("+hh+":"+mm+") selected");
+        }
+    }
+
+    //TODO esperar a que el elemento se termine de cargar 
+    @Override
+    public void waitForUpload(String fileURL) {
+
+    }
+
+    private boolean selectTimeInBoostrap(String hh, String mm, String dtpickerName) {
+        String hoursSelectorPath = "#"+ dtpickerName +"_div div.timepicker table.table-condensed span[data-action='showHours']";
+        String minutesSelectorPath = "#"+ dtpickerName +"_div div.timepicker table.table-condensed span[data-action='showMinutes']";
+        String increaseMinutesButtonPath = "#"+ dtpickerName +"_div a[data-action='incrementMinutes']";
+        String decreaseMinutesButtonPath = "#"+ dtpickerName +"_div a[data-action='decrementMinutes']";
+        String increaseHoursButtonPath = "#"+ dtpickerName +"_div a[data-action='incrementHours']";
+        String decreaseHoursButtonPath = "#"+ dtpickerName +"_div a[data-action='decrementHours']";
+        By hoursSelector = By.cssSelector(hoursSelectorPath);
+        By minutesSelector = By.cssSelector(minutesSelectorPath);
+        By increaseMinutesButton = By.cssSelector(increaseMinutesButtonPath);
+        By decreaseMinutesButton = By.cssSelector(decreaseMinutesButtonPath);
+        By increaseHoursButton = By.cssSelector(increaseHoursButtonPath);
+        By decreaseHoursButton = By.cssSelector(decreaseHoursButtonPath);
+
+        while (true){
+            WebElement minutes_element = driver.findElement(minutesSelector);
+            driver.findElement(minutesSelector).click();
+            WebElement hours_element = driver.findElement(hoursSelector);
+            int minutesFind = Integer.parseInt(mm);
+            int hoursFind = Integer.parseInt(hh);
+            int minutesInCalendar = Integer.parseInt(minutes_element.getText());
+            int hourInCalendar = Integer.parseInt(hours_element.getText());
+            if (hoursFind < hourInCalendar){
+                driver.findElement(decreaseHoursButton).click();
+                continue;
+            } else  if (hoursFind > hourInCalendar){
+                driver.findElement(increaseHoursButton).click();
+                continue;
+            }
+            if (minutesFind < minutesInCalendar){
+                driver.findElement(decreaseMinutesButton).click();
+                continue;
+            }else   if (minutesFind > minutesInCalendar){
+                driver.findElement(increaseMinutesButton).click();
+                continue;
+            }
+            return true;
+        }
+    }
+
+    private Calendar convertStingToCalendar(String aDate) throws ParseException {
+        Calendar dateToFind = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        dateToFind.setTime(sdf.parse(aDate));
+        return dateToFind;
+    }
+
+    private boolean selectDayInBoostrap(String aDate, String dtpickerName) throws ParseException {
+        String prevButtonPath = "#"+ dtpickerName +"_div .datepicker-days .prev";
+        String nextButtonPath = "#"+ dtpickerName +"_div .datepicker-days .next";
+        String dayInCalendarPath = "#"+ dtpickerName +"_div td:not(.old):not(.new)[data-action='selectDay']";
+
+
+        By prevButton = By.cssSelector(prevButtonPath);
+        By nextButton = By.cssSelector(nextButtonPath);
+        By dayInCalendar = By.cssSelector(dayInCalendarPath);
+
+
+        String dayFindInCalendar;
+
+        boolean dayFind = false;
+        while(!dayFind){
+            ArrayList<WebElement> daysElements = (ArrayList<WebElement>) driver.findElements(dayInCalendar);
+            for (WebElement day : daysElements){
+                dayFindInCalendar = day.getAttribute("data-day");
+                if (hasToMoveToCorrectYear(aDate, dayFindInCalendar) < 0){
+                    driver.findElement(prevButton).click();
+                    break;
+                } else if (hasToMoveToCorrectYear(aDate, dayFindInCalendar) > 0){
+                    driver.findElement(nextButton).click();
+                    break;
+                }
+                if (hasToMoveToCorrectMonth(aDate, dayFindInCalendar) < 0){
+                    driver.findElement(prevButton).click();
+                    break;
+                } else if (hasToMoveToCorrectMonth(aDate, dayFindInCalendar) > 0){
+                    driver.findElement(nextButton).click();
+                    break;
+                }
+                if (dateFind(aDate, dayFindInCalendar) == 0){
+                    day.click();
+                    dayFind = true;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private int dateFind(String aDate, String dayFindInCalendar) throws ParseException {
+        Calendar dateToFind = convertStingToCalendar(aDate);
+        Calendar dateFindInCalendar = convertStingToCalendar(dayFindInCalendar);
+        return dateToFind.compareTo(dateFindInCalendar);
+    }
+
+    private int hasToMoveToCorrectMonth(String dateToFind, String dateFindInCalendar) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat onlMonth = new SimpleDateFormat("MM");
+        int monthToFind = Integer.parseInt(onlMonth.format(sdf.parse(dateToFind)));
+        int monthFind = Integer.parseInt(onlMonth.format(sdf.parse(dateFindInCalendar)));
+        return Integer.compare(monthToFind, monthFind);
+    }
+
+    private int hasToMoveToCorrectYear(String dateToFind, String dateFindInCalendar) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat onlyYear = new SimpleDateFormat("yyyy");
+        int yearToFind = Integer.parseInt(onlyYear.format(sdf.parse(dateToFind)));
+        int yearFind = Integer.parseInt(onlyYear.format(sdf.parse(dateFindInCalendar)));
+        return Integer.compare(yearToFind, yearFind);
     }
 
 

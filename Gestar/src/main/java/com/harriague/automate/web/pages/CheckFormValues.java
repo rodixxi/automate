@@ -34,4 +34,6 @@ public interface CheckFormValues {
     void checkAutoComplete(String autoCompleteControl, String valueExpected) throws AgentException;
 
     void checkAutoCompleteMultiple(String autoCompleteControl, ArrayList<String> optionsExpected);
+
+    void checkDtpickerNewDateAndHour(String dtpicker, String date, String hh, String mm);
 }

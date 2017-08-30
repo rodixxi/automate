@@ -363,9 +363,56 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     public void attachFileToAttatchmentControlNew(String attachmentControlName, String fileURL) throws AgentException, IOException {
         AttachmentNew attatch_object = new AttachmentNew(attachmentControlName);
         if (agent.checkElementIsDisplayed(attatch_object.getCssSelector())) {
+            agent.scrollIntoView(attatch_object.getCssSelector());
             String tabOriginal = openAttatchmentControlNewTab(attatch_object);
             attatchFileInNewTab(fileURL, attatch_object);
             closeAttatchmentNewTab(tabOriginal, attatch_object);
+        } else {
+            System.out.println("No se encontro el campo");
+        }
+    }
+
+    @Override
+    public void loadDateByCalendarUIBoostrap(String date, String dtpickerName, String hh, String mm) throws ParseException, AgentException {
+
+        DTPickerNew dtPickerNew_object = new DTPickerNew(dtpickerName);
+
+        if (agent.checkElementIsDisplayed(dtPickerNew_object.getButton())) {
+            agent.scrollIntoView(dtPickerNew_object.getButton());
+            agent.click(dtPickerNew_object.getButton());
+            agent.selectDateFromUIBoostrap(date, dtpickerName);
+            agent.checkElementIsDisplayed(dtPickerNew_object.getToggleCalendarButton());
+            agent.scrollIntoView(dtPickerNew_object.getToggleCalendarButton());
+            agent.click(dtPickerNew_object.getToggleCalendarButton());
+            agent.selectTimeFromUIBoostrap(hh, mm, dtpickerName);
+            agent.click(dtPickerNew_object.getCloseCalendarButton());
+        } else {
+            System.out.println("No se encontro el campo");
+        }
+    }
+
+    @Override
+    public void loadDateByCalendarUIBoostrapOnlyDate(String date, String dtpickerName) throws AgentException, ParseException {
+        DTPickerNew dtPickerNew_object = new DTPickerNew(dtpickerName);
+
+        if (agent.checkElementIsDisplayed(dtPickerNew_object.getButton())) {
+            agent.scrollIntoView(dtPickerNew_object.getButton());
+            agent.click(dtPickerNew_object.getButton());
+            agent.selectDateFromUIBoostrap(date, dtpickerName);
+        } else {
+            System.out.println("No se encontro el campo");
+        }
+    }
+
+    @Override
+    public void loadDateByCalendarUINewOnlyTime(String dtpickerName, String hh, String mm) throws AgentException {
+        DTPickerNew dtPickerNew_object = new DTPickerNew(dtpickerName);
+
+        if (agent.checkElementIsDisplayed(dtPickerNew_object.getButton())) {
+            agent.scrollIntoView(dtPickerNew_object.getButton());
+            agent.click(dtPickerNew_object.getButton());
+            agent.selectTimeFromUIBoostrap(hh, mm, dtpickerName);
+            agent.click(dtPickerNew_object.getCloseCalendarButton());
         } else {
             System.out.println("No se encontro el campo");
         }
@@ -379,6 +426,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
 
     private void attatchFileInNewTab(String fileURL, Attachment attatch_object) throws IOException {
         agent.dropFile(attatch_object.getInputButton(), fileURL);
+        agent.waitForUpload(fileURL);
     }
 
     private String openAttatchmentControlNewTab(Attachment attatch_object) throws AgentException {
