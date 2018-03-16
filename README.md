@@ -1,6 +1,6 @@
 # automate
 
-## Instrunctivo de instalacion
+## Instructivo de instalación
 
 1.  Bajar JDK - Java Development Kit
 
@@ -18,4 +18,6 @@
       1. Instructivos:
          *  [Windows](https://www.mkyong.com/maven/how-to-install-maven-in-windows/)
          *  [Linux](http://www.happyminds.es/maven-instalar-y-probar-maven/#sthash.oTdI8bmt.dpbs)
+1. Instalar IDE
+   *  [ItelliJ IDEA](https://www.jetbrains.com/idea/download/)
            
