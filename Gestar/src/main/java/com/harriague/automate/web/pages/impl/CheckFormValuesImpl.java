@@ -60,7 +60,7 @@ public class CheckFormValuesImpl extends BasePage implements CheckFormValues {
     public void checkAttatchment(String attatchField, String attachNameExpected) throws AgentException {
         AttachmentOld attachField_control = new AttachmentOld(attatchField);
         String attatchName_text = agent.getTextValue(attachField_control.getAttatchName());
-        agent.aceptStringIfEqualTo(attachNameExpected, attatchName_text);
+        agent.aceptStringIfEqualTo(attatchName_text, attachNameExpected);
     }
 
     @Override

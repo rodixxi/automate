@@ -1276,6 +1276,7 @@ public class CommonAgentImpl implements Agent {
             WebElement cell = getCellByValueInColumn(valueEqualTo, index);
             if (cell != null){
                 doubleClick(cell);
+                doubleClick(cell);
             }
         }
     }

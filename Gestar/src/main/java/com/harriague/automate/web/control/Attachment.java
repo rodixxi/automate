@@ -15,4 +15,6 @@ public interface Attachment{
     By getAttachButton();
 
     By getAttatchName();
+
+    By getCssSelector();
 }

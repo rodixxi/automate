@@ -83,12 +83,12 @@ public class AllControlsCheckGestar extends StepBase {
     public void attachFileToAttatchmentControl(String attachmentControlName, String fileURL) throws Exception {
         getPage(ControlsGestar.class).attachFileToAttatchmentControl(attachmentControlName, fileURL);
     }
-
+    /*
     @When("en el campo andjunto: $attachmentControlName; adjuntar el archivo: $fileURL -")
     public void attachFileToAttatchmentControlNew(String attachmentControlName, String fileURL) throws Exception {
         getPage(ControlsGestar.class).attachFileToAttatchmentControlNew(attachmentControlName, fileURL);
     }
-
+*/
     @When("en el DTPickerOld: $dtpickerName; cargo manualmente la fecha: $date, con $hh:$mm.")
     public void loadDateByTextBox(String dtpickerName, String date, String hh, String mm) throws Exception {
         getPage(ControlsGestar.class).loadDateByTextBox(date, hh, mm, dtpickerName);
