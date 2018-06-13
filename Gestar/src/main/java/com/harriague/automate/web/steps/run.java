@@ -10,7 +10,7 @@ public class run extends RunStory {
 	@Override
     protected List<String> storyPaths() {
 		
-	   storyPath = "./newTemplate.story";
+	   storyPath = "./estitiesImporterWR.story";
 
 	   findBeforeAndAfter();
        return story;
