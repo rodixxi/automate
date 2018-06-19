@@ -167,7 +167,7 @@ public class JBehaveRunner extends JUnitStories {
         embedder = configuredEmbedder();
         embedder.embedderControls().doBatch(false).doGenerateViewAfterStories(true)
                 .doIgnoreFailureInStories(true).doIgnoreFailureInView(false).doSkip(false)
-                .doVerboseFailures(false).doVerboseFiltering(false).useStoryTimeoutInSecs(1200)
+                .doVerboseFailures(false).doVerboseFiltering(false).useStoryTimeoutInSecs(5000)
                 .useThreads(1);
         log.info("Jbehave capabilities is started.");
     }

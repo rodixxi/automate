@@ -365,6 +365,10 @@ public interface Agent {
     void aceptSearchMultiple(By selectOption, ArrayList<String> optionsExpected);
 
     void selectOptionMenu(By documentsOptionsSelector, String optionExpected);
+
+    void selectFirstOptionDoubleCick(By element) throws AgentException;
+
+    void closeWindows();
 }
 
 

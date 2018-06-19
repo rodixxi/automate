@@ -1,0 +1,51 @@
+ubicacion;entidad;codigoAlfanumerico;speakerType;Type;FWVersion;HWVersion;misc;serial;fecha;centroDeCosto;proveedor
+BENCH07;Most2Go;M2G40;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH07;Touchpad;TP39;;TBD;;TJBA;;;;01 - IS Exterior;Honda
+BENCH07;Center Display;CTRDSP671;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH07;Front control box;FCB960;;4GB,64GB;;dan0;;58000442;;01 - IS Exterior;Honda
+BENCH08;Amplifier;AMP233;;16;;1S,TJBA;1S;;;01 - IS Exterior;Honda
+BENCH08;Mic;MIC003;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH08;Roof Antenna;SFA118;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH08;Speakers ID And Type:;NA06;SPKR9T035, 028, 001, 039, 005, 32, SPKR17CM020;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH08;Touchpad;TP100;;TBD;;DV, TJBA;;;;01 - IS Exterior;Honda
+BENCH08;Hud;HUD059;;N/A;;?;;;;01 - IS Exterior;Honda
+BENCH08;Center Display;CTRDSP686;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH08;Meter;MTR368;;TBD;GP:  VP: ;dan0;;;;01 - IS Exterior;Honda
+BENCH08;Remote Tuner;RT379;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH08;Front control box;FCB745;;4GB,64GB;;DV, TJBA;;58000126;;01 - IS Exterior;Honda
+BENCH08;Steering Wheel Controls;AST235-CST92-CSS009;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH10;Amplifier;AMP516;;16;;dan0;;;;01 - IS Exterior;Honda
+BENCH10;Speakers ID And Type:;NA07;9CM=2,17CM;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH10;Touchpad;TP44;;TBD;;TJBA;;;;01 - IS Exterior;Honda
+BENCH10;Roof Antenna;SFA140;;TBD;;MP;;;;01 - IS Exterior;Honda
+BENCH10;Mocca;1608080456;;TBD;;N/A;;;;01 - IS Exterior;Honda
+BENCH10;Center Display;CTRDSP494;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH10;Remote Tuner;RT484;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH10;Meter;MTR448;;TBD;GP:  VP: ;dan0;;;;01 - IS Exterior;Honda
+BENCH10;Front Control Box;FCB891;;2GB,32GB;;dan0;;80000024;;01 - IS Exterior;Honda
+BENCH11;Amplifier;AMP271;;11;;TJBA,db;;;;01 - IS Exterior;Honda
+BENCH11;Mocca;1608080533;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH11;Mic;MIC010;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH11;Roof Antenna;SFA126;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH11;Speakers ID And Type:;NA08;SPKR17CM005, 003, SPKR9T048;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH11;TCU;TCU261;;TBD;;QC;;;;01 - IS Exterior;Honda
+BENCH11;Touchpad;TP131;;TBD;;DV;;;;01 - IS Exterior;Honda
+BENCH11;Center Display;CTRDSP664;;TBD;;DAN0;;;;01 - IS Exterior;Honda
+BENCH11;Meter;MTR672;;TBD;GP:  VP: ;dan0;;;;01 - IS Exterior;Honda
+BENCH11;Remote Tuner;RT216;;TBD;;DV, TJBA;;;;01 - IS Exterior;Honda
+BENCH11;Front control box;FCB434;;2GB,32GB;;DV, TJBA;;53000017;;01 - IS Exterior;Honda
+BENCH13;Amplifier;AMP536;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH13;Mocca;1602100143;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH13;Hud;HUD074;;N/A;;DAN0;;;;01 - IS Exterior;Honda
+BENCH13;Mic;MIC018;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH13;Speakers ID And Type:;NA09;SPKR9T006,0020, 17CMXX;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH13;Touchpad;TP349;;TBD;;DAN0;;;;01 - IS Exterior;Honda
+BENCH13;Center Display;CTRDSP669;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH13;Meter;MTR641;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH13;Remote Tuner;RT287;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH13;Front control box;FCB961;;4GB,64GB;;dan0;;58000540;;01 - IS Exterior;Honda
+BENCH14;Amplifier;AMP533;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH14;Most2Go;M2G57;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH14;Speakers ID And Type:;NA10;SPKR17CM001, 9CM002;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH14;Touchpad;TP353;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH14;Mocca;1608080459;;TBD;;?;;;;01 - IS Exterior;Honda
