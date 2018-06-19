@@ -33,6 +33,23 @@ public class LookUpBoxAccounts extends Control {
         setCssSelector();
     }
 
+    public String getControlTablePath() {
+        return controlTablePath;
+    }
+
+    public void setControlTablePath(String controlTablePath) {
+        this.controlTablePath = controlTablePath;
+    }
+
+    public String getSearchButtonPath() {
+        return searchButtonPath;
+    }
+
+    public void setSearchButtonPath(String searchButtonPath) {
+        this.searchButtonPath = searchButtonPath;
+        searchButton = By.cssSelector(searchButtonPath);
+    }
+
     public By getControlTable() {
         return controlTable;
     }

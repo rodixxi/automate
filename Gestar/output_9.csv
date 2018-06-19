@@ -1,0 +1,51 @@
+ubicacion;entidad;codigoAlfanumerico;speakerType;Type;FWVersion;HWVersion;misc;serial;fecha;centroDeCosto;proveedor
+BENCH48 VALIDATION;Touchpad;TP132;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH48 VALIDATION;Mic;IMIC22;;;;?;;;;01 - IS Exterior;Honda
+BENCH48 VALIDATION;Front Control Box;FCB1090;;4GB,64GB;;QC;;1404;;01 - IS Exterior;Honda
+BENCH49;Front control box;FCB407;;2GB,64GB;;DV, TJBA;;52000018;;01 - IS Exterior;Honda
+BENCH49;Amplifier;AMP551;;16;;dan;;;;01 - IS Exterior;Honda
+BENCH49;Center Display;CTRDSP656;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH49;Mic;IMIC04;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH49;Roof Antenna;SFA164;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH52 VALIDATION;Speakers ID And Type:;NA35;9CM=6,17CM=2,ARRAY=2;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH49;Remote Tuner;RT550;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH49;Touchpad;TP344;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH49;Most2Go;M2G49;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH50 VALIDATION;Amplifier;AMP534;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH50 VALIDATION;Center Display;CTRDSP674;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH50 VALIDATION;Roof Antenna;SFA114;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH50 VALIDATION;Mic;MIC004;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH54 VALIDATION;Speakers ID And Type:;NA36;9CM=3,17CM,ARRAY;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH50 VALIDATION;Meter;MTR670;;TBD;;dan1;;;;01 - IS Exterior;Honda
+BENCH50 VALIDATION;Remote Tuner;RT289;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH50 VALIDATION;Steering Wheel Controls;AST493-CST239;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH50 VALIDATION;Touchpad;TP43;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH50 VALIDATION;Front control box;FCB953;;2GB,64GB;;dan0;;65000020;;01 - IS Exterior;Honda
+BENCH50 VALIDATION;Most2Go;AUS152000527;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH51 VALIDATION;Camera RR wide;RC318;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH51 VALIDATION;GPS Antenna ID:;GPS027;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH51 VALIDATION;Roof Antenna;SFA237;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH51 VALIDATION;Amplifier;AMP572;;;HH.23.185.194.01;dan1;;;;01 - IS Exterior;Honda
+BENCH51 VALIDATION;HUD;HUD010;;N/A;A610;?;;;;01 - IS Exterior;Honda
+BENCH51 VALIDATION;Mocca;1602100191;;TBD;;N/A;;;;01 - IS Exterior;Honda
+BENCH51 VALIDATION;Steering Wheel Controls;AST238-CST90;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH51 VALIDATION;Center Display;CTRDSP533;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH51 VALIDATION;TCU;TCU364;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH51 VALIDATION;AUXIN;NA49;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH55 VALIDATION;Speakers ID And Type:;NA37;9CM=5,ARRAY=3,8CM=2,17CM=2;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH51 VALIDATION;Touchpad;TP49;;TBD;;DAN0;;;;01 - IS Exterior;Honda
+BENCH51 VALIDATION;Front Control Box;FCB1093;;4GB,64GB;;QC;;1428;;01 - IS Exterior;Honda
+BENCH51 VALIDATION;Meter;MTR440;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH52 VALIDATION;Mic;MIC027;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH52 VALIDATION;Amplifier;AMP444;;16C DAN0;;dan0;;;;01 - IS Exterior;Honda
+BENCH52 VALIDATION;Mocca;1608080457;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH52 VALIDATION;Steering Wheel Controls;AST306-CST78;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH52 VALIDATION;Center Display;CTRDSP546;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH52 VALIDATION;Meter;MTR455;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH52 VALIDATION;Remote Tuner;RT377;;TBD;;dan0;;;;01 - IS Exterior;Honda
+BENCH52 VALIDATION;Hud;HUD008;;N/A;;DAN0;;;;01 - IS Exterior;Honda
+BENCH52 VALIDATION;Call Module;NA50;;TBD;;?;;;;01 - IS Exterior;Honda
+STOCK;Speakers ID And Type:;NA38;17CM=29;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH52 VALIDATION;Touchpad;TP378;;TBD;;DAN0;;;;01 - IS Exterior;Honda
+BENCH52 VALIDATION;Front Control Box;FCB1092;;4GB,64GB;;QC;;1423;;01 - IS Exterior;Honda
+BENCH53 VALIDATION;Front control box;FCB602;;2GB,32GB;;dan0;;59000126;;01 - IS Exterior;Honda

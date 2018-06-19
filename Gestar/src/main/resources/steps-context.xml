@@ -35,4 +35,6 @@
 
 	<bean id="AllControlsCheckValuesGestar" class="com.harriague.automate.web.steps.AllControlsCheckValuesGestar"/>
 
+	<bean id="entitiesImporterWR" class="com.harriague.automate.web.steps.entitiesImporterWR"/>
+
 </beans>

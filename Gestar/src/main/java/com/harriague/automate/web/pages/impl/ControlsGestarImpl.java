@@ -4,8 +4,10 @@ import com.harriague.automate.core.agent.Agent;
 import com.harriague.automate.core.exceptions.AgentException;
 import com.harriague.automate.core.page.BasePage;
 import com.harriague.automate.core.structures.FlawedTimeUnit;
+import com.harriague.automate.core.structures.ScrollDirection;
 import com.harriague.automate.web.control.*;
 import com.harriague.automate.web.pages.ControlsGestar;
+import org.openqa.selenium.By;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,6 +16,7 @@ import java.util.Date;
 
 public class ControlsGestarImpl extends BasePage implements ControlsGestar {
 
+    private String parentWindow;
     /**
      * Constructor
      *
@@ -324,7 +327,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         LookUpBoxAccounts lookUpBoxAccountObject = new LookUpBoxAccounts(lookUpBoxAccountName);
         if (agent.checkElementIsDisplayed(lookUpBoxAccountObject.getCssSelector())){
             agent.click(lookUpBoxAccountObject.getSearchButton());
-            String parentWindow = agent.switchToPopup();
+            parentWindow = agent.switchToPopup();
             agent.writeInElement(lookUpBoxAccountObject.getSearchBox(), optionToSearch);
             agent.click(lookUpBoxAccountObject.getSearchButtonOptions());
             agent.selectOptionsDoubleClick(optionToSearch, lookUpBoxAccountObject.getOptions());
@@ -338,7 +341,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         LookUpBoxAccounts lookUpBoxAccountsObject = new LookUpBoxAccounts(lookUpBoxAccountName);
         if (agent.checkElementIsDisplayed(lookUpBoxAccountsObject.getCssSelector())){
             agent.click(lookUpBoxAccountsObject.getSearchButton());
-            String parentWindow = agent.switchToPopup();
+            parentWindow = agent.switchToPopup();
             agent.writeInElement(lookUpBoxAccountsObject.getSearchBox(), optionToSearch);
             agent.click(lookUpBoxAccountsObject.getSearchButtonOptions());
             agent.selectOptionsDoubleClick(optionToSearch, lookUpBoxAccountsObject.getOptions());
@@ -359,6 +362,20 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     }
 
     @Override
+    public void searchInLookUpBoxObjectDobleClick(String lookUpBoxObjectName, String optionToSearch) throws AgentException {
+        LookUpBoxObject lookUpBoxObject = new LookUpBoxObject(lookUpBoxObjectName);
+        agent.scroll(ScrollDirection.UP, 100000);
+        if (agent.checkElementIsDisplayed(lookUpBoxObject.getCssSelector())){
+            agent.click(lookUpBoxObject.getSearchButton());
+            parentWindow = agent.switchToPopup();
+            agent.writeInElement(lookUpBoxObject.getSearchBox(), optionToSearch);
+            agent.click(lookUpBoxObject.getSearchButtonOptions());
+            agent.selectOptionsDoubleClick(optionToSearch, lookUpBoxObject.getOptions());
+            agent.switchToPopup(parentWindow);
+        }
+    }
+
+    @Override
     public void attachFileToAttatchmentControlNew(String attachmentControlName, String fileURL) throws AgentException {
         AttachmentNew attatch_object = new AttachmentNew(attachmentControlName);
         if (agent.checkElementIsDisplayed(attatch_object.getCssSelector())) {
@@ -368,6 +385,47 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         } else {
             System.out.println("No se encontro el campo");
         }
+    }
+
+    @Override
+    public void searchInLookUpBoxObjectByTypeDobleClick(String lookUpBoxObjectName, String optionToSearch, String byType) throws AgentException {
+        LookupBoxObjectsITIL lookUpBoxObject = new LookupBoxObjectsITIL(lookUpBoxObjectName);
+        if (agent.checkElementIsDisplayed(lookUpBoxObject.getCssSelector())){
+            agent.click(lookUpBoxObject.getSearchButton());
+            parentWindow = agent.switchToPopup();
+            agent.selectInCombobox(lookUpBoxObject.getSearchByType(), byType.toUpperCase());
+            agent.writeInElement(lookUpBoxObject.getSearchBox(), optionToSearch);
+            agent.click(lookUpBoxObject.getSearchButtonOptions());
+            agent.selectFirstOptionDoubleCick(lookUpBoxObject.getOptions());
+            agent.switchToPopup(parentWindow);
+        }
+    }
+
+    @Override
+    public void searchInLookUpBoxLocation(String lookIpBoxLocationName, String ubicacion) throws AgentException {
+        LookupBoxLocation lookUpBoxObject = new LookupBoxLocation(lookIpBoxLocationName);
+        if (agent.checkElementIsDisplayed(lookUpBoxObject.getSearchButton())) {
+            agent.click(lookUpBoxObject.getSearchButton());
+            parentWindow = agent.switchToPopup();
+            agent.click(lookUpBoxObject.getElement(ubicacion));
+            agent.switchToPopup(parentWindow);
+        }
+    }
+
+    @Override
+    public void htmlRawElementClick(String htmlRawName, String elementInHTMLRawCss) throws AgentException {
+        HTMLRaw htmlRawObject = new HTMLRaw(htmlRawName);
+        if (agent.checkElementIsDisplayed(htmlRawObject.getControlTable())){
+            agent.click(htmlRawObject.getHTMLRawElement(elementInHTMLRawCss));
+        }
+        agent.scroll(ScrollDirection.UP, 10000);
+    }
+
+    @Override
+    public void changeFocusToParent() throws AgentException {
+        agent.closeWindows();
+        agent.switchToPopup(parentWindow);
+        agent.scroll(ScrollDirection.UP, 10000);
     }
 
 

@@ -1348,6 +1348,25 @@ public class CommonAgentImpl implements Agent {
         }
     }
 
+    @Override
+    public void selectFirstOptionDoubleCick(By element) throws AgentException {
+        ArrayList<WebElement> options = (ArrayList<WebElement>) driver.findElements((By)element);
+        log.info("Busca las opciones en el control");
+        for (WebElement option_aux : options){
+            String aux = option_aux.getText();
+            log.info("Selecciono la primera opcion: " + aux);
+            doubleClick(option_aux);
+            break;
+        }
+        log.info("No se encontron opciones");
+    }
+
+    @Override
+    public void closeWindows() {
+        log.info("Cerrando ventana");
+        driver.close();
+    }
+
     public ArrayList<String> getElementsListText(ArrayList<WebElement> selectOptions){
         ArrayList<String> options = new ArrayList<>();
         for (WebElement option : selectOptions){

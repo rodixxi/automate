@@ -1,0 +1,98 @@
+ubicacion;entidad;codigoAlfanumerico;speakerType;Type;FWVersion;HWVersion;misc;serial;fecha;centroDeCosto;proveedor
+;;;;;;;;;;;
+BENCH24 VALIDATION;Amplifier;AMP512;;TBD;;MP;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH24 VALIDATION;AUXIN;AUX SIN ID;;TBD;;N/A;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH24 VALIDATION;Center Display;CTRDSP678;;TBD;;dan0;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH24 VALIDATION;Harness;25;;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH24 VALIDATION;Hud;HUD058;;N/A;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH24 VALIDATION;Meter;MTR373;;TBD;GP:  VP: ;dan0;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH24 VALIDATION;Remote Tuner;RT231;;TBD;;dan0;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH24 VALIDATION;Roof Antenna;SFA93;;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH24 VALIDATION;Speakers ID And Type:;NA18;SPKR17CM007, SPKR9T047, 9T051;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH24 VALIDATION;TCU;TCU262;;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH24 VALIDATION;Touchpad;TP101;;TBD;;DV, TJBA;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH24 VALIDATION;Front Control Box;FCB1071;;4GB,64GB;;QC;;1495;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH24 VALIDATION;Steering Wheel Controls;AST228-CST292;;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH25;Front Control Box;FCB1076;;4GB,64GB;;QC;;1436;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH25;Amplifier;AMP529;;12;;dan0;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH25;Most2Go;M2G39;;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH25;Roof Antenna;SFA133;;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH25;Speakers ID And Type:;NA19;SPKR09CM013,9CM;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH25;Harness;TJBA000;;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH25;Mic;MIC017;;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH25;Center Display;CTRDSP689;;TBD;;dan0;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH25;Remote Tuner;RT204;;TBD;;DV, TJBA;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH25;Touchpad;TP68;;TBD;;DV, TJBA;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH26;Amplifier;AMP541;;TBD;;dan0;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH26;Mic;IMIC014;;TBD;;N/A;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH26;Center Display;CTRDSP549;;TBD;;dan0;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH26;Touchpad;TP48;;TBD;;DAN0;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH26;Front control box;FCB455;;2GB,64GB;;DV, TJBA;;56000084;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH26;Most2Go;AUS152000528;;TBD;;N/A;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH27;Amplifier;AMP253;;16;;1S,TJBA;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH27;Harness;26;;TBD;;?;;;;01 - IS Exterior;Honda
+BENCH27;Speakers ID And Type:;SPKR9T018, SPKR9T027,SPKR9T068;;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH27;Mic;IMIC06;;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH27;Center Display;CTRDSP672;;TBD;;DAN0;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH27;Meter;MTR388;;TBD;;dan0;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH27;Touchpad;TP103;;TBD;;DV, TJBA;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH27;Front control box;FCB963;;4GB,64GB;;dan0;;58000519;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH28;Most2Go;M2G41;;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH28;Harness;MINI;;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH28;Center Display;CTRDSP747;;TBD;;dan1;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH28;Touchpad;TP138;;TBD;;DV;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH28;Front Control Box;FCB1077;;4GB,64GB;;QC;;1437;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH29;Amplifier;AMP279;;12;;tjba,db;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH29;Center Display;CTRDSP501;;TBD;;dan0;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH29;Most2Go;M2G47;;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH29;Roof Antenna;SFA85;;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH29;Speakers ID And Type:;NA20;SPKR17CM026, SPKR9T056, SPKR9T026, TW010;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH29;TCU;TCU263;;TBD;;?;;;;01 - IS Exterior;Honda
+;;;;;;;;;;;
+BENCH29;Remote Tuner;RT210;;TBD;;DV, TJBA;;;;01 - IS Exterior;Honda

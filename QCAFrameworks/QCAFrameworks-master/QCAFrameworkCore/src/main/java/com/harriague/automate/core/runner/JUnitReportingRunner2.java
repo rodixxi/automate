@@ -52,7 +52,7 @@ public class JUnitReportingRunner2 extends Runner {
 				.doGenerateViewAfterStories(true)
 				.doIgnoreFailureInStories(true).doIgnoreFailureInView(false)
 				.doSkip(false).doVerboseFailures(false)
-				.doVerboseFiltering(false).useStoryTimeoutInSecs(1200)
+				.doVerboseFiltering(false).useStoryTimeoutInSecs(100000)
 				.useThreads(1);
 
 		StepMonitor originalStepMonitor = createCandidateStepsWithNoMonitor();
