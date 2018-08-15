@@ -22,3 +22,22 @@ And guardar y salir del formulario.
 Given abrir Ingreso de Entidades, y creo un nuevo formulario.
 When Cargar archivos en csv output_5
 And guardar y salir del formulario.
+Given abrir Ingreso de Entidades, y creo un nuevo formulario.
+When Cargar archivos en csv output_6
+And guardar y salir del formulario.
+Given abrir Ingreso de Entidades, y creo un nuevo formulario.
+When Cargar archivos en csv output_7
+And guardar y salir del formulario.
+Given abrir Ingreso de Entidades, y creo un nuevo formulario.
+When Cargar archivos en csv output_8
+And guardar y salir del formulario.
+
+Given abrir Ingreso de Entidades, y creo un nuevo formulario.
+When Cargar archivos en csv output_12
+And guardar y salir del formulario.
+Given abrir Ingreso de Entidades, y creo un nuevo formulario.
+When Cargar archivos en csv output_13
+And guardar y salir del formulario.
+Given abrir Ingreso de Entidades, y creo un nuevo formulario.
+When Cargar archivos en csv output_14
+And guardar y salir del formulario.
