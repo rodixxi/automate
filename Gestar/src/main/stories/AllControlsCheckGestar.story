@@ -6,7 +6,8 @@ Comprobare que los campos fueron completados y guardados de forma correcta
 
 Scenario: me logeo a gestar y pruebo sus controles
 
-Given Navigate to the http://10.201.4.191/w/ url in the chrome browser
+
+Given Navigate to the http://10.201.4.191/w/ url in the explorer browser
 And me conecto a gestar con el usuario: admin sin pass a la instancia DESA.
 Given abrir la carpeta de automate y creo un nuevo formulario.
 

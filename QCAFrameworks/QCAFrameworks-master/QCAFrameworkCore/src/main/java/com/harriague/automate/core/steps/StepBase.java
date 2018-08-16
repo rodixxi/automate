@@ -62,7 +62,7 @@ public class StepBase {
             browserName =
                     (this.browserName == null)
                             ? ReadProperty.getProperty(PropertiesKeys.DEFAULT_BROWSER,
-                                    Constants.BROWSER_FIREFOX_NAME)
+                                    Constants.BROWSER_INTERNET_EXPLORER_NAME)
                             : this.browserName.toUpperCase();
             appKey += separator + browserName;
 

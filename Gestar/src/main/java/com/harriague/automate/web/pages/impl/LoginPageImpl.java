@@ -17,7 +17,7 @@ public class LoginPageImpl extends BasePage implements LoginPage {
 	// xpath para elementos que van a ser resaltados
 	private static final String USUARIO = "#username";
 	private static final String PWD = "#password";
-	private static final String BTNLOGIN = "button.buttonGradient";
+	private static final String BTNLOGIN = "#loginForm > div > div > div:nth-child(1) > div.row > div > button";
 	//private static final String LNKLOGIN =  "//a[@href='/w/auth/Login?']";
 	private static  final String TEXT_INPUT_INSTANCE = "#instanceName";
 	private static final String CMBINSTANCE = "//select[@id='instanceName']/option[@value='DESAV2']";

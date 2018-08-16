@@ -6,7 +6,7 @@ import com.harriague.automate.core.utils.CoreUtils;
 public class Constants {
 
 	public static final String BROWSER_CHROME_NAME = "CHROME";
-	public static final String BROWSER_DEFAULT_NAME = "INTERNET EXPLORER";
+	public static final String BROWSER_DEFAULT_NAME = "EXPLORER";
 	public static final String BROWSER_FIREFOX_NAME = "FIREFOX";
 	public static final String BROWSER_OPERA_NAME = "OPERA";
 
