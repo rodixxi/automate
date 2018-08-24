@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class AttachmentOld extends Control implements Attachment{
 
-    private String inputButtomPath = "#my-dropzone > input[type=\"Hidden\"]";
+    private String inputButtomPath = "#my-dropzone";
     private String addButtomPath = "input[value='Agregar']";
     private String deleteButtomPath = "input[value='Eliminar']";
     private String closeButtomPath = "input[value='Cerrar']";

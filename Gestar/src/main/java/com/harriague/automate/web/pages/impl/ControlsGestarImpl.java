@@ -7,6 +7,7 @@ import com.harriague.automate.core.structures.FlawedTimeUnit;
 import com.harriague.automate.web.control.*;
 import com.harriague.automate.web.pages.ControlsGestar;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -156,6 +157,24 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
             System.out.println("No se encontro el campo");
         }
 
+    }
+
+    @Override
+    public void attachTextFileToAttatchmentControl(String attachmentControlName, String fileURL) throws AgentException, IOException, InterruptedException {
+        AttachmentOld attatch_object = new AttachmentOld(attachmentControlName);
+        if (agent.checkElementIsDisplayed(attatch_object.getCssSelector())) {
+            String principalWindows = openAttatchmentControlPopup(attatch_object);
+            //agent.wait(5000, 0);
+            agent.checkElementIsDisplayed(attatch_object.getCloseButton());
+            attatchTextFileInPopup(fileURL);
+            closeAttatchmentPopup(principalWindows, attatch_object);
+        } else {
+            System.out.println("No se encontro el campo");
+        }
+    }
+
+    private void attatchTextFileInPopup(String fileURL) throws IOException, AgentException {
+        agent.selectTextFile(fileURL);
     }
 
     private void closeAttatchmentPopup(String principalWindows, Attachment attatch_object) throws AgentException {
@@ -338,11 +357,21 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         LookUpBoxAccounts lookUpBoxAccountsObject = new LookUpBoxAccounts(lookUpBoxAccountName);
         if (agent.checkElementIsDisplayed(lookUpBoxAccountsObject.getCssSelector())){
             agent.click(lookUpBoxAccountsObject.getSearchButton());
-            String parentWindow = agent.switchToPopup();
-            agent.writeInElement(lookUpBoxAccountsObject.getSearchBox(), optionToSearch);
-            agent.click(lookUpBoxAccountsObject.getSearchButtonOptions());
-            agent.selectOptionsDoubleClick(optionToSearch, lookUpBoxAccountsObject.getOptions());
-            agent.switchToPopup(parentWindow);
+            try {
+                String parentWindow = agent.switchToPopup();
+                try {
+                    agent.checkElementIsDisplayed(lookUpBoxAccountsObject.getSearchBox());
+                    agent.writeInElement(lookUpBoxAccountsObject.getSearchBox(), optionToSearch);
+                    agent.click(lookUpBoxAccountsObject.getSearchButtonOptions());
+                    agent.selectOptionsDoubleClick(optionToSearch, lookUpBoxAccountsObject.getOptions());
+                    agent.switchToPopup(parentWindow);
+                } catch (Exception e){
+                    agent.switchToPopup(parentWindow);
+                    throw new AgentException("No puedo cambiar al pop-up!", agent);
+                }
+            } catch (AgentException e){
+                System.out.println(e.getMessage());
+            }
         }
     }
 
@@ -359,7 +388,7 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
     }
 
     @Override
-    public void attachFileToAttatchmentControlNew(String attachmentControlName, String fileURL) throws AgentException {
+    public void attachFileToAttatchmentControlNew(String attachmentControlName, String fileURL) throws AgentException, IOException {
         AttachmentNew attatch_object = new AttachmentNew(attachmentControlName);
         if (agent.checkElementIsDisplayed(attatch_object.getCssSelector())) {
             String principalWindows = openAttatchmentControlPopup(attatch_object);

@@ -3,6 +3,7 @@ package com.harriague.automate.web.pages;
 import com.harriague.automate.core.exceptions.AgentException;
 import com.harriague.automate.core.page.Page;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 
@@ -22,6 +23,8 @@ public interface ControlsGestar extends Page{
 
     void attachFileToAttatchmentControl(String attachmentControlName, String fileURL) throws AgentException;
 
+    void attachTextFileToAttatchmentControl(String attachmentControlName, String fileURL) throws AgentException, IOException, InterruptedException;
+
     void loadDateByTextBox(String date, String hh, String mm, String dtpicker) throws AgentException;
 
     void selectOption(String selectName, String optionToSelect) throws AgentException;
@@ -40,9 +43,9 @@ public interface ControlsGestar extends Page{
 
     void searchInLookUpBoxAccount(String lookUpBoxAccountName, String optionToSearch) throws AgentException;
 
-    void searchInLookUpBoxAccountDobleClick(String lookUpBoxAccountName, String optionToSearch) throws AgentException;
+    void searchInLookUpBoxAccountDobleClick(String lookUpBoxAccountName, String optionToSearch) throws AgentException, InterruptedException;
 
     void searchOptionAutoCompleteMultiple(String autoCompleteName, ArrayList<String> optionsToSearch) throws AgentException;
 
-    void attachFileToAttatchmentControlNew(String attachmentControlName, String fileURL) throws AgentException;
+    void attachFileToAttatchmentControlNew(String attachmentControlName, String fileURL) throws AgentException, IOException;
 }

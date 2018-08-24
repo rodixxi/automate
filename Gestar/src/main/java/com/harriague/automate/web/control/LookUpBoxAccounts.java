@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 public class LookUpBoxAccounts extends Control {
 
     private String controlTablePath = "#tbCtrl_" + getName();
-    private String searchButtonPath = controlTablePath + " img";
+    private String searchButtonPath = controlTablePath + " > tbody > tr > td:nth-child(2) > table > tbody > tr > td:nth-child(1) > img";
     private String searchBoxPath = "#txtSearch";
     private String searchButtonOptionsPath = "#cmdSearch";
     private String optionsPath = "#lstSearch option";

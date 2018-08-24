@@ -1,7 +1,9 @@
 package com.harriague.automate.module.web.agent;
 
 import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -502,7 +504,7 @@ public class CommonAgentImpl implements Agent {
         System.setProperty(PROPERTY_DEFAULT_BROWSER_DRIVER, srcFile.getAbsolutePath());
 
         DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
-        caps.setCapability(InternetExplorerDriver.FORCE_CREATE_PROCESS, true);
+        //caps.setCapability(InternetExplorerDriver.FORCE_CREATE_PROCESS, true);
         caps.setCapability(InternetExplorerDriver.IE_SWITCHES, "-private");
         caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
         // HKLM_CURRENT_USER\\Software\\Microsoft\\Internet Explorer\\Main path should contain key
@@ -1147,12 +1149,40 @@ public class CommonAgentImpl implements Agent {
      * @version 1.0 12/07/2017
      *
      * @param fileButtom
-     * @param filePath
-     */
+     * @param filePath */
     @Override
-    public void selectFile(By fileButtom, String filePath){
+    public void selectFile(By fileButtom, String filePath) {
         WebElement file_buttom = driver.findElement(fileButtom);
         file_buttom.sendKeys(filePath);
+    }
+
+    @Override
+    public void selectTextFile(String filePath) throws IOException {
+        ((JavascriptExecutor) driver).executeScript(returnScriptForDropzone(filePath, "text / txt"));
+    }
+
+
+    public String returnScriptForDropzone(String filePath, String fileType) throws IOException {
+        String dropzoneSript = "var myZone, blob, base64Image; myZone = Dropzone.forElement('#my-dropzone');" +
+                "base64Image = '" + convertFileToBase64String(filePath) + "';" +
+                "function base64toBlob(r,e,n){e=e||\"\",n=n||512;for(var t=atob(r),a=[],o=0;o<t.length;o+=n){for(var l=t.slice(o,o+n),h=new Array(l.length),b=0;b<l.length;b++)h[b]=l.charCodeAt(b);var v=new Uint8Array(h);a.push(v)}var c=new Blob(a,{type:e});return c}" +
+                "blob = base64toBlob(base64Image, '" + fileType + " ');" +
+                "blob.name = 'lala.txt';" +
+                "myZone.addFile(blob);";
+        return dropzoneSript;
+    }
+
+    public static String convertFileToBase64String(String fileName) throws IOException {
+
+        File file = new File(fileName);
+        int length = (int) file.length();
+        BufferedInputStream reader = new BufferedInputStream(new FileInputStream(file));
+        byte[] bytes = new byte[length];
+        reader.read(bytes, 0, length);
+        reader.close();
+        String encodedFile = Base64.getEncoder().encodeToString(bytes);
+
+        return encodedFile;
     }
 
     /**

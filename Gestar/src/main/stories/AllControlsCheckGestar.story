@@ -6,7 +6,6 @@ Comprobare que los campos fueron completados y guardados de forma correcta
 
 Scenario: me logeo a gestar y pruebo sus controles
 
-
 Given Navigate to the http://10.201.4.191/w/ url in the explorer browser
 And me conecto a gestar con el usuario: admin sin pass a la instancia DESA.
 Given abrir la carpeta de automate y creo un nuevo formulario.
@@ -17,9 +16,8 @@ And en el campo requerido: RequiredTextBox; ingreso textoRequerido.
 And en el textBox numerico: NumericTexBox; ingreso 123.
 And en el textArea: MultiTexBox; ingreso Esto no es suficiente texto, pero va a tener que ser lo suficiente..
 And en el textBox password: PassTexBox; ingreso admin123.
-
-And seleccionar tabPanel: tab2.
-And en el campo andjunto: attachments; adjuntar el archivo: C:\lala.txt -
+When seleccionar tabPanel: tab2.
+And en el campo andjunto: attachments; adjuntar el archivo de texto: C:\lala.txt -
 
 And seleccionar tabPanel: tab3.
 And en el DTPickerOld: DTPciker; cargo manualmente la fecha: 07/07/2017, con 03:24.
@@ -30,8 +28,8 @@ And en el DTPickerOld: DTPickerF; cargo por calendario la fecha: 31/12/2017.
 And en el DTPickerOld: DTPickerF; cargo por calendario la fecha: 01/01/2018.
 And en el DTPickerOld: DTPickerF; cargo por calendario la fecha: 01/01/2017.
 
-And seleccionar tabPanel: tab4.
-And en el lookUpBoxAccount: LookupBoxAccounts; busco: Administrador.
+When seleccionar tabPanel: tab4.
+And en el control lookUpBoxAccount: LookupBoxAccounts; busco: Administrador.
 
 When seleccionar tabPanel: tab5.
 And en el selector multiple: select11; selecciono las opciones:

@@ -1,6 +1,7 @@
 package com.harriague.automate.core.agent;
 
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -310,6 +311,8 @@ public interface Agent {
      * @param filePath
      */
     public void selectFile(By fileButtom, String filePath);
+
+    public void selectTextFile(String filePath) throws IOException;
 
     /**
      * Rodrigo Crespillo
