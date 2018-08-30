@@ -13,19 +13,12 @@ import javax.imageio.ImageIO;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -318,6 +311,7 @@ public class CommonAgentImpl implements Agent {
 
     @Override
     public void ctrlClick(WebElement opcion) throws AgentException {
+        //TODO: MAKE COMPATIBILITY WITH IE
         Actions action = new Actions(driver);
         action.keyDown(Keys.CONTROL).click(opcion).keyUp(Keys.CONTROL).perform();
         log.info("Ctrl + Click: "+ opcion.getText());
@@ -332,6 +326,16 @@ public class CommonAgentImpl implements Agent {
         WebElement optionToSelectObject = findOptionInBox(optionToSelect, options);
         if (optionToSelectObject != null){
             ctrlClick(optionToSelectObject);
+        }
+    }
+
+    @Override
+    public void selectOneOption(String optionToSelect,Object selectorMultipleOptionBox) throws AgentException {
+        ArrayList<WebElement> options = (ArrayList<WebElement>) driver.findElements((By) selectorMultipleOptionBox);
+        log.info("Busca las opciones en el control");
+        WebElement optionToSelectObject = findOptionInBox(optionToSelect, options);
+        if (optionToSelectObject != null){
+            optionToSelectObject.click();
         }
     }
 
@@ -504,11 +508,14 @@ public class CommonAgentImpl implements Agent {
         System.setProperty(PROPERTY_DEFAULT_BROWSER_DRIVER, srcFile.getAbsolutePath());
 
         DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
-        //caps.setCapability(InternetExplorerDriver.FORCE_CREATE_PROCESS, true);
+        caps.setCapability(InternetExplorerDriver.FORCE_CREATE_PROCESS, true);
         caps.setCapability(InternetExplorerDriver.IE_SWITCHES, "-private");
         caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
+        caps.setCapability(InternetExplorerDriver.NATIVE_EVENTS, false);
+        //caps.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS, true);
         // HKLM_CURRENT_USER\\Software\\Microsoft\\Internet Explorer\\Main path should contain key
         // TabProcGrowth with 0 value.
+        InternetExplorerOptions options = new InternetExplorerOptions((Capabilities) caps);
         driver = new InternetExplorerDriver(caps);
         driver.manage().window().maximize();
     }
@@ -1377,6 +1384,8 @@ public class CommonAgentImpl implements Agent {
             }
         }
     }
+
+
 
     public ArrayList<String> getElementsListText(ArrayList<WebElement> selectOptions){
         ArrayList<String> options = new ArrayList<>();

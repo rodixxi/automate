@@ -368,6 +368,8 @@ public interface Agent {
     void aceptSearchMultiple(By selectOption, ArrayList<String> optionsExpected);
 
     void selectOptionMenu(By documentsOptionsSelector, String optionExpected);
+
+    void selectOneOption(String optionToSelect, Object selectorMultipleLeftOptionBox) throws AgentException;
 }
 
 

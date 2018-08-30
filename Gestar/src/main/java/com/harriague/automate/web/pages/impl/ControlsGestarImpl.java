@@ -283,6 +283,16 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
         agent.click(selectorMultipleObject.getToRightButton());
     }
 
+    @Override
+    public void selectMultipleOptionsOneByOne(String multipleSelectorName, ArrayList<String> optionsToSelect) throws AgentException {
+        SelectorMultiple selectorMultipleObject = new SelectorMultiple(multipleSelectorName);
+        for (String optionToSelect : optionsToSelect) {
+            agent.selectOneOption(optionToSelect, selectorMultipleObject.getLeftOptions());
+            agent.click(selectorMultipleObject.getToRightButton());
+        }
+
+    }
+
     /**
      * Selecciona todas la opciones de un selector multiple
      *
@@ -311,6 +321,15 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
             agent.markOptionSelectorMultiple(optionToUnselect, selectorMultipleObject.getRightOptions());
         }
         agent.click(selectorMultipleObject.getToLeftButton());
+    }
+
+    @Override
+    public void deselectMultipleOptionsOneByOne(String multipleSelectorName, ArrayList<String> optionsToUnselect) throws AgentException {
+        SelectorMultiple selectorMultipleObject = new SelectorMultiple(multipleSelectorName);
+        for (String optionToUnselect : optionsToUnselect) {
+            agent.selectOneOption(optionToUnselect, selectorMultipleObject.getRightOptions());
+            agent.click(selectorMultipleObject.getToLeftButton());
+        }
     }
 
     /**
@@ -398,6 +417,8 @@ public class ControlsGestarImpl extends BasePage implements ControlsGestar {
             System.out.println("No se encontro el campo");
         }
     }
+
+
 
 
 }

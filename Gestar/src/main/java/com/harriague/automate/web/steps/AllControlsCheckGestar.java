@@ -110,6 +110,7 @@ public class AllControlsCheckGestar extends StepBase {
         getPage(ControlsGestar.class).selectOption(selectName, optionToSelect);
     }
 
+
     @When("en el selector multiple: $multipleSelectorName; selecciono las opciones: $optionsTable.")
     public void selectMultipleOptions(String multipleSelectorName, ExamplesTable optionsTable) throws Exception {
         ArrayList<String> optionsToSelect = new ArrayList();
@@ -118,6 +119,16 @@ public class AllControlsCheckGestar extends StepBase {
             optionsToSelect.add(option);
         }
         getPage(ControlsGestar.class).selectMultipleOptions(multipleSelectorName, optionsToSelect);
+    }
+
+    @When("en el selector multiple: $multipleSelectorName; selecciono uno por uno las opciones: $optionsTable.")
+    public void selectMultipleOptionsOneByOne(String multipleSelectorName, ExamplesTable optionsTable) throws Exception {
+        ArrayList<String> optionsToSelect = new ArrayList();
+        for (Map<String, String> row : optionsTable.getRows()) {
+            String option = row.get("options");
+            optionsToSelect.add(option);
+        }
+        getPage(ControlsGestar.class).selectMultipleOptionsOneByOne(multipleSelectorName, optionsToSelect);
     }
 
     @When("en el selector multiple: $multipleSelectorName; selecciono todas las opciones.")
@@ -133,6 +144,16 @@ public class AllControlsCheckGestar extends StepBase {
             optionsToUnselect.add(option);
         }
         getPage(ControlsGestar.class).deselectMultipleOptions(multipleSelectorName, optionsToUnselect);
+    }
+
+    @When("en el selector multiple: $multipleSelectorName; deselecciono uno por uno  las opciones: $optionsTable.")
+    public void deselectMultipleOptionsOneByOne(String multipleSelectorName, ExamplesTable optionsTable) throws Exception {
+        ArrayList<String> optionsToUnselect = new ArrayList();
+        for (Map<String, String> row : optionsTable.getRows()) {
+            String option = row.get("options");
+            optionsToUnselect.add(option);
+        }
+        getPage(ControlsGestar.class).deselectMultipleOptionsOneByOne(multipleSelectorName, optionsToUnselect);
     }
 
     @When("en el selector multiple: $multipleSelectorName; deselecciono todas las opciones.")

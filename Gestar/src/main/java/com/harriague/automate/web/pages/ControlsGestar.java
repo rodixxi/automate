@@ -48,4 +48,8 @@ public interface ControlsGestar extends Page{
     void searchOptionAutoCompleteMultiple(String autoCompleteName, ArrayList<String> optionsToSearch) throws AgentException;
 
     void attachFileToAttatchmentControlNew(String attachmentControlName, String fileURL) throws AgentException, IOException;
+
+    void selectMultipleOptionsOneByOne(String multipleSelectorName, ArrayList<String> optionsToSelect) throws AgentException;
+
+    void deselectMultipleOptionsOneByOne(String multipleSelectorName, ArrayList<String> optionsToUnselect) throws AgentException;
 }

@@ -10,6 +10,21 @@ Given Navigate to the http://10.201.4.191/w/ url in the explorer browser
 And me conecto a gestar con el usuario: admin sin pass a la instancia DESA.
 Given abrir la carpeta de automate y creo un nuevo formulario.
 
+When seleccionar tabPanel: tab5.
+And en el selector multiple: select11;  selecciono uno por uno las opciones:
+|options|
+|Juan|.
+And en el selector multiple: select11; deselecciono uno por uno las opciones:
+|options|
+|Jose|.
+And en el selector multiple: select11; selecciono todas las opciones.
+And en el selector multiple: select11; deselecciono todas las opciones.
+And en el control de autocompletado: autoComplete1; busqueda multiple:
+|options|
+|Avecilla, Rebeca|
+|avecillas, rebeca|.
+And en el control de autocompletado: autoComplete2; busco: Avecilla, Rebeca.
+
 When seleccionar tabPanel: tab1.
 And en el textBox: comunTextBox; ingreso texto.
 And en el campo requerido: RequiredTextBox; ingreso textoRequerido.
@@ -31,20 +46,6 @@ And en el DTPickerOld: DTPickerF; cargo por calendario la fecha: 01/01/2017.
 When seleccionar tabPanel: tab4.
 And en el control lookUpBoxAccount: LookupBoxAccounts; busco: Administrador.
 
-When seleccionar tabPanel: tab5.
-And en el selector multiple: select11; selecciono las opciones:
-|options|
-|Juan|.
-And en el selector multiple: select11; deselecciono las opciones:
-|options|
-|Jose|.
-And en el selector multiple: select11; selecciono todas las opciones.
-And en el selector multiple: select11; deselecciono todas las opciones.
-And en el control de autocompletado: autoComplete1; busqueda multiple:
-|options|
-|Avecilla, Rebeca|
-|avecillas, rebeca|.
-And en el control de autocompletado: autoComplete2; busco: Avecilla, Rebeca.
 And guardar y salir del formulario.
 Then estas a nivel de folder.
 
